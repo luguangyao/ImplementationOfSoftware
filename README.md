@@ -1,7 +1,7 @@
 # ImplementationOfSoftware
  中级软件实作
 
-软件结构
+软件结构\n
 前端：
   css,image,js静态资源在/public文件夹下，新的静态资源文件也请写在里面
   html页面请写在view里，其中
