@@ -11,12 +11,18 @@
         .nav-item>a{
             color: white;
         }
-        .nav-item>a:hover{
-            background-color:#1E74D7;
-            font-size: 25px;
-            color: white;
-            transition: all .4s;
+        @media screen and (min-width: 1080px) {
+            .nav-item>a:hover{
+                background-color:#1E74D7;
+                font-size: 20px;
+                color: white;
+                transition: all .4s;
+            }
+            ul{
+                height: 56px;
+            }
         }
+
         ul{
             background-color: #023A7C;
             /*height: 56px;*/
