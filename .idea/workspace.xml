@@ -28,6 +28,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../WebstormProjects/boot3" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -39,7 +40,7 @@
       <option name="presentableId" value="Default" />
       <updated>1606475625638</updated>
       <workItem from="1606475627871" duration="1093000" />
-      <workItem from="1606477129447" duration="3656000" />
+      <workItem from="1606477129447" duration="4267000" />
     </task>
     <servers />
   </component>
