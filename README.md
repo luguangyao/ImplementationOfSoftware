@@ -12,3 +12,5 @@
 后端：app.js,router.js都在根目录下，其它请自行添加
 
 注意！：不要修改和删除.git,.idea,.gitattributes文件
+
+（w）：在项目运行前请下载依赖  npm install, 上传文件无需上传node_moudles
