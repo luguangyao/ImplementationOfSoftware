@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap 实例 - 轮播（Carousel）插件的标题</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.css"/>
+    <script src="../../public/js/jquery.min.js"></script>
+    <script src="../../public/js/popper.min.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+    <style>
+        .sc{
+            overflow-x: hidden;
+            display: flex;
+        }
+        .item{
+            border: 5px black solid;
+            width:400px
+            float: left;
+        }
+        .item>img{
+            width: 100%;
+            height: 100%;
+
+        }
+    </style>
+</head>
+<body>
+<div class="container_fluid " >
+
+        <div class="sc" style="border: 3px red solid">
+        <!-- 轮播图片 -->
+             <div class="item ">
+                <img  src="https://static.runoob.com/images/mix/img_fjords_wide.jpg">
+            </div>
+            <div class="item ">
+                <img src="https://static.runoob.com/images/mix/img_nature_wide.jpg">
+            </div>
+            <div class="item ">
+                <img src="https://static.runoob.com/images/mix/img_mountains_wide.jpg">
+            </div>
+            <div class="item ">
+                <img src="https://static.runoob.com/images/mix/img_mountains_wide.jpg">
+            </div>
+        </div>
+
+</div>
+
+<marquee><font size=+3 color=red>Hello, World</font></marquee>
+
+
+</body>
+</html>
