@@ -7,15 +7,26 @@
     <script src="../public/js/jquery.min.js"></script>
     <script src="../public/js/popper.min.js"></script>
     <script src="../public/js/bootstrap.min.js"></script>
-    <link rel="import" href="template/header.html" id="header">
+    <style>
+        body{
+            overflow-x: hidden;
+            background: url("http://localhost:3000/public/image/bg.png") no-repeat;;
+            background-size: cover;
+            background-attachment:fixed;
+        }
+    </style>
 
 </head>
 <body>
-    <div id="navigator">
+    <div id="navigator"></div>
+    <div id="rotationChart"></div>
+    <div id="footer"></div>
 
-    </div>
     <script>
-        $("#navigator").load("http://localhost:3000/view/template/navigator.html");
+        $("#navigator").load("http://localhost:3000/template/navigator.html");
+        $("#rotationChart").load("http://localhost:3000/template/rotationChart.html");
+        $("#footer").load("http://localhost:3000/template/footer.html");
+
     </script>
 </body>
 </html>
