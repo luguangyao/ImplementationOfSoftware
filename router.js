@@ -9,9 +9,12 @@ const router = express.Router()
 let publicList = ["/node_modules/", "/public/", "/workPackage/"]
 let baseFileRoot = "/view/"
 // 公共数据
-const _Nav = fs.readFileSync(path.join(__dirname, "./view/template/nav.tmp"))
-const _End = fs.readFileSync(path.join(__dirname, "./view/template/end.tmp"))
-const _Err = fs.readFileSync(path.join(__dirname, "./view/template/err.tmp"))
+const _Nav = ""
+const _End = ""
+const _Err = ""
+// const _Nav = fs.readFileSync(path.join(__dirname, "./view/template/nav.tmp"))
+// const _End = fs.readFileSync(path.join(__dirname, "./view/template/end.tmp"))
+// const _Err = fs.readFileSync(path.join(__dirname, "./view/template/err.tmp"))
 
 var speak = function()
 {
