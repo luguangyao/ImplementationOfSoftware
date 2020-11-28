@@ -105,6 +105,10 @@ router.get("/data/:type/:num", (req, res, next)=>{
     }
 })
 
+router.get("/", (req, res, next) =>{
+    res.render("index")
+})
+
 router.get("/*", (req, res, next)=>{
     // 默认访问 baseFileRoot (view)下的页面
     if (req.url.indexOf("/data/") === 0){
