@@ -3,8 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../public/css/bootstrap.css"/>
+    <script src="http://localhost:3000/public/js/jquery.min.js"></script>
+    <script src="http://localhost:3000/public/js/popper.min.js"></script>
+    <script src="http://localhost:3000/public/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            background: url("http://localhost:3000/public/image/404bg.png") no-repeat fixed;
+            background-size: cover;
+        }
+        .c404{
+            margin-top: 10%;;
+
+            }
+
+        .img404{
+            width: 100%;
+        }
+        .returnContainer{
+            display: flex;
+            justify-content: center;
+        }
+        .logo{
+            height: 50px;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container c404">
+        <div class="row">
+            <div class="col-6  offset-1 ">
+                <img src="http://localhost:3000/public/image/404.png" class="img404" alt="">
+            </div>
+            <div class="col-3">
+                <img src="http://localhost:3000/public/image/mud.png" class="img404" alt="">
+            </div>
+        </div>
+        <div class="row mt-lg-5 img404">
+            <div class="col-6 offset-lg-2">
+                <h5>It looks you are lost</h5>
+            </div>
+        </div>
+        <div class="row mb-lg-5">
+            <div class="col-lg-6 col-sm-12 offset-lg-6">
+                <h2>很抱歉，页面不小心迷路了</h2>
+            </div>
+        </div>
+        <div class="returnContainer">
+            <img src="http://localhost:3000/public/image/scnuLogo.png" class="logo" alt="">
+            <button class="btn btn-link mr-5">返回首页</button>
+            <button class="btn btn-link">返回上一页</button>
+        </div>
+        
+    </div>
+
 </body>
 </html>
