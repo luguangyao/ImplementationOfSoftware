@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我是新闻</title>
+    <link rel="stylesheet" href="../public/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../public/css/news.css"/>
+    <link rel="stylesheet" href="../public/css/swiper.min.css"/>
+    <script src="http://localhost:3000/public/js/jquery.min.js"></script>
+    <script src="http://localhost:3000/public/js/popper.min.js"></script>
+    <script src="http://localhost:3000/public/js/bootstrap.min.js"></script>
+    <script>
+        $(function (){
+            $("#navigator").load("http://localhost:3000/template/navigator.html");
+            $("#swiper").load("http://localhost:3000/template/swiper.html");
+            $("#footer").load("http://localhost:3000/template/footer.html");
+        })
+    </script>
+    <style>
+        body{
+            background: url("http://localhost:3000/public/image/bg.png") fixed no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div id="navigator"></div>
+    <div id="swiper"></div>
+
+
+    <div id="footer"></div>
+</body>
+</html>
