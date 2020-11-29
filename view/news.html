@@ -21,11 +21,36 @@
             background: url("http://localhost:3000/public/image/bg.png") fixed no-repeat;
             background-size: cover;
         }
+        .search{
+            padding-top: 5px;
+            padding-bottom: 5px;
+            background-color: #F2F2F2;
+        }
+        .searchInput{
+            border-radius: 0px;
+            /*border-bottom-right-radius: 0;*/
+        }
+        .searchSubmit{
+            border-radius: 0%;
+        }
+
     </style>
 </head>
 <body>
     <div id="navigator"></div>
     <div id="swiper"></div>
+    <div class="search container-fluid pl-lg-5 pr-lg-5" >
+        <form action="" >
+            <div class="form-group row" >
+                <div class=" col-11 m-0 p-0" >
+                    <input type="text" class="form-control searchInput"  placeholder="请输入关键字">
+                </div>
+                <div class="col-1 m-0 p-0">
+                    <input type="submit" class="form-control  ml-0 btn btn-primary searchSubmit" >
+                </div>
+            </div>
+        </form>
+    </div>
 
 
     <div id="footer"></div>
