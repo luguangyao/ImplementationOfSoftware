@@ -4,29 +4,30 @@
     <meta charset="UTF-8">
     <title>我是主页</title>
     <link rel="stylesheet" href="../public/css/bootstrap.css"/>
-    <script src="../public/js/jquery.min.js"></script>
-    <script src="../public/js/popper.min.js"></script>
-    <script src="../public/js/bootstrap.min.js"></script>
+    <script src="http://localhost:3000/public/js/jquery.min.js"></script>
+    <script src="http://localhost:3000/public/js/popper.min.js"></script>
+    <script src="http://localhost:3000/public/js/bootstrap.min.js"></script>
     <style>
         body{
             overflow-x: hidden;
-            background: url("http://localhost:3000/public/image/bg2.jpg") no-repeat;;
+            background: url("http://localhost:3000/public/image/bg2.jpg") no-repeat fixed;
             background-size: cover;
-            background-attachment:fixed;
         }
     </style>
 
+    <script>
+        $(function (){
+            $("#navigator").load("http://localhost:3000/template/navigator.html");
+            $("#rotationChart").load("http://localhost:3000/template/rotationChart.html");
+            $("#footer").load("http://localhost:3000/template/footer.html");
+        })
+
+    </script>
 </head>
 <body>
     <div id="navigator"></div>
     <div id="rotationChart"></div>
     <div id="footer"></div>
 
-    <script>
-        $("#navigator").load("http://localhost:3000/template/navigator.html");
-        $("#rotationChart").load("http://localhost:3000/template/rotationChart.html");
-        $("#footer").load("http://localhost:3000/template/footer.html");
-
-    </script>
 </body>
 </html>

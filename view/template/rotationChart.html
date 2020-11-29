@@ -74,8 +74,9 @@
 		  
 		  $(document).mousemove(function(e) {
 		  	if ($('#wrap').is(":hover")){
-				let mouseX = e.pageX,
-						offset = mouseX / docWidth * slidesWidth - mouseX / 2;
+				let mouseX = e.pageX
+				let slidesWidth=$wrap.width()
+				let offset = mouseX / docWidth * slidesWidth - mouseX / 2;
 
 				$images.css({
 					'-webkit-transform': 'translate3d(' + -offset + 'px,0,0)',
