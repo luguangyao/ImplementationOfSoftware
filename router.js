@@ -42,9 +42,9 @@ for (let i=0;i<publicList.length; i++)
 
 // 处理登录请求
 router.post("/login", (req, res, next)=>{
-    let uname = req.body.uname
+    let uname = req.body.uid
     let upass = req.body.upass
-    let ret = Ser.UserLogin(uname, upass)
+    let ret = Ser.UserLogin(uid, upass)
     if (ret){
         req.session.uname = ret.name
         res.redirect("/test-index.html")
@@ -147,7 +147,7 @@ router.get("/*", (req, res, next)=>{
 })
 
 router.use((req, res)=>{
-    res.end("404")
+    res.render('404')
 })
 
 // speak()
