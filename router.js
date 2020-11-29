@@ -44,21 +44,20 @@ for (let i=0;i<publicList.length; i++)
 router.post("/login", (req, res, next)=>{
     let uname = req.body.uid
     let upass = req.body.upass
-    let ret = Ser.UserLogin(uid, upass)
-    if (ret){
-        req.session.uname = ret.name
-        res.redirect("/test-index.html")
-    }
-    else{
-        let e = _Err
-        e = e.toString().replace("#errmessage#", "登录错误" + uname + " : " + upass)
-        res.render("test-index", {
-            nav: _Nav,
-            end: _End,
-            errmassage: e
-        })
-    }
-        
+    Ser.UserLogin(uid, upass, (err, data) =>{
+        if (err){
+            let e = _Err
+            e = e.toString().replace("#errmessage#", "登录错误" + uname + " : " + upass)
+            res.render("test-index", {
+                nav: _Nav,
+                end: _End,
+                errmassage: e
+            })
+        }else{
+            req.session.uname = ret.name
+            res.redirect("/test-index.html")
+        }
+    })
 })
 
 router.post("/update", (req, res, next) =>{
@@ -96,10 +95,20 @@ router.get("/data/:type/:num", (req, res, next)=>{
     // num 为标记查询的数量, 应当被限定在1、5、15等固定数字
     if (req.params.type == "news") {
 
-        res.json( Ser.SearchNews(req.params.num))
+        Ser.SearchNews(req.params.num, (err, data) =>{
+            if (err) res.json({data:null})
+            else{
+                res.json(data)
+            }
+        })
     }else if (req.params.type) {
 
-        res.json( Ser.SearchData(req.params.type, req.params.num))
+        Ser.SearchData(req.params.type, req.params.num, (err, data) =>{
+            if (err) res.json({data:null})
+            else{
+                res.json(data)
+            }
+        })
     }else {
         next()
     }
