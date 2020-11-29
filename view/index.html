@@ -7,6 +7,14 @@
     <script src="http://localhost:3000/public/js/jquery.min.js"></script>
     <script src="http://localhost:3000/public/js/popper.min.js"></script>
     <script src="http://localhost:3000/public/js/bootstrap.min.js"></script>
+    <script>
+        $(function (){
+            $("#navigator").load("http://localhost:3000/template/navigator.html");
+            $("#rotationChart").load("http://localhost:3000/template/rotationChart.html");
+            $("#footer").load("http://localhost:3000/template/footer.html");
+        })
+
+    </script>
     <style>
         body{
             overflow-x: hidden;
@@ -14,20 +22,24 @@
             background-size: cover;
         }
         .infoDiv{
-            border: 1px black solid;
+
         }
         .infoInDiv{
-            border: 1px black solid;
+            border: 1px grey solid;
             background: white;
+            box-shadow: 5px 5px 5px grey;
+            border-radius: 5px;
         }
         .infoHead{
             display: flex;
-
+        }
+        .infoTitle{
+            width: 150px;
         }
         .infoHead>.grayBar{
             background-color: #DDDDDD;
             display: inline;
-            width: 60%;
+            width: 100%;
             margin: .3rem 1% .6rem 1%;
 
         }
@@ -52,129 +64,278 @@
         .timeYear{
             border: 1px gray solid;
             border-top: 0px;
+            background: white;
         }
-        .row{
-            width: 80%;
+        .more{
+            margin-left: auto;
         }
-
+        .moreImg{
+            height: 25px;
+            margin-top:5px;
+        }
+        .news:hover{
+            background: #DDDDDD;
+            transition: background-color,.2s;
+            cursor: pointer;
+        }
+        .noDec{
+            text-decoration: none;
+            color: black;
+        }
+        .noDec:hover{
+            text-decoration: none;
+        }
+        .infoImg{
+            height: 100px;
+            width: 100%;
+        }
     </style>
 
-    <script>
-        $(function (){
-            $("#navigator").load("http://localhost:3000/template/navigator.html");
-            $("#rotationChart").load("http://localhost:3000/template/rotationChart.html");
-            $("#footer").load("http://localhost:3000/template/footer.html");
-        })
 
-    </script>
 </head>
 <body>
     <div id="navigator"></div>
     <div id="rotationChart"></div>
 
-    <div class="container infoDiv">
-        <div class="row">
-            <div class="col-lg-5 col-sm-12 infoInDiv">
+    <div class="container_fluid ml-lg-5 mr-lg-5  infoDiv">
+        <div class="row ">
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 ml-lg-3 infoInDiv">
                 <div class="infoHead">
-                    <h3>学院日程</h3>
+                    <h4 class="infoTitle">学院日程</h4>
                     <div class="grayBar" ></div>
+                    <div class="more">
+                        <img class="moreImg" src="http://localhost:3000/public/image/more.png" alt="">
+                    </div>
                 </div>
                 <hr class="splitLine">
-                <div>
-                    <div class="media">
+                <div class="media news">
                         <div class="timer">
                             <div class="timerDate">12-03</div>
                             <div class="timeYear">2020</div>
                         </div>
                         <div class="media-body">
+                            <a href="" class="noDec">
                             <h5 class="mt-0">Media heading</h5>
                             123456789
+                            </a>
+                        </div>
+                </div>
+                <hr class="splitLine">
+                <div class="media news">
+                        <div class="timer">
+                            <div class="timerDate">12-03</div>
+                            <div class="timeYear">2020</div>
+                        </div>
+                        <div class="media-body">
+                            <a href="" class="noDec">
+                            <h5 class="mt-0">Media heading</h5>
+                            123456789
+                            </a>
+                        </div>
+                </div>
+                <hr class="splitLine">
+                <div class="media news">
+                        <div class="timer">
+                            <div class="timerDate">12-03</div>
+                            <div class="timeYear">2020</div>
+                        </div>
+                        <div class="media-body">
+                            <a href="" class="noDec">
+                            <h5 class="mt-0">Media heading</h5>
+                            123456789
+                            </a>
+                        </div>
+                </div>
+                <hr class="splitLine">
+                <div class="media news">
+                        <div class="timer">
+                            <div class="timerDate">12-03</div>
+                            <div class="timeYear">2020</div>
+                        </div>
+                        <div class="media-body">
+                            <a href="" class="noDec">
+                            <h5 class="mt-0">Media heading</h5>
+                            123456789
+                            </a>
+                        </div>
+                </div>
+                <hr class="splitLine">
+                <div class="media news">
+                        <div class="timer">
+                            <div class="timerDate">12-03</div>
+                            <div class="timeYear">2020</div>
+                        </div>
+                        <div class="media-body">
+                            <a href="" class="noDec">
+                            <h5 class="mt-0">Media heading</h5>
+                            123456789
+                            </a>
+                        </div>
+                </div>
+                <hr class="splitLine">
+                <div class="media news">
+                        <div class="timer">
+                            <div class="timerDate">12-03</div>
+                            <div class="timeYear">2020</div>
+                        </div>
+                        <div class="media-body">
+                            <a href="" class="noDec">
+                            <h5 class="mt-0">Media heading</h5>
+                            123456789
+                            </a>
+                        </div>
+                </div>
+                <hr class="splitLine">
+                <div class="media news">
+                        <div class="timer">
+                            <div class="timerDate">12-03</div>
+                            <div class="timeYear">2020</div>
+                        </div>
+                        <div class="media-body">
+                            <a href="" class="noDec">
+                            <h5 class="mt-0">Media heading</h5>
+                            123456789
+                            </a>
                         </div>
                     </div>
                 </div>
                 <hr class="splitLine">
-                <div>
-                    <div class="media">
-                        <div class="timer">
-                            <div class="timerDate">12-03</div>
-                            <div class="timeYear">2020</div>
+            <div class="col-xl-7 col-lg-7 col-md-12 ml-lg-5" >
+                <div class="row">
+                    <div class="col-12 infoInDiv">
+                        <div class="infoHead">
+                            <h4 class="infoTitle">通知公告</h4>
+                            <div class="grayBar" ></div>
+                            <div class="more">
+                                <img class="moreImg" src="http://localhost:3000/public/image/more.png" alt="">
+                            </div>
                         </div>
-                        <div class="media-body">
-                            <h5 class="mt-0">Media heading</h5>
-                            123456789
-                        </div>
-                    </div>
-                </div>
-                <hr class="splitLine">
-                <div>
-                    <div class="media">
-                        <div class="timer">
-                            <div class="timerDate">12-03</div>
-                            <div class="timeYear">2020</div>
-                        </div>
-                        <div class="media-body">
-                            <h5 class="mt-0">Media heading</h5>
-                            123456789
+                        <div class="">
+                            <img class="infoImg" src="http://localhost:3000/public/image/5.png" alt="">
                         </div>
                     </div>
                 </div>
-                <hr class="splitLine">
-                <div>
-                    <div class="media">
-                        <div class="timer">
-                            <div class="timerDate">12-03</div>
-                            <div class="timeYear">2020</div>
+                <div class="row mt-lg-2">
+                    <div class="col-md-6 col-sm-12 pl-0">
+                        <div class="infoInDiv ml-0 pl-2 pr-2">
+                            <div class="infoHead ">
+                            <h4 class="infoTitle">师生动态</h4>
+                            <div class="grayBar" ></div>
+                            <div class="more">
+                                <img class="moreImg" src="http://localhost:3000/public/image/more.png" alt="">
+                            </div>
                         </div>
-                        <div class="media-body">
-                            <h5 class="mt-0">Media heading</h5>
-                            123456789
+                            <div class="media news">
+                                <div class="media-body text-right">
+                                    <a href="" class="noDec">
+                                        <h5 class="mt-0">Media heading</h5>
+                                        <sup>2020/1/1</sup>
+                                    </a>
+                                </div>
+                                <img src="http://localhost:3000/public/image/1.png"  class="ml-3 w-25" alt="">
+                            </div>
+                            <hr class="splitLine">
+                            <div class="news">
+                                <a href="" class="noDec">
+                                   <p>Media heading<sub >2020/1/1</sub></p>
+                                </a>
+                            </div>
+                            <hr class="splitLine">
+                            <div class="news">
+                                <a href="" class="noDec">
+                                    <p>Media heading<sub >2020/1/1</sub></p>
+                                </a>
+                            </div>
+                            <hr class="splitLine">
+                            <div class="news">
+                                <a href="" class="noDec">
+                                    <p>Media heading<sub >2020/1/1</sub></p>
+                                </a>
+                            </div>
+                            <hr class="splitLine">
+                            <div class="news">
+                                <a href="" class="noDec">
+                                    <p>Media heading<sub >2020/1/1</sub></p>
+                                </a>
+                            </div>
+                            <hr class="splitLine">
+                            <div class="news">
+                                <a href="" class="noDec">
+                                    <p>Media heading<sub >2020/1/1</sub></p>
+                                </a>
+                            </div>
+                            <hr class="splitLine">
+                            <div class="news">
+                                <a href="" class="noDec">
+                                    <p>Media heading<sub >2020/1/1</sub></p>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <hr class="splitLine">
-                <div>
-                    <div class="media">
-                        <div class="timer">
-                            <div class="timerDate">12-03</div>
-                            <div class="timeYear">2020</div>
+                    <div class="col-md-6 col-sm-12 infoInDiv">
+                        <div class="infoHead">
+                            <h4 class="infoTitle">学术科研</h4>
+                            <div class="grayBar" >
+                            </div>
+                            <div class="more">
+                                <img class="moreImg" src="http://localhost:3000/public/image/more.png" alt="">
+                            </div>
                         </div>
-                        <div class="media-body">
-                            <h5 class="mt-0">Media heading</h5>
-                            123456789
+                        <div class="media news">
+                            <img src="http://localhost:3000/public/image/1.png"  class="mr-3 w-25" alt="">
+                            <div class="media-body ">
+                                <a href="" class="noDec">
+                                    <h5 class="mt-0">Media heading</h5>
+                                    <sup>2020/1/1</sup>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <hr class="splitLine">
-                <div>
-                    <div class="media">
-                        <div class="timer">
-                            <div class="timerDate">12-03</div>
-                            <div class="timeYear">2020</div>
+                        <hr class="splitLine">
+                        <div class="news">
+                            <a href="" class="noDec">
+                                <p>Media heading<sub >2020/1/1</sub></p>
+                            </a>
                         </div>
-                        <div class="media-body">
-                            <h5 class="mt-0">Media heading</h5>
-                            123456789
+                        <hr class="splitLine">
+                        <div class="news">
+                            <a href="" class="noDec">
+                                <p>Media heading<sub >2020/1/1</sub></p>
+                            </a>
                         </div>
-                    </div>
-                </div>
-                <hr class="splitLine">
-                <div>
-                    <div class="media">
-                        <div class="timer">
-                            <div class="timerDate">12-03</div>
-                            <div class="timeYear">2020</div>
+                        <hr class="splitLine">
+                        <div class="news">
+                            <a href="" class="noDec">
+                                <p>Media heading<sub >2020/1/1</sub></p>
+                            </a>
                         </div>
-                        <div class="media-body">
-                            <h5 class="mt-0">Media heading</h5>
-                            123456789
+                        <hr class="splitLine">
+                        <div class="news">
+                            <a href="" class="noDec">
+                                <p>Media heading<sub >2020/1/1</sub></p>
+                            </a>
+                        </div>
+                        <hr class="splitLine">
+                        <div class="news">
+                            <a href="" class="noDec">
+                                <p>Media heading<sub >2020/1/1</sub></p>
+                            </a>
+                        </div>
+                        <hr class="splitLine">
+                        <div class="news">
+                            <a href="" class="noDec">
+                                <p>Media heading<sub >2020/1/1</sub></p>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
 
-        </div>
 
+        </div>
     </div>
+
+
+
 
     <div id="footer"></div>
 </body>
