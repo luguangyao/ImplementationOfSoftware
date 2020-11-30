@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻编辑</title>
+    <link rel="stylesheet" href="http://localhost:3000/public/css/bootstrap.css"/>
+    <script src="http://localhost:3000/public/js/jquery.min.js"></script>
+    <script src="http://localhost:3000/public/js/popper.min.js"></script>
+    <script src="http://localhost:3000/public/js/bootstrap.min.js"></script>
+    <script src="./template/editText/summernote.js"></script>
+    <link href="./template/editText/summernote.css" rel="stylesheet"/>
+</head>
+<body>
+    <div id="summernote" >输入文本编辑</div>
+    <script>
+         $(document).ready(function() {
+             $('#summernote').summernote();
+            console.log($($('.note-editable')[0]).css('height',$(document).height()*.7));
+         });
+    </script>
+</body>
+</html>
