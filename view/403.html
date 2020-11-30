@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="http://localhost:3000/public/css/bootstrap.min.css"/>
+    <script src="http://localhost:3000/public/js/jquery.min.js"></script>
+    <script src="http://localhost:3000/public/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            background: url("http://localhost:3000/public/image/404bg.png") no-repeat fixed;
+            background-size: cover;
+        }
+        .c403{
+            margin-top: 10%;;
+
+            }
+
+        .img403{
+            width: 100%;
+        }
+        .returnContainer{
+            display: flex;
+            justify-content: center;
+        }
+        .logo{
+            height: 50px;
+        }
+        .emoji{
+            animation: turn 2s linear infinite;
+        }
+        .emoji:hover{
+            animation:turn .5s linear infinite;
+        }
+        @keyframes turn{
+            0%{-webkit-transform:rotate(0deg);}
+            25%{-webkit-transform:rotate(90deg);}
+            50%{-webkit-transform:rotate(180deg);}
+            75%{-webkit-transform:rotate(270deg);}
+            100%{-webkit-transform:rotate(360deg);}
+        }
+    </style>
+</head>
+<body>
+    <div class="container c403">
+        <div class="row">
+            <div class="col-6  offset-1 ">
+                <img src="http://localhost:3000/public/image/403.png" class="img403" alt="">
+            </div>
+            <div class="col-3">
+                <img src="http://localhost:3000/public/image/mud.png" class="img403 emoji" alt="">
+            </div>
+        </div>
+            <div class="col-lg-6 col-sm-12 offset-lg-2 mt-lg-5">
+                <h5>You are refused by server</h5>
+            </div>
+        <div class="row mb-lg-5">
+            <div class="col-lg-6 col-sm-12 offset-lg-6">
+                <h2>很抱歉，您被服务器拒之门外</h2>
+            </div>
+        </div>
+        <div class="returnContainer mt-5">
+            <img src="http://localhost:3000/public/image/scnuLogo.png" class="logo" alt="">
+            <button class="btn btn-link mr-5" ><a href="http://localhost:3000/index.html">返回首页</a></button>
+            <button class="btn btn-link"><a href="">返回上一页</a></button>
+        </div>
+        
+    </div>
+
+</body>
+</html>
