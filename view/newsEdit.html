@@ -1,23 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>新闻编辑</title>
-    <link rel="stylesheet" href="http://localhost:3000/public/css/bootstrap.css"/>
-    <script src="http://localhost:3000/public/js/jquery.min.js"></script>
-    <script src="http://localhost:3000/public/js/popper.min.js"></script>
-    <script src="http://localhost:3000/public/js/bootstrap.min.js"></script>
-    <script src="./template/editText/summernote.js"></script>
-    <link href="./template/editText/summernote.css" rel="stylesheet"/>
+    <meta charset="utf-8">
+    <title>simditor</title>
+    <link rel="stylesheet" type="text/css" href="../public/css/textEditCss/simditor.css" />
+
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../public/js/textEditScripts/module.min.js"></script>
+    <script type="text/javascript" src="../public/js/textEditScripts/hotkeys.min.js"></script>
+    <script type="text/javascript" src="../public/js/textEditScripts/uploader.min.js"></script>
+    <script type="text/javascript" src="../public/js/textEditScripts/simditor.min.js"></script>
 </head>
+
 <body>
-    <div id="summernote" >输入文本编辑</div>
-    <script>
-         $(document).ready(function() {
-             $('#summernote').summernote();
-             $($('.note-editable')[0]).css('height',$(document).height()*.7);
-             console.log(123)
-         });
-    </script>
+
+<textarea id="editor" placeholder="Balabala" autofocus></textarea>
+<script>
+    var editor = new Simditor({
+        textarea: $('#editor')
+        //optional options
+    });
+
+</script>
+
 </body>
 </html>

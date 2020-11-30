@@ -36,7 +36,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/view/template" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/image" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -45,11 +45,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\GitProject\ImplementationOfSoftware\view\template" />
-      <recent name="D:\GitProject\ImplementationOfSoftware\public\css" />
       <recent name="D:\GitProject\ImplementationOfSoftware\public\image" />
+      <recent name="D:\GitProject\ImplementationOfSoftware\public\js" />
+      <recent name="D:\GitProject\ImplementationOfSoftware\public\css" />
+      <recent name="D:\GitProject\ImplementationOfSoftware\view\template" />
       <recent name="D:\GitProject\ImplementationOfSoftware\public" />
-      <recent name="D:\GitProject\ImplementationOfSoftware\view" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -74,7 +74,7 @@
       <workItem from="1606631648285" duration="10969000" />
       <workItem from="1606659610397" duration="2615000" />
       <workItem from="1606695469238" duration="5616000" />
-      <workItem from="1606714586723" duration="6098000" />
+      <workItem from="1606714586723" duration="8148000" />
     </task>
     <servers />
   </component>
