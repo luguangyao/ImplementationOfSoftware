@@ -36,14 +36,25 @@
             color: #6c757d;
             content: "|";
         }
-        @media screen and (min-width: 992px){
-            .foot-right{
-                align-items: end;
-                text-align: end;
-                horiz-align: right;
+        /*@media screen and (min-width: 992px){*/
+        /*    .foot-right{*/
+        /*        align-items: end;*/
+        /*        text-align: end;*/
+        /*        horiz-align: right;*/
+        /*    }*/
+        /*}*/
+        @media screen and (max-width: 1200px){
+            .footer-img{
+                border: 1px solid red;
+                float: left;
+                margin-left: 35%;
+            }
+            .footer-img-div{
+                width: 100%;
+                margin: 0 auto;
+                text-align: center;
             }
         }
-
         .footer-img{
             width: auto;height:auto;max-width:30%
         }
@@ -69,7 +80,8 @@
                     </ol>
                 </nav>
             </div>
-            <div class="col-lg-4 col-xs-12  m-auto text-right"><img  class="footer-img" src="http://localhost:3000/public/image/logo.png" alt=""></div>
+            <div class="col-lg-4 col-xs-12  m-auto text-right  footer-img-div" >
+                <div class="footer-img-div"><img class="footer-img" src="http://localhost:3000/public/image/logo.png" alt=""></div></div>
         </div>
     </div>
 </body>

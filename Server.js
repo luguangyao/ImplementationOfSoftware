@@ -1,4 +1,5 @@
-const DAO = require("./dao")
+//const DAO = require("./dao")
+const DAO = null
 /**
  * 
  * @param {*} uid 用户id
