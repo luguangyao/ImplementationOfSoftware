@@ -21,6 +21,17 @@
             background: url("http://localhost:3000/public/image/bg.png") fixed no-repeat;
             background-size: cover;
         }
+        .navBtnDiv{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .navBtnDiv>.btn{
+            width: 100%;
+            flex-grow: 1;
+            background-color: rgba( 240,240,240,.8);
+            border: none;
+        }
         .search{
             padding-top: 5px;
             padding-bottom: 5px;
@@ -33,11 +44,35 @@
         .searchSubmit{
             border-radius: 0%;
         }
-
+        .totalNews{
+            background-color: #F2F2F2;
+        }
+        .totalNews>ul>li>a{
+            text-decoration: none;
+            color: black;
+        }
+        .totalNews>ul>li>{
+            clear: both;
+        }
+        .totalNews>ul>li>a:hover{
+            color: #005cbf;
+        }
+        .totalNews>ul>li>span{
+            float: right;
+        }
     </style>
 </head>
 <body>
     <div id="navigator"></div>
+    <div class="btn-group navBtnDiv" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary">Left</button>
+        <button type="button" class="btn btn-secondary">Middle</button>
+        <button type="button" class="btn btn-secondary">Right</button>
+        <button type="button" class="btn btn-secondary">Right</button>
+        <button type="button" class="btn btn-secondary">Right</button>
+        <button type="button" class="btn btn-secondary">Right</button>
+
+    </div>
     <div id="swiper"></div>
     <div class="search container-fluid pl-lg-5 pr-lg-5" >
         <form action="" >
@@ -51,7 +86,30 @@
             </div>
         </form>
     </div>
-
+    <div class="totalNews">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <a href="" >Cras justo odio</a>
+                <span>2018/2/05</span>
+            </li>
+            <li class="list-group-item">
+                <a href="">Dapibus ac facilisis in</a>
+                <span>2018/2/05</span>
+            </li>
+            <li class="list-group-item">
+                <a href="">Morbi leo risus</a>
+                <span>2018/2/05</span>
+            </li>
+            <li class="list-group-item">
+                <a href="">Morbi leo risus</a>
+                <span>2018/2/05</span>
+            </li>
+            <li class="list-group-item">
+                <a href="">Morbi leo risus</a>
+                <span>2018/2/05</span>
+            </li>
+        </ul>
+    </div>
 
     <div id="footer"></div>
 </body>
