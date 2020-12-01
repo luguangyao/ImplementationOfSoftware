@@ -78,7 +78,7 @@
       <workItem from="1606659610397" duration="2615000" />
       <workItem from="1606695469238" duration="5616000" />
       <workItem from="1606714586723" duration="14128000" />
-      <workItem from="1606795768104" duration="2609000" />
+      <workItem from="1606795768104" duration="6482000" />
     </task>
     <servers />
   </component>
@@ -126,5 +126,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1606480700238" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/view/newsEdit.html</url>
+          <line>11</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

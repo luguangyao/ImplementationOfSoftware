@@ -20,7 +20,7 @@
                 branding:false, //右下角技术支持
                 inline: false, //开启内联模式
                 elementpath: false,
-                min_height:600, //最小高度
+                min_height:1200, //最小高度
                 height: 800,  //高度
                 skin: 'oxide',
                 toolbar_sticky:true,
@@ -51,7 +51,7 @@
             设置内容：tinyMCE.editors[0].setContent(“需要设置的编辑器内容”)
         */
         function setcontent(){
-            tinyMCE.activeEditor.setContent("<h1>设置内容1</h1>");
+            tinyMCE.activeEditor.setContent("");
             //tinyMCE.editors[0].setContent("<h1>设置内容2</h1>");
         }
         function getcontent(){
@@ -75,24 +75,78 @@
             background: url("http://localhost:3000/public/image/bg.png") fixed;
             background-size: cover;
         }
-        .navigator{
-            background: grey;
+        .editBg{
+            background: #f0f0f0;
+            border-radius:10px;
+            box-shadow: 5px 5px 5px grey;
         }
+        .userInfoBar{
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            height: 50px;
+        }
+        .userInfoBar img,
+        .userInfoBar div{
+            height: 30px;
+            width: auto;
+
+        }
+        #tinymce{
+            margin-left: 10px;
+        }
+        .submitBar{
+            display: flex;
+            justify-content: flex-end;
+
+        }
+
     </style>
 </head>
 <body>
     <div id="navigator"></div>
-    <br>
-    <hr>
-    <div id = "tinymce"></div>
+    <div class="container_fluid clearfix editBg mr-2 ml-2 pb-3">
+        <div class="userInfoBar pr-5 pl-5">
+            <div><h3>欢迎您</h3></div>
+            <img src="http://localhost:3000/public/image/user.png" alt="">
+            <div ><h4>用户001</h4></div>
+        </div>
+        <hr>
+        <hr>
+        <div class="pr-5 pl-5">
+            <div class="form-group " >
+                    <label for="newsTitle">新闻标题</label>
+                    <input id="newsTitle" type="text" class="form-control searchInput"  placeholder="请输入新闻标题">
+            </div>
+        </div>
+        <div class="pr-5 pl-5">
+            <div id = "tinymce"></div>
+        </div>
 
-    <div>
-    <br>
-    <hr>
-    <button type="button" onclick="setcontent()">填入数据</button>
-    <button type="button" onclick="getcontent()">读取数据1</button>
-    <button type="button" onclick="getbody()">获取纯文本</button>
+        <hr>
+        <hr>
+        <div class="pr-5 pl-5 submitBar">
+            <form action="" >
+                <label for="type1">选择类型</label>
+                <select id="type1">
+                    <option value="1">12</option>
+                    <option value="2">12</option>
+                </select>
+                <select id="type2">
+                    <option value="1">12</option>
+                    <option value="2">12</option>
+                </select>
+                <div class="btn-group">
+                <button type="button" class="btn btn-danger" onclick="setcontent()">清除内容</button>
+                <button type="button" class="btn btn-primary" onclick="getcontent()">读取数据</button>
+                <button type="button" class="btn btn-primary" onclick="getbody()">获取纯文本</button>
+                <input type="submit" class="btn btn-success" content="提交">
+                </div>
+            </form>
+
+        </div>
     </div>
+
     <div id="footer"></div>
 </body>
 </html>
