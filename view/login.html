@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Login</title>
+	</head>
+	<!--导入boot四个文件，且顺序不能乱-->
+	<link rel="stylesheet" href="http://localhost:3000/public/css/bootstrap.css" />
+	<script src="http://localhost:3000/public/js/jquery.min.js"></script>
+	<script src="http://localhost:3000/public/js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" href="http://localhost:3000/public/css/login.css" />
+	<script src="http://localhost:3000/public/js/login_script.js"></script>
+				
+	<body>
+		<div class="container"> 
+			<div class="row justify-content-center">
+				<div class="col-center-block col-lg-4 col-md-4 col-sm-5 col-xl-5 jumbotron myformdiv pb-0">
+			
+					<!-- 1F内容-->
+					<div class="floor1">
+						<ul class="nav nav-tabs mt-0 p-0 text-center ml-3">
+							 <li class="nav-item password_login"><a href="#password_login" class="nav-link" data-toggle="tab"><span>密码登录</span></a></li>
+							 <li class="nav-item code_login" id="do_qrcode"><a href="#code_login" class="nav-link" data-toggle="tab"><span>扫码登录</span></a></li> 
+						</ul>
+						<a href="javascript:void(0);" onclick="qrcode()" class="password_login"><img src="http://localhost:3000/public/img/qrcode_front.png" alt="" class="img_code" /></a>
+						<a href="javascript:void(0);" onclick="pwdcode()" class="code_login"><img src="http://localhost:3000/public/img/password_front.png" alt="" class="img_code" /></a>
+					</div>
+					
+					<br />
+					
+					<!--验证码/表单信息-->
+					<div class="tab-content">
+						<div class="tab-pane password_login">
+							
+							<!--信息体视框-->
+							<div class="alert alert-danger alert-dismissible infocontent p-1">
+							    <span id="info_mation" class="p-0"></span>
+							</div>
+							
+							<h4 class="text-left">用户登录</h4>
+							<form class="bs-example bs-example-form" action="" method="post">
+							<div class="input-group-lg">
+								<span><b>username</b></span>
+								<input type="text" class="form-control" placeholder="username" name="username" />
+							</div>
+							<div class="input-group-lg">
+								<span><b>password</b></span>
+								<input type="password" class="form-control" placeholder="password" name="password" />
+							</div>
+							<div class="input-group-lg">
+								<span><b>verify</b></span>
+								<input type="text" class="form-control verify-text" placeholder="verify" name="verify" />
+								<a href="javascript:;" id = "yzm" style="position: absolute;    margin-left: 1% ;" ></a>
+							</div>
+							<br />
+							<div>
+								<button class="btn btn-primary form-control">提交</button>
+							</div>
+							</form>
+						</div>
+						<div class="tab-pane test code_login">
+							<img src="http://localhost:3000/public/img/qrcode.png" alt="" class="scan_code" /> 
+						</div>
+					</div>
+					
+					<br />
+					
+					<!--其他登陆方式-->
+					<p class="font p-0 mb-0">其他登录方式</p>
+					<div class="text-left">
+						<ul class="list-unstyled"> <!--去掉小圆点的-->
+							<li class="text-left">
+								<a href="" class="text-muted my_small"><img src="http://localhost:3000/public/img/icon_weixinweb.png" alt=""></a>
+								<a href="" class="text-muted my_small"><img src="http://localhost:3000/public/img/icon_qq.png" alt=""></a>
+								<a href="" class="text-muted my_small"><img src="http://localhost:3000/public/img/icon_weibo.png" alt=""></a>
+							</li>
+						</ul>
+						<p class="my_small"><a href="#">忘记密码?</a></p>
+						<p class="my_small">华南师范大学 © 2020 | 关于 邮箱服务 移动校园</p>
+					</div>
+				</div> 
+			</div>
+		</div>
+	</body>
+</html>
