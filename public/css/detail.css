@@ -21,6 +21,7 @@ html,body{
 .img_logo:hover{
 	-webkit-transform: scale(1.2,1.2);
 	-moz-transition: 1s -moz-transform;
+	transition-duration: 0.5s;
 }
 /*主要内容*/
 .main{
