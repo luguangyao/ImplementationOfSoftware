@@ -78,7 +78,8 @@
       <workItem from="1606659610397" duration="2615000" />
       <workItem from="1606695469238" duration="5616000" />
       <workItem from="1606714586723" duration="14128000" />
-      <workItem from="1606795768104" duration="6900000" />
+      <workItem from="1606795768104" duration="7976000" />
+      <workItem from="1606825666636" duration="1447000" />
     </task>
     <servers />
   </component>
@@ -133,7 +134,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/view/newsEdit.html</url>
           <line>11</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
