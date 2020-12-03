@@ -55,6 +55,18 @@ var SearchNews = (id, callback) =>{
     })
 }
 
+var nowATime = () =>{
+    let now = new Date()
+    console.log(now.getDate())
+}
+
+var Create = () =>{
+    DAO.AddNews(title, content, type, 0, a,1,url, (err, data) =>{
+        //
+        let now = nowATime()
+    })
+}
+
 /**
  * 更新新闻数据。
  * @param {*} nid 新闻id
@@ -76,7 +88,7 @@ var GetTitleNews = (type, num) =>{
     return null
 }
 
-
+nowATime()
 
 exports.UserLogin = UserLogin
 exports.SearchData = SearchData

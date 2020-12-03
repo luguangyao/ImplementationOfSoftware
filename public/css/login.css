@@ -1,18 +1,21 @@
 html,body{
-/* 	background:url(../image/login/loginBg.png); */
-	background:url(/public/image/login/loginBg.png);
+/*	background:url(../image/login/loginBg.png); */
+ 	background:url(/public/image/login/loginBg.png); 
 	width: 100%;
 	height: 100%;
 	margin: 0;
 	padding: 0;
 }
-.input-group-lg:hover,.btn:hover{
-	-webkit-transform: scale(1.06,1.06);
+.input-group-lg:hover,.btn_div:hover{
+	-webkit-transform: scale(1.1,1.1);
 	-moz-transition: 1s -moz-transform;
+	transition-duration: 0.5s;
 }
+
 .img_logo:hover{
 	-webkit-transform: scale(1.2,1.2);
 	-moz-transition: 1s -moz-transform;
+	transition-duration: 0.5s;
 }
 .font{
 	font-size: 0.75rem;

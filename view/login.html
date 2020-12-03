@@ -11,8 +11,8 @@
 	
 	<link rel="stylesheet" href="/public/css/login.css" />
 	<script src="/public/js/login_script.js"></script>
-	
-<!-- 	<link rel="stylesheet" href="../public/css/bootstrap.css" />
+<!-- 	
+	<link rel="stylesheet" href="../public/css/bootstrap.css" />
 	<script src="../public/js/jquery.min.js"></script>
 	<script src="../public/js/bootstrap.min.js"></script>
 	
@@ -30,7 +30,7 @@
 							 <li class="nav-item password_login"><a href="#password_login" class="nav-link" data-toggle="tab"><span>密码登录</span></a></li>
 							 <li class="nav-item code_login" id="do_qrcode"><a href="#code_login" class="nav-link" data-toggle="tab"><span>扫码登录</span></a></li> 
 						</ul>
-					<!-- 	<a href="javascript:void(0);" onclick="qrcode()" class="password_login"><img src="../public/image/login/qrcode_front.png" alt="" class="img_code" /></a>
+<!-- 						<a href="javascript:void(0);" onclick="qrcode()" class="password_login"><img src="../public/image/login/qrcode_front.png" alt="" class="img_code" /></a>
 						<a href="javascript:void(0);" onclick="pwdcode()" class="code_login"><img src="../public/image/login/password_front.png" alt="" class="img_code" /></a> -->
 						<a href="javascript:void(0);" onclick="qrcode()" class="password_login"><img src="/public/image/login/qrcode_front.png" alt="" class="img_code" /></a>
 						<a href="javascript:void(0);" onclick="pwdcode()" class="code_login"><img src="/public/image/login/password_front.png" alt="" class="img_code" /></a>
@@ -48,7 +48,7 @@
 							</div>
 							
 							<h4 class="text-left">用户登录</h4>
-							<form class="bs-example bs-example-form" action="" method="post">
+							<form class="bs-example bs-example-form" action="/loginCheck" method="post">
 							<div class="input-group-lg">
 								<span><b>username</b></span>
 								<input type="text" class="form-control" placeholder="username" name="username" />
@@ -63,13 +63,13 @@
 								<!-- <a href="javascript:;" id = "yzm" style="position: absolute;    margin-left: 1% ;" ></a> -->
 							</div>
 							<br />
-							<div>
+							<div class="btn_div">
 								<button class="btn btn-primary form-control">提交</button>
 							</div>
 							</form>
 						</div>
 						<div class="tab-pane test code_login">
-							<!-- <img src="../public/image/login/qrcode.png" alt="" class="scan_code" /> -->
+						<!-- 	<img src="../public/image/login/qrcode.png" alt="" class="scan_code" /> -->
 							<img src="/public/image/login/qrcode.png" alt="" class="scan_code" />
 						</div>
 					</div>
@@ -84,7 +84,7 @@
 								<a href="" class="text-muted my_small"><img src="/public/image/login/icon_weixinweb.png" alt="" class="img_logo" /></a>
 								<a href="" class="text-muted my_small"><img src="/public/image/login/icon_qq.png" alt="" class="img_logo" /></a>
 								<a href="" class="text-muted my_small"><img src="/public/image/login/icon_weibo.png" alt="" class="img_logo" /></a>
-						<!-- 	<a href="" class="text-muted my_small"><img src="../public/image/login/icon_weixinweb.png" alt="" class="img_logo" /></a>
+<!-- 							<a href="" class="text-muted my_small"><img src="../public/image/login/icon_weixinweb.png" alt="" class="img_logo" /></a>
 							<a href="" class="text-muted my_small"><img src="../public/image/login/icon_qq.png" alt="" class="img_logo" /></a>
 							<a href="" class="text-muted my_small"><img src="../public/image/login/icon_weibo.png" alt="" class="img_logo" /></a> -->
 							</li>
