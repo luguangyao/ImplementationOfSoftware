@@ -6,7 +6,7 @@ const Ser = require("./Server")
 
 const router = express.Router()
 // 公开目录
-let publicList = ["/node_modules/", "/public/", "/workPackage/"]
+let publicList = ["/node_modules/", "/public/"]
 let baseFileRoot = "/view/"
 // 公共数据
 const _Nav = ""
@@ -26,7 +26,7 @@ var speak = function()
         console.log(publicList[i])
     }
 
-    console.log("此外还可以默认访问经模板渲染的 " + baseFileRoot + "下的文件")
+    console.log("默认经模板渲染 " + baseFileRoot + "下的文件")
 }   
 
 // 最先匹配执行命令
@@ -41,9 +41,9 @@ for (let i=0;i<publicList.length; i++)
 }
 
 // 处理登录请求
-router.post("/login", (req, res, next)=>{
-    let uname = req.body.uid
-    let upass = req.body.upass
+router.post("/loginCheck", (req, res, next)=>{
+    let uname = req.body.username
+    let upass = req.body.password
     Ser.UserLogin(uid, upass, (err, data) =>{
         if (err){
             let e = _Err
@@ -54,8 +54,9 @@ router.post("/login", (req, res, next)=>{
                 errmassage: e
             })
         }else{
-            req.session.uname = ret.name
-            res.redirect("/test-index.html")
+            req.session.uname = data.name
+            req.session.power = 1
+            res.redirect("/")
         }
     })
 })
@@ -90,21 +91,31 @@ router.post("/update", (req, res, next) =>{
     })
 })
 
+router.post("/EditNew", (req, res) =>{
+    let nid = req.body.nid
+})
+
 router.get("/data/:type/:num", (req, res, next)=>{
     // 根据请求的type返回对应数据
     // num 为标记查询的数量, 应当被限定在1、5、15等固定数字
-    if (req.params.type == "news") {
+    // 当type为0时，请求的是单条数据，num为id
+    let type = parseInt(req.params.type)
+    let num = parseInt(req.params.num)
+    if (type === 0) {
 
-        Ser.SearchNews(req.params.num, (err, data) =>{
+        Ser.SearchNews(num, (err, data) =>{
             if (err) res.json({data:null})
             else{
                 res.json(data)
             }
         })
-    }else if (req.params.type) {
+    }else if (type>0) {
 
-        Ser.SearchData(req.params.type, req.params.num, (err, data) =>{
-            if (err) res.json({data:null})
+        Ser.SearchData(type, num, (err, data) =>{
+            if (err) {
+                console.log(err)
+                res.json({data:null})
+            }
             else{
                 res.json(data)
             }
@@ -114,11 +125,38 @@ router.get("/data/:type/:num", (req, res, next)=>{
     }
 })
 
+router.get("/new/:type/:num", (rep, res) =>{
+
+    res.render("detail")
+})
+
+router.get("/edit/:id", (req, res) =>{
+    // 必定给过
+    if (true || (req.session.uname && req.session.power === 1)){
+        res.render("newsEdit")
+    }else{
+        res.render("403")
+    }
+})
+
+router.get("/info/:click", (req, res) =>{
+    // 二级页面
+    render("news")
+})
+
 router.get("/", (req, res, next) =>{
     res.render("index")
 })
 
-router.get("/*", (req, res, next)=>{
+router.get("/login", (req, res, next) =>{
+    res.render("login")
+})
+
+router.get("/favicon.ico", (req, res) =>{
+    res.sendFile(path.join(__dirname, "/view/favicon.ico"))
+})
+
+router.get("/template/*", (req, res, next)=>{
     // 默认访问 baseFileRoot (view)下的页面
     if (req.url.indexOf("/data/") === 0){
         return next()
@@ -127,7 +165,7 @@ router.get("/*", (req, res, next)=>{
     fs.stat(path.join(__dirname, baseFileRoot, url), (err, state)=>{
 
         if (err){
-            console.log("不该发生的文件读取错误 在 : " + path.join(__dirname, baseFileRoot, url))
+            // console.log("不该发生的文件读取错误 在 : " + path.join(__dirname, baseFileRoot, url))
             next()
         }else{
 
@@ -136,16 +174,6 @@ router.get("/*", (req, res, next)=>{
                 res.render(url.slice(1),{
                     nav: _Nav,
                     end: _End
-                })
-            }else if (url.endsWith("ico")){
-
-                fs.readFile(path.join(__dirname, baseFileRoot, url), (err, data)=>{
-
-                    if (err){
-                        next()
-                    }else{
-                        res.end(data)
-                    }
                 })
             }else{
 

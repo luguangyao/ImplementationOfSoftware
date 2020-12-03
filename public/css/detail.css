@@ -1,0 +1,75 @@
+/*test*/
+.test1{
+	background-color: green;
+}
+.test2{
+	background-color: red;
+}
+
+/***/
+html,body{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+/*标题下的小字体*/
+.my_small{
+	font-size: 0.6rem;
+}
+/*底部文字的悬浮放大*/
+.img_logo:hover{
+	-webkit-transform: scale(1.2,1.2);
+	-moz-transition: 1s -moz-transform;
+}
+/*主要内容*/
+.main{
+	width: 80%;
+}
+/*全屏时*/
+@media screen and (max-width: 1280px){
+	.offset-3{
+		margin-left: 0%;
+	}
+	.left{
+		display: none;
+	}
+	.col-lg-9{
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 100%;
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
+/*左边导航*/
+.left { 
+	margin: 0 auto; 
+	width: 200px; 
+	position: fixed; 
+	margin-left: 5%;
+}
+.pinned { 
+	background: #fff; 
+	width: 200px; 
+}
+.extend-title p { 
+	padding-left: 15px; 
+	color: #fff; 
+	background: #1F76BD; 
+	font-size: 16px; 
+	line-height: 50px; 
+}
+.extend-con li { 
+	font-size: 12px; 
+	padding: 10px 15px; 
+	line-height: 20px; 
+	border: 1px solid #C8DCF2; 
+	border-top: 0px; 
+}
+.extend-con li a { 
+	color: #3A639F; 
+}
+.extend-con li span { 
+	padding-left: 10px; 
+	color: #9FA3A5; 
+}
