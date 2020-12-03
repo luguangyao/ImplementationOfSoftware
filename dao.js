@@ -12,9 +12,9 @@ const pool = mysql.createPool({
 
 });
 
-//用户登录方法
-//callback函数返回值(String,result),String为错误提示,
-//result为user的全部内容,发生错误时result为空,未发生错误时String为空
+/*用户登录方法
+callback函数返回值(String,result),String为错误提示,
+result为user的全部内容,发生错误时result为空,未发生错误时String为空*/
 var UserLogin = (uid, upass,callback) =>{
     //验证数据是否为空
     if(uid===null){
@@ -36,9 +36,9 @@ var UserLogin = (uid, upass,callback) =>{
     })
 }
 
-//查询新闻,返回类型为type的最新的num条新闻的nid和title
-//callback函数返回值(String,result),String为错误提示,
-//result为news的nid和title,发生错误时result为空,未发生错误时String为空
+/*查询新闻,返回类型为type的最新的num条新闻的nid和title
+callback函数返回值(String,result),String为错误提示,
+result为news的nid和title,发生错误时result为空,未发生错误时String为空*/
 var SearchData = (type, num,callback) =>{
     //返回对应数据类型的一定数量的数据
     //到数据库中查询相应类型的最新插入的num条新闻
@@ -54,9 +54,9 @@ var SearchData = (type, num,callback) =>{
     })
 }
 
-//查看新闻
-//callback函数返回值(String,result),String为错误提示,
-//result为news的全部内容,发生错误时result为空,未发生错误时String为空
+/*查看新闻
+callback函数返回值(String,result),String为错误提示,
+result为news的全部内容,发生错误时result为空,未发生错误时String为空*/
 var SearchNews = (id,callback) =>{
     //返回新闻的标题与内容
     //到数据库中查询对应新闻
@@ -71,8 +71,8 @@ var SearchNews = (id,callback) =>{
     })
 }
 
-//新增新闻
-//callback函数返回值(String),String为错误提示,为0时表示失败，1时表示成功
+/*新增新闻
+callback函数返回值(String),String为错误提示,为0时表示失败，1时表示成功*/
 var AddNews = (title,content,type,visit,publishtime,author_id,url,callback) =>{
     //到数据库中插入新新闻
     pool.query('INSERT INTO news VALUES (null,?,?,?,?,?,?,?)',
@@ -87,8 +87,8 @@ var AddNews = (title,content,type,visit,publishtime,author_id,url,callback) =>{
     })
 }
 
-//修改新闻
-//callback函数返回值(String),String为错误提示,为0时表示失败，1时表示成功
+/*修改新闻
+callback函数返回值(String),String为错误提示,为0时表示失败，1时表示成功*/
 var UpdateNews = (nid,title,content,type,url,callback) =>{
     //到数据库中插更新新闻
     pool.query('UPDATE news SET title=?,content=?,type=?,url=? WHERE nid=?',[title,content,type,url,nid],(err,result)=>{
@@ -102,8 +102,8 @@ var UpdateNews = (nid,title,content,type,url,callback) =>{
     })
 }
 
-//删除新闻
-//callback函数返回值(String),String为错误提示,为0时表示失败，1时表示成功
+/*删除新闻
+callback函数返回值(String),String为错误提示,为0时表示失败，1时表示成功*/
 var DeleteNews = (nid,callback) =>{
     //到数据库中删除新闻
     pool.query('DELETE FROM news WHERE nid=?',[nid],(err,result)=>{
@@ -117,8 +117,8 @@ var DeleteNews = (nid,callback) =>{
     })
 }
 
-//增加点击量
-//callback函数返回值(String),String为错误提示,为0时表示失败，1时表示成功
+/*增加点击量
+callback函数返回值(String),String为错误提示,为0时表示失败，1时表示成功*/
 var UpdateVisit = (nid,callback) =>{
     //到数据库中插更新新闻
     pool.query('UPDATE news SET visit=visit+1 WHERE nid=?',[nid],(err,result)=>{
@@ -132,13 +132,13 @@ var UpdateVisit = (nid,callback) =>{
     })
 }
 
-//查询新闻图片url,返回类型为type的最新的num条新闻的url
-//callback函数返回值(String,result),String为错误提示,
-//result为news的url,发生错误时result为空,未发生错误时String为空
-var SearchUrl = (type, num,callback) =>{
+/*查询新闻图片url,返回类型为type的最新的num条新闻的,且新闻必须url不为空
+callback函数返回值(String,result),String为错误提示,
+result为news的全部内容,发生错误时result为空,未发生错误时String为空*/
+var SearchNewsWithUrl = (type, num,callback) =>{
     //返回对应数据类型的一定数量的数据
     //到数据库中查询相应类型的最新插入的num条新闻
-    pool.query('select url from news WHERE type=? and url is not NULL order by nid desc limit 0,?',[num,type],(err,result)=>{
+    pool.query('select * from news WHERE type=? and url is not NULL order by nid desc limit 0,?',[type,num],(err,result)=>{
         //如果输入数量超出已有数量则出错
         if(err) callback(err);
         //返回空数组，长度为0 ，说明没有该类型的新闻
@@ -150,9 +150,24 @@ var SearchUrl = (type, num,callback) =>{
     })
 }
 
-SearchUrl(1,1,(err, res) =>{
-    console.log(res)
-});
+/*查询新闻图片url,返回类型为type的最新的num条新闻的url
+callback函数返回值(String,result),String为错误提示,
+result为news的url,发生错误时result为空,未发生错误时String为空*/
+var SearchNewsWithUrlNoType = ( num,callback) =>{
+    //返回对应数据类型的一定数量的数据
+    //到数据库中查询相应类型的最新插入的num条新闻
+    pool.query('select * from news where url is not NULL order by nid desc limit 0,?',[num],(err,result)=>{
+        //如果输入数量超出已有数量则出错
+        if(err) callback(err);
+        //返回空数组，长度为0 ，说明没有该类型的新闻
+        else if(result.length===0){
+            callback("没有该类型的新闻");
+        }else{//查询到匹配的新闻  返回
+            callback(null,result);
+        }
+    })
+}
+
 exports.UserLogin = UserLogin
 exports.SearchData = SearchData
 exports.SearchNews = SearchNews
@@ -160,4 +175,5 @@ exports.AddNews = AddNews
 exports.UpdateNews = UpdateNews
 exports.DeleteNews = DeleteNews
 exports.UpdateVisit = UpdateVisit
-exports.SearchUrl = SearchUrl
+exports.SearchNewsWithUrl = SearchNewsWithUrl
+exports.SearchNewsWithUrlNoType = SearchNewsWithUrlNoType
