@@ -42,6 +42,19 @@
 			- 因为需要合理的预览效果，需要实际的新闻页完成后进行
 		* 上传按钮
 
+### （=w=）url映射 （还待补全）
+- /  ===  index.html
+- /login  === login.html
+- /new/:type/:num  === detail.html
+- /edit/:id  === newsEdit.html
+- /info/:click  === news.html
+- /data/:type/:num === 根据需求返回数据
+- /EditNew 上传编辑数据
+- /loginCheck 用户登录确认
+- 公开
+	+ /template/ 映射 /view/template 文件夹
+	+ /public/ 映射 /public/ 文件夹
+
 > 对应\
 > 1 学院动态\
 > 2 通知公告\
