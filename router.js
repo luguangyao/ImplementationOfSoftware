@@ -3,6 +3,9 @@ const formidable = require("formidable")
 const path = require("path")
 const fs = require("fs")
 const Ser = require("./Server")
+const { title } = require("process")
+const { url } = require("inspector")
+const { serialize } = require("v8")
 
 const router = express.Router()
 // 公开目录
@@ -81,7 +84,7 @@ router.post("/update", (req, res, next) =>{
                         next()
                     }
                     else{
-                        res.redirect("/test-index.html")
+                        res.redirect("/")
                     }
                 })
             }else{
@@ -93,6 +96,36 @@ router.post("/update", (req, res, next) =>{
 
 router.post("/EditNew", (req, res) =>{
     let nid = req.body.nid
+    nid = Number.parseInt(nid)
+    let context = req.body.context
+    let type = req.body.type
+    type = Number.parseInt(type)
+    let url = req.body.url
+    if (nid === -1){
+        // 创建新新闻
+        Ser.Create(title, context, type, url, (err, state) =>{
+            if (err) res.end(false)
+            else{
+                if (state === 1){
+                    res.end(true)
+                }else{
+                    res.end(false)
+                }
+            }
+        })
+    }else{
+        // 更新新闻
+        Ser.Update(nid, title, context, type, url, (err, state) =>{
+            if (err) res.end(false)
+            else{
+                if (state === 1){
+                    res.end(true)
+                }else{
+                    res.end(false)
+                }
+            }
+        })
+    }
 })
 
 router.get("/data/:type/:num", (req, res, next)=>{
@@ -132,7 +165,7 @@ router.get("/new/:type/:num", (rep, res) =>{
 
 router.get("/edit/:id", (req, res) =>{
     // 必定给过
-    if (true || (req.session.uname && req.session.power === 1)){
+    if (true || (req.session.uname && req.session.power === 1)) {
         res.render("newsEdit")
     }else{
         res.render("403")
