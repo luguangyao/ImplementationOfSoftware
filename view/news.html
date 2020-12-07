@@ -7,13 +7,8 @@
     <link rel="stylesheet" href="http://localhost:3000/public/css/news.css"/>
     <link rel="stylesheet" href="http://localhost:3000/public/css/swiper.min.css"/>
     <script src="http://localhost:3000/public/js/jquery.min.js"></script>
-    <script>
-        $(function (){
-            $("#navigator").load("http://localhost:3000/template/navigator.html");
-            $("#swiper").load("http://localhost:3000/template/swiper.html");
-            $("#footer").load("http://localhost:3000/template/footer.html");
-        })
-    </script>
+    <script src="http://localhost:3000/public/js/newsList.js"></script>
+
     <style>
         body{
             background: url("http://localhost:3000/public/image/bg.png") fixed no-repeat;
@@ -85,7 +80,7 @@
         </form>
     </div>
     <div class="totalNews">
-        <ul class="list-group list-group-flush">
+        <ul class="list-group list-group-flush" id="newsUl">
             <li class="list-group-item">
                 <a href="" >Cras justo odio</a>
                 <span>2018/2/05</span>
