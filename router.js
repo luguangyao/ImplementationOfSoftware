@@ -189,7 +189,7 @@ router.get("/edit/:id", (req, res) =>{
 
 router.get("/info/:click", (req, res) =>{
     // 二级页面
-    render("news")
+    res.render("news")
 })
 
 router.get("/", (req, res, next) =>{
