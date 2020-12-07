@@ -3,9 +3,11 @@ const formidable = require("formidable")
 const path = require("path")
 const fs = require("fs")
 const Ser = require("./Server")
+const svgCaptcha = require("svg-captcha")
 const { title } = require("process")
 const { url } = require("inspector")
 const { serialize } = require("v8")
+const session = require("express-session")
 
 const router = express.Router()
 // 公开目录
@@ -47,15 +49,15 @@ for (let i=0;i<publicList.length; i++)
 router.post("/loginCheck", (req, res, next)=>{
     let uname = req.body.username
     let upass = req.body.password
+    let code = req.body.yzm
+    if (code != req.session.captcha){
+        res.redirect("/login")
+    }
     Ser.UserLogin(uid, upass, (err, data) =>{
         if (err){
             let e = _Err
             e = e.toString().replace("#errmessage#", "登录错误" + uname + " : " + upass)
-            res.render("test-index", {
-                nav: _Nav,
-                end: _End,
-                errmassage: e
-            })
+            res.redirect("/login")
         }else{
             req.session.uname = data.name
             req.session.power = 1
@@ -137,7 +139,7 @@ router.get("/data/:type/:num", (req, res, next)=>{
     if (type === 0) {
 
         Ser.SearchNews(num, (err, data) =>{
-            if (err) res.json({data:null})
+            if (err) res.json({nid:-1})
             else{
                 res.json(data)
             }
@@ -147,7 +149,7 @@ router.get("/data/:type/:num", (req, res, next)=>{
         Ser.SearchData(type, num, (err, data) =>{
             if (err) {
                 console.log(err)
-                res.json({data:null})
+                res.json({nid:-1})
             }
             else{
                 res.json(data)
@@ -156,6 +158,19 @@ router.get("/data/:type/:num", (req, res, next)=>{
     }else {
         next()
     }
+})
+
+router.get("/title_news/:type/:num", (req, res, next) =>{
+    // 可以上头条的数据
+    let type = parseInt(req.params.type)
+    let num  = parseInt(req.params.num)
+    Ser.GetTitleNews(type, num, (err, data) =>{
+
+        if (err) res.end({nid:-1})
+        else{
+            res.json(data)
+        }
+    })
 })
 
 router.get("/new/:type/:num", (rep, res) =>{
@@ -187,6 +202,14 @@ router.get("/login", (req, res, next) =>{
 
 router.get("/favicon.ico", (req, res) =>{
     res.sendFile(path.join(__dirname, "/view/favicon.ico"))
+})
+
+router.get("/captcha", (req, res) =>{
+    let captcha = svgCaptcha.create()
+    req.session.captcha = captcha.text
+
+    res.type('svg')
+    res.status(200).send(captcha.data)
 })
 
 router.get("/template/*", (req, res, next)=>{
