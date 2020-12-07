@@ -49,11 +49,31 @@
 - /edit/:id  === newsEdit.html
 - /info/:click  === news.html
 - /data/:type/:num === 根据需求返回数据
+- /title_news/:type/:num === 获取头条新闻
 - /EditNew 上传编辑数据
 - /loginCheck 用户登录确认
+- /captcha 验证码位置
 - 公开
 	+ /template/ 映射 /view/template 文件夹
 	+ /public/ 映射 /public/ 文件夹
+
+(=w=) 数据字典 （可以自己访问后台获取数据对照，/data/0/id 为单条数据，/data/n/num 为多条数据）
+单条：
+nid:新闻id
+title：标题
+content：内容
+type：所属板块
+visit：访问量
+publishtime：发布时间
+author_id：作者id
+url：头条图片
+
+多条
+[
+	{nid:新闻id，title：标题}
+]
+
+此处若为空，统一变更为返回	{nid:-1} 统一形式，注意变更
 
 > 对应\
 > 1 学院动态\
