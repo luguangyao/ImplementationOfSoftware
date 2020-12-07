@@ -173,7 +173,7 @@ router.get("/title_news/:type/:num", (req, res, next) =>{
     })
 })
 
-router.get("/new/:type/:num", (rep, res) =>{
+router.get("/new/:type/:num", (req, res) =>{
 
     res.render("detail")
 })
@@ -189,7 +189,7 @@ router.get("/edit/:id", (req, res) =>{
 
 router.get("/info/:click", (req, res) =>{
     // 二级页面
-    render("news")
+    res.render("news")
 })
 
 router.get("/", (req, res, next) =>{
