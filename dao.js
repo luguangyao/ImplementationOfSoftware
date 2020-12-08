@@ -6,7 +6,7 @@ const pool = mysql.createPool({
     host:'127.0.0.1',
     port:'3306',
     user:'root',
-    password:'123456',
+    password:'12345678',
     database:'scnu',
     connectionLimit:'20'
 
@@ -38,11 +38,11 @@ var UserLogin = (uid, upass,callback) =>{
 
 /*查询新闻,返回类型为type的最新的num条新闻的nid和title
 callback函数返回值(String,result),String为错误提示,
-result为news的nid和title,发生错误时result为空,未发生错误时String为空*/
+result为news的nid和title,publishtime,发生错误时result为空,未发生错误时String为空*/
 var SearchData = (type, num,callback) =>{
     //返回对应数据类型的一定数量的数据
     //到数据库中查询相应类型的最新插入的num条新闻
-    pool.query('select nid,title from news where type=? order by nid desc limit 0,?',[type,num],(err,result)=>{
+    pool.query('select nid,title,publishtime from news where type=? order by nid desc limit 0,?',[type,num],(err,result)=>{
         //如果输入数量超出已有数量则出错
         if(err) callback(err);
         //返回空数组，长度为0 ，说明没有该类型的新闻
