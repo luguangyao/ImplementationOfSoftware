@@ -70,11 +70,14 @@
     <div class="search container-fluid pl-lg-5 pr-lg-5" >
         <form action="" >
             <div class="form-group row" >
-                <div class=" col-11 m-0 p-0" >
-                    <input type="text" class="form-control searchInput"  placeholder="请输入关键字">
+                <div class=" col-10 col-ms-4 m-0 p-0" >
+                    <input id="keyWord" type="text" class="form-control searchInput"  placeholder="请输入关键字">
                 </div>
                 <div class="col-1 m-0 p-0">
-                    <input type="submit" class="form-control  ml-0 btn btn-primary searchSubmit" >
+                    <input type="button" onclick="searchNew()" class="form-control  ml-0 btn btn-primary searchSubmit" value="搜索">
+                </div>
+                <div class="col-1 m-0 p-0">
+                    <input type="button" onclick="showAllNew()" class="form-control  ml-1 btn btn-primary searchSubmit" value="查看全部">
                 </div>
             </div>
         </form>
@@ -82,25 +85,10 @@
     <div class="totalNews">
         <ul class="list-group list-group-flush" id="newsUl">
             <li class="list-group-item">
-                <a href="" >Cras justo odio</a>
+                <a href="" >暂无新闻</a>
                 <span>2018/2/05</span>
             </li>
-            <li class="list-group-item">
-                <a href="">Dapibus ac facilisis in</a>
-                <span>2018/2/05</span>
-            </li>
-            <li class="list-group-item">
-                <a href="">Morbi leo risus</a>
-                <span>2018/2/05</span>
-            </li>
-            <li class="list-group-item">
-                <a href="">Morbi leo risus</a>
-                <span>2018/2/05</span>
-            </li>
-            <li class="list-group-item">
-                <a href="">Morbi leo risus</a>
-                <span>2018/2/05</span>
-            </li>
+
         </ul>
     </div>
 
