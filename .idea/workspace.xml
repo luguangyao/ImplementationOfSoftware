@@ -18,8 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -37,7 +37,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/image/NEWSimage" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/view/template" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -45,15 +45,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\GitProject\ImplementationOfSoftware\public\image\NEWSimage" />
-      <recent name="D:\GitProject\ImplementationOfSoftware\view\template" />
-      <recent name="D:\GitProject\ImplementationOfSoftware\public\image" />
-      <recent name="D:\GitProject\ImplementationOfSoftware\public\js" />
-      <recent name="D:\GitProject\ImplementationOfSoftware\public\css" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GitProject\ImplementationOfSoftware\view\template" />
+      <recent name="D:\GitProject\ImplementationOfSoftware\view" />
       <recent name="D:\GitProject\ImplementationOfSoftware\public\js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GitProject\ImplementationOfSoftware\view\template" />
+      <recent name="D:\GitProject\ImplementationOfSoftware\public\js" />
+      <recent name="D:\GitProject\ImplementationOfSoftware\public\image\NEWSimage" />
+      <recent name="D:\GitProject\ImplementationOfSoftware\public\image" />
+      <recent name="D:\GitProject\ImplementationOfSoftware\public\css" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -85,6 +87,7 @@
       <workItem from="1607000358535" duration="6381000" />
       <workItem from="1607349429848" duration="5556000" />
       <workItem from="1607406833111" duration="9473000" />
+      <workItem from="1607424192583" duration="4444000" />
     </task>
     <servers />
   </component>

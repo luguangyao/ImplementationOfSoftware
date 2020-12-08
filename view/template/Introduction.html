@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我是主页</title>
+    <link rel="stylesheet" href="http://localhost:3000/public/css/bootstrap.min.css"/>
+    <script src="http://localhost:3000/public/js/jquery.min.js"></script>
+    <script src="http://localhost:3000/public/js/bootstrap.min.js"></script>
+    <script>
+        $(function (){
+            $("#navigator").load("http://localhost:3000/template/navigator.html");
+            $("#rotationChart").load("http://localhost:3000/template/rotationChart.html");
+            $("#footer").load("http://localhost:3000/template/footer.html");
+        })
+
+    </script>
+    <style>
+        body{
+            overflow-x: hidden;
+            background: url("http://localhost:3000/public/image/bg2.jpg") no-repeat fixed;
+            background-size: cover;
+        }
+        .introBody{
+            background: #F2F2F2;
+        }
+        .n{
+            border-right: 1px blue solid;
+            border-left: 1px blue solid;
+            border-bottom: 1px blue solid;
+            text-align: center;
+            margin-top: 10px;
+            padding-top:20px;
+            color: grey;
+        }
+        a
+
+
+
+    </style>
+
+
+</head>
+<body>
+    <div id="navigator"></div>
+    <div class="container introBody">
+        <div class="row">
+            <div class="col-3">
+                <ul class="nav flex-column introUl ">
+                    <li class="nav-item n"><a href="#" class="nav-link active">
+                        <span>学院概况</span><br>
+                        <span>College Profile</span>
+                    </a></li>
+                    <li class="nav-item n"><a href="#" class="nav-link active">
+                        <span>学院简介</span><br>
+                        <span>College Introduction</span>
+                    </a></li>
+                    <li class="nav-item n"><a href="#" class="nav-link active">
+                        <span>学院架构</span><br><span>College Structure</span>
+                    </a></li>
+                    <li class="nav-item n"><a href="#" class="nav-link active">
+                        <span>管理人员</span><br><span>Management</span>
+                    </a></li>
+                    <li class="nav-item n"><a href="#" class="nav-link active">
+                        <span>学院改革</span><br><span>College Reform</span>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+    <div id="footer"></div>
+</body>
+</html>
