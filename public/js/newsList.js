@@ -120,7 +120,58 @@ function setNewsHead(news,i){
     $($swiperTitle[i]).html(String(title))
     $($swiperNewsSum[i]).html(String(content))
     $($newsHeadA[i]).attr("href")
-    
+    //设置轮播
+    $('.img-count').each(function (index, element) {
+        var imgH = $(this).height();
+        var imgW = $(this).width();
+        var $thisimg = $(this).find('img');
+        var img = new Image();
+        img.onload = function () {
+            if ($thisimg.data("img") === false) {
+                return '';
+            }
+            var imgWidth = img.width;
+            var imgHeight = img.height;
+            if ((imgWidth / imgHeight) < (imgW / imgH)) {
+                $thisimg.css({'height': (imgW / imgH) * ((imgHeight * 1.00) / imgWidth) * imgH, 'max-height': (imgW / imgH) * ((imgHeight * 1.00) / imgWidth) * imgH, 'top': -((imgW / imgH) * ((imgHeight * 1.00) / imgWidth) - 1) / 2 * imgH})
+            } else {
+                $thisimg.css({'width': (imgH / imgW) * ((imgWidth * 1.00) / imgHeight) * imgW, 'max-width': (imgH / imgW) * ((imgWidth * 1.00) / imgHeight) * imgW, 'left': -((imgH / imgW) * ((imgWidth * 1.00) / imgHeight) - 1) / 2 * imgW})     
+            }
+        }
+        img.src = $thisimg.attr("src");
+    });
+    var swiper = new Swiper('#newsList1', {
+        effect : 'fade',
+        fadeEffect: {
+            crossFade: true,
+        },
+        direction : 'horizontal',
+        loop: true,
+        autoplay : {
+            delay:5000,//滚动速度
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.adSN_page',
+            clickable :true,
+        },
+        on:{
+            init:function(){
+                var total=this.slides.length-2;
+                $('.swiper-num .total').text('0'+total);
+                this.emit('transitionEnd');
+            },
+            transitionEnd:function(){
+                var index=this.realIndex+1;
+                $(".swiper-num .active").text("0"+index);
+            }
+        }
+    });
+
+    imgCount();
+    $(window).resize(function () {
+        imgCount();
+    });
 
 }
 
