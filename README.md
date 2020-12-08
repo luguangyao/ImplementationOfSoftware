@@ -46,6 +46,7 @@
 - /  ===  index.html
 - /login  === login.html
 - /update post方法获取图片
+- /upload_img 适应Ajax写法， post方法获取图片，具体使用看/template/upload_img_demo.html
 - /new/:id  === detail.html
 - /edit/:id  === newsEdit.html
 - /info/:click  === news.html
