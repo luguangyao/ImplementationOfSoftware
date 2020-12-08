@@ -70,7 +70,7 @@ router.post("/update", (req, res, next) =>{
     let form = new formidable.IncomingForm()
     form.encoding = 'utf-8'
     form.keepExtensions = true //扩展名
-    form.uploadDir = path.join(__dirname, "./public/img/")
+    form.uploadDir = path.join(__dirname, "./public/image/NEWSimage")
 
     form.parse(req, (err, fields, files) =>{
         // console.log(files)
@@ -80,7 +80,7 @@ router.post("/update", (req, res, next) =>{
 
             if (err){
 
-                fs.rename(files.pict.path, path.join(__dirname, "/public/img/", files.pict.name),(err) =>{
+                fs.rename(files.pict.path, path.join(__dirname, "/public/image/NEWSimage", files.pict.name),(err) =>{
 
                     if (err) {
                         next()
@@ -91,6 +91,42 @@ router.post("/update", (req, res, next) =>{
                 })
             }else{
                 res.end("重名")
+            }
+        })
+    })
+})
+
+// 适应ajax请求上传图片的路由
+router.post("/upload_img", (req, res) =>{
+    let form = new formidable.IncomingForm()
+    form.encoding = 'utf-8'
+    form.keepExtensions = true //扩展名
+    form.uploadDir = path.join(__dirname, "./public/image/NEWSimage")
+
+    form.parse(req, (err, fields, files) =>{
+        // console.log(files)
+
+        fs.stat(files.img.path, (err, stats) =>{
+
+            if (!err){
+
+                fs.rename(files.img.path, path.join(__dirname, "/public/image/NEWSimage", files.img.name),(err) =>{
+
+                    if (err) {
+                        console.log(err)
+                    }
+                    else{
+                        res.status(200).json({
+                            "status":200,
+                            "img": files.img.name
+                        })
+                    }
+                })
+            }else{
+                res.json({
+                    'state': 500,
+                    "err":"重名"
+                })
             }
         })
     })
@@ -173,7 +209,7 @@ router.get("/title_news/:type/:num", (req, res, next) =>{
     })
 })
 
-router.get("/new/:type/:num", (req, res) =>{
+router.get("/new/:id", (req, res) =>{
 
     res.render("detail")
 })
