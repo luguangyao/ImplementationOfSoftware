@@ -3,15 +3,28 @@ newsType=undefined;
 newsData=undefined;
 newsHeadId=[];
 headNews=[];
+$swiperImg=undefined
+$swiperYear=undefined
+$swiperDayMonth=undefined
+$swiperTitle=undefined
+$swiperNewsSum=undefined
+$newsHeadA=undefined
 $(function (){
     $("#navigator").load("http://localhost:3000/template/navigator.html");
-    $("#swiper").load("http://localhost:3000/template/swiper.html");
+    $("#swiper").load("http://localhost:3000/template/swiper.html",function(){
+        var data = window.location.href.split('/').reverse();
+        newsType = data[0].replace("#",""); 
+        $swiperImg=$(".swiperImg")
+        $swiperYear=$(".year")
+        $swiperDayMonth=$(".day_month")
+        $swiperTitle=$(".news-h")
+        $swiperNewsSum=$(".news-sum")
+        $newsHeadA=$("#newsHeadA")    
+        getData()
+    });
     $("#footer").load("http://localhost:3000/template/footer.html");
-
-    var data = window.location.href.split('/').reverse();
-    newsType = data[0].replace("#","");
-    getData()
 })
+                         
 
 function getData(){
     var xmlhttp;
@@ -31,7 +44,7 @@ function getData(){
         {
             res=xmlhttp.responseText;
             newsData=JSON.parse(res);
-            setNewsList();
+            setNewsList(newsData);
             newsNum=newsData.length;
             for(i=newsData.length-1;i>=newsData.length-3;i--){
                 newsHeadId.push(newsData[i]['nid'])
@@ -46,9 +59,18 @@ function getData(){
     xmlhttp.send();
 }
 
-function setNewsList(){
+function setNewsList(newsData){
     $newsUl=$("#newsUl");
     $newsUl.empty();
+    if(newsData.length<=0){
+        $p=$("<li class=\"list-group-item\"></li>")
+        $a=$("<a href=\"\">"+"暂无消息"+"</a>")
+        $span=$("<span></span>")
+        $p.append($a).append($span)
+        $newsUl.append($p)
+        $p.slideUp(10).slideDown(500)
+        return
+    }
     for(let n in newsData){
         let title=newsData[n]["title"]
         let nid=newsData[n]["nid"]
@@ -59,9 +81,6 @@ function setNewsList(){
         $newsUl.append($p)
         $p.slideUp(10).slideDown(500)
     }
-    
-
-    
 }
 
 function getHeadData(i){
@@ -86,28 +105,42 @@ function getHeadData(i){
 }
 function setNewsHead(news,i){
     //console.log(news)
-    //console.log(i)
-    $swiperImg=$(".swiperImg")
-    $swiperYear=$(".year")
-    $swiperDayMonth=$(".day_month")
-    $swiperTitle=$(".news-h")
-    $swiperNewsSum=$(".news-sum")
-    $newsHeadA=$(".newsHeadA")
-    
+    //console.log(i)  
     title=news["title"]
     content=news["content"]
     publishtime=new Date(news["publishtime"])
     year=publishtime.getFullYear()
     month=publishtime.getMonth()
     date=publishtime.getDate()
-    imgName=news["url"]!=undefined?news["url"]:"1606135527117580.png"
+    imgName=news["url"]!=undefined?news["url"]:"newsDefault.png"
     imgPath="http://localhost:3000/public/image/NEWSimage/"+imgName
     $($swiperImg[i]).attr("src",imgPath)
     $($swiperYear[i]).html(String(year))
-    $($swiperDayMonth[i]).html(String(month)+"-"+String(year))
+    $($swiperDayMonth[i]).html(String(month)+"-"+String(date))
     $($swiperTitle[i]).html(String(title))
     $($swiperNewsSum[i]).html(String(content))
     $($newsHeadA[i]).attr("href")
     
 
+}
+
+function searchNew(){
+    $keyWord=$("#keyWord")
+    keyWord=$keyWord.val()
+    console.log(keyWord)
+    console.log(newsData)
+    searchNews=[];
+    for(i in newsData){
+        news=newsData[i]
+        if(news["title"].search(keyWord)>=0){
+            console.log(news["title"].search(keyWord))
+            console.log(news)
+            searchNews.push(news)
+        }
+    }
+    setNewsList(searchNews)
+}
+
+function showAllNew(){
+    setNewsList(newsData)
 }
