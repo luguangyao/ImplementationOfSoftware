@@ -46,7 +46,7 @@
 - /  ===  index.html
 - /login  === login.html
 - /update post方法获取图片
-- /new/:type/:num  === detail.html
+- /new/:id  === detail.html
 - /edit/:id  === newsEdit.html
 - /info/:click  === news.html
 - /data/:type/:num === 根据需求返回数据
@@ -74,7 +74,7 @@ url：头条图片
 	{nid:新闻id，title：标题}
 ]
 
-此处若为空，统一变更为返回	{nid:-1} 统一形式，注意变更
+此处若数据为空，统一变更为返回	{nid:-1} 以统一处理形式，注意变更
 
 > 对应\
 > 1 学院动态\

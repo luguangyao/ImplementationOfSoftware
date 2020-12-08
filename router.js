@@ -173,7 +173,7 @@ router.get("/title_news/:type/:num", (req, res, next) =>{
     })
 })
 
-router.get("/new/:type/:num", (req, res) =>{
+router.get("/new/:id", (req, res) =>{
 
     res.render("detail")
 })
