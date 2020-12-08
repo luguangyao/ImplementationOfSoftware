@@ -45,6 +45,7 @@
 ### （=w=）url映射 （还待补全）
 - /  ===  index.html
 - /login  === login.html
+- /update post方法获取图片
 - /new/:type/:num  === detail.html
 - /edit/:id  === newsEdit.html
 - /info/:click  === news.html
