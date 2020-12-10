@@ -36,7 +36,7 @@ var UserLogin = (uid, upass,callback) =>{
     })
 }
 
-/*查询新闻,返回类型为type的最新的num条新闻的nid和title
+/*查询新闻,返回类型为type的最新的num条新闻的nid和title和publishtime
 callback函数返回值(String,result),String为错误提示,
 result为news的nid和title,publishtime,发生错误时result为空,未发生错误时String为空*/
 var SearchData = (type, num,callback) =>{
@@ -150,9 +150,9 @@ var SearchNewsWithUrl = (type, num,callback) =>{
     })
 }
 
-/*查询新闻图片url,返回类型为type的最新的num条新闻的url
+/*查询新闻图片url,返回最新的num条新闻的url且url不能为空
 callback函数返回值(String,result),String为错误提示,
-result为news的url,发生错误时result为空,未发生错误时String为空*/
+result为news的全部内容,发生错误时result为空,未发生错误时String为空*/
 var SearchNewsWithUrlNoType = ( num,callback) =>{
     //返回对应数据类型的一定数量的数据
     //到数据库中查询相应类型的最新插入的num条新闻
@@ -168,6 +168,78 @@ var SearchNewsWithUrlNoType = ( num,callback) =>{
     })
 }
 
+/*查询新闻,返回最新的num条新闻的nid和title和publishtime
+callback函数返回值(String,result),String为错误提示,
+result为news的nid和title,publishtime,发生错误时result为空,未发生错误时String为空*/
+var SearchDataNoType = (num,callback) =>{
+    //返回一定数量的最新的几条数据
+    //到数据库中查询最新插入的num条新闻
+    pool.query('select nid,title,publishtime from news order by nid desc limit 0,?',[num],(err,result)=>{
+        //如果输入数量超出已有数量则出错
+        if(err) callback(err);
+        //返回空数组，长度为0 ，说明没有新闻
+        else if(result.length===0){
+            callback("没有该类型的新闻");
+        }else{//查询到新闻  返回
+            callback(null,result);
+        }
+    })
+}
+
+/*查询新闻,返回最新的一条新闻nid
+callback函数返回值(String,result),String为错误提示,
+result为news的nid发生错误时result为空,未发生错误时String为空*/
+var SearchNewNews = (callback) =>{
+    //返回对应数据类型的一定数量的数据
+    //到数据库中查询最新插入的一条新闻和最旧的一条新闻
+    pool.query('select nid from news order by nid desc limit 0,1',(err,result)=>{
+        //如果输入数量超出已有数量则出错
+        if(err) callback(err);
+        //返回空数组，长度为0 ，说明没有新闻
+        else if(result.length===0){
+            callback("没有该类型的新闻");
+        }else{//查询到新闻  返回
+            callback(null,result);
+        }
+    })
+}
+
+/*查询新闻,返回最旧的一条新闻的nid
+callback函数返回值(String,result),String为错误提示,
+result为news的nid,发生错误时result为空,未发生错误时String为空*/
+var SearchOldNews = (callback) =>{
+    //返回对应数据类型的一定数量的数据
+    //到数据库中查询最新插入的一条新闻和最旧的一条新闻
+    pool.query('select nid from news order by nid limit 0,1',(err,result)=>{
+        //如果输入数量超出已有数量则出错
+        if(err) callback(err);
+        //返回空数组，长度为0 ，说明没有新闻
+        else if(result.length===0){
+            callback("没有该类型的新闻");
+        }else{//查询到新闻  返回
+            callback(null,result);
+        }
+    })
+}
+
+/*查询数据库，返回当前的新闻数量
+callback函数返回值(String,result),String为错误提示,
+result为news的数量,发生错误时result为空,未发生错误时String为空*/
+var SearchNewsCount = (callback) =>{
+    //返回对应数据类型的一定数量的数据
+    //到数据库中查询最新插入的一条新闻和最旧的一条新闻
+    pool.query('select count(*) from news',(err,result)=>{
+        //如果输入数量超出已有数量则出错
+        if(err) callback(err);
+        //返回空数组，长度为0 ，说明没有新闻
+        else if(result.length===0){
+            callback("没有该类型的新闻");
+        }else{//查询到新闻  返回
+            callback(null,result);
+        }
+    })
+}
+
 exports.UserLogin = UserLogin
 exports.SearchData = SearchData
 exports.SearchNews = SearchNews
@@ -177,3 +249,7 @@ exports.DeleteNews = DeleteNews
 exports.UpdateVisit = UpdateVisit
 exports.SearchNewsWithUrl = SearchNewsWithUrl
 exports.SearchNewsWithUrlNoType = SearchNewsWithUrlNoType
+exports.SearchDataNoType = SearchDataNoType
+exports.SearchNewNews = SearchNewNews
+exports.SearchOldNews = SearchOldNews
+exports.SearchNewsCount = SearchNewsCount

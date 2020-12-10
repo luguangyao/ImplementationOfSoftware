@@ -28,16 +28,36 @@ $(function (){
         toolbar: 'bullist numlist anchor charmap emoticons fullscreen hr image imagetools insertdatetime link media pagebreak paste preview print searchreplace textcolor wordcount',
         //选中时出现的快捷工具，与插件有依赖关系
         //images_upload_url:'a.php', /*后图片上传接口*/ /*返回值为json类型 {'location':'uploads/jpg'}*/
-        images_upload_url:'http://localhost:3000/public/js/test.js',
-        img_upload_handler: async function(blobInfo,succFun,failFun){
-                let formdata=new FormData
-                formdata.append('file',blobInfo.blob(),blobInfo.name())
-                const {data:res}=await this.$http.post('upload',formdata)
-                succFun(res.url)
-            },
-        setup: function(editor){
-            editor.on('change',function(){ editor.save(); });
-        }
+        //images_upload_url:'http://localhost:3000/public/js/test.js',
+        images_upload_handler: function(blobInfo, success, failure) {
+            var form = new FormData();
+            //var uploadTime = formatTime(new Date().getTime(),"Y-M-D");
+            //console.log(blobInfo.blob())
+            form.append('img', blobInfo.blob());
+            //, blobInfo.filename()
+            $.ajax({
+                    url: "http://localhost:3000/upload_img",
+                    type: "post",
+                    data: form,
+                    processData: false,
+                    contentType: false,
+                    success: function(data) {
+                        console.log("上传成功")
+						console.log(data);
+						//backData = JSON.parse(data);
+//                        success(data.location);
+						var imgUrl = "/public/image/NEWSimage/"+data.img;
+						//console.log(imgUrl);
+                        success(imgUrl);
+
+                    },
+                    error: function(e) {
+                        alert("图片上传失败");
+                    }
+                });
+         }
+        
+        
 
     });
     // 获取最后参数

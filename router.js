@@ -202,6 +202,22 @@ router.get("/data/:type/:num", (req, res, next)=>{
                 res.json(data)
             }
         })
+    }else if (type < 0){
+        // 特殊功能部分
+        if (type === -2){
+
+            if (num === -2){
+
+                Ser.maxAndMin((err, data) =>{
+                    if (err) res.json({
+                        nid:-1
+                    })
+                    else{
+                        res.json(data)
+                    }
+                })
+            }
+        }
     }else {
         next()
     }
