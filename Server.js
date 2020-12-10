@@ -10,7 +10,6 @@ var UserLogin = (uid, upass, callback) =>{
     DAO.UserLogin(uid, upass, (err, data)=>{
         if (err) callback(err)
         else{
-            console.log(data)
             callback(null, data)
         }
     })
@@ -106,12 +105,12 @@ var Update = (nid, title, context, type, url, callback) =>{
  * @param {Function} callback 带 err 与 data 属性， 若出错则data为null 否则err为null
  */
 var GetTitleNews = (type, num, callback) =>{
-    // 等待DAO
+    
     let _type = Number.parseInt(type)
     let _num = Number.parseInt(num)
     if (_type === 0){
 
-        DAO.SearchNewsWithUrlNoType(num, (err, data) =>{
+        DAO.SearchNewsWithUrlNoType(_num, (err, data) =>{
             if (err) callback(err)
             else{
                 callback(null, data)
@@ -119,7 +118,7 @@ var GetTitleNews = (type, num, callback) =>{
         })
     }else{
 
-        DAO.SearchNewsWithUrl(type, num, (err, data) =>{
+        DAO.SearchNewsWithUrl(_type, _num, (err, data) =>{
             if (err) callback(err)
             else{
                 callback(null, data)
@@ -128,9 +127,34 @@ var GetTitleNews = (type, num, callback) =>{
     }
 }
 
+/**
+ * 获取最大与最小的新闻id
+ * @param {Function} callback 回调获取数据，有err与data函数，若成功err为空，否则data为空。date：{max：number, min: number}
+ */
+var maxAndMin = (callback) =>{
+
+    DAO.SearchNewNews((err, newNews) =>{
+        if (err) callback(err)
+        else{
+
+            DAO.SearchOldNews((err, oldNews) =>{
+                if (err) callback(err)
+                else{
+
+                    callback(null, {
+                        "max": newNews[0].nid,
+                        "min": oldNews[0].nid
+                    })
+                }
+            })
+        }
+    })
+}
+
 exports.UserLogin = UserLogin
 exports.SearchData = SearchData
 exports.SearchNews = SearchNews
 exports.Update = Update
 exports.Create = Create
 exports.GetTitleNews = GetTitleNews
+exports.maxAndMin = maxAndMin
