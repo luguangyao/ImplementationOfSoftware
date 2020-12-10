@@ -12,6 +12,7 @@ let port = 3000
 app.use(session({
     secret: "my secret sign", // 反篡改签名key
     resave: false, // 是否强制再次存储
+    name:"sessionID",
     saveUninitialized: true, //未设定前初始化
     cookie: ('name', 'value',{maxAge:  5*60*1000, 
                                 secure: false, name: "seName", 
