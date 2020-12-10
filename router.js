@@ -49,19 +49,30 @@ for (let i=0;i<publicList.length; i++)
 router.post("/loginCheck", (req, res, next)=>{
     let uname = req.body.username
     let upass = req.body.password
-    let code = req.body.yzm
+    let code = req.body.yzm.toLowerCase()
+
+    // 错误验证
+    if (!uname || uname === '')
+        res.end("0")
+    if (!upass || upass === '')
+        res.end("1")
+    if (!code || code === '')
+        res.end("2")
+
     if (code != req.session.captcha){
-        res.redirect("/login")
+        res.end("4")
     }
-    Ser.UserLogin(uid, upass, (err, data) =>{
+
+    Ser.UserLogin(uname, upass, (err, data) =>{
         if (err){
             let e = _Err
             e = e.toString().replace("#errmessage#", "登录错误" + uname + " : " + upass)
-            res.redirect("/login")
+            res.end("3")
         }else{
             req.session.uname = data.name
             req.session.power = 1
-            res.redirect("/")
+            // res.redirect("/")
+            res.end("5")
         }
     })
 })
@@ -241,11 +252,19 @@ router.get("/favicon.ico", (req, res) =>{
 })
 
 router.get("/captcha", (req, res) =>{
-    let captcha = svgCaptcha.create()
-    req.session.captcha = captcha.text
+    let captcha = svgCaptcha.create({
+        size: 4, //
+        ignoreChars: "0o1i", 
+        noise: 6,
+        color:true,
+        fontSize:40,
+        width:120,
+        height:40,
+        background:'#00aaff'
+    })
+    req.session.captcha = captcha.text.toLowerCase()
 
-    res.type('svg')
-    res.status(200).send(captcha.data)
+    res.send(captcha.data)
 })
 
 router.get("/template/*", (req, res, next)=>{
