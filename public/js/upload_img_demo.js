@@ -2,6 +2,9 @@ function upload(){
     let from = new FormData()
     let fileObj = document.getElementById("file").files[0]
     console.log(fileObj)
+    console.log('------------------')
+    console.log(document.getElementById("file").files[0])
+    console.log('------------------')
     from.append("img", fileObj)
     // 开启同步
     let xhr = new XMLHttpRequest()

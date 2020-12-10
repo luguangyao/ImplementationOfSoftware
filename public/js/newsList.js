@@ -19,14 +19,19 @@ $(function (){
         $swiperDayMonth=$(".day_month")
         $swiperTitle=$(".news-h")
         $swiperNewsSum=$(".news-sum")
-        $newsHeadA=$("#newsHeadA")    
-        getData()
+        $newsHeadA=$(".newsHeadA") 
+        getHeadData()
+      
+      
     });
+    getListData()
     $("#footer").load("http://localhost:3000/template/footer.html");
 })
                          
 
-function getData(){
+function getListData(){
+    var data = window.location.href.split('/').reverse();
+    newsType = data[0].replace("#",""); 
     var xmlhttp;
     if (window.XMLHttpRequest)
     {
@@ -44,15 +49,7 @@ function getData(){
         {
             res=xmlhttp.responseText;
             newsData=JSON.parse(res);
-            setNewsList(newsData);
-            newsNum=newsData.length;
-            for(i=newsData.length-1;i>=newsData.length-3;i--){
-                newsHeadId.push(newsData[i]['nid'])
-            }
-            for(nt=0;nt<newsHeadId.length;nt++){
-                getHeadData(nt);
-            }
-            
+            setNewsList(newsData);        
         }
     }
     xmlhttp.open("GET",'/'+["data",String(newsType),String(newsNum)].join('/'),true);
@@ -74,18 +71,19 @@ function setNewsList(newsData){
     for(let n in newsData){
         let title=newsData[n]["title"]
         let nid=newsData[n]["nid"]
+        let time=new Date(newsData[n]["publishtime"]);
+        timestr=[String(time.getFullYear()),String(time.getMonth()),time.getDate()].join('-')
         $p=$("<li class=\"list-group-item\"></li>")
-        $a=$("<a href=\"\">"+title+"</a>")
-        $span=$("<span>2018/2/05</span>")
+        $a=$("<a href=#>"+title+"</a>")
+        $a.attr("onclick","gotoNewsDetail("+nid+")")
+        $span=$("<span>"+timestr+"</span>")
         $p.append($a).append($span)
         $newsUl.append($p)
         $p.slideUp(10).slideDown(500)
     }
 }
 
-function getHeadData(i){
-    
-        
+function getHeadData(){
         var xmlhttp;
         if (window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
         else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
@@ -93,18 +91,20 @@ function getHeadData(i){
         if (xmlhttp.readyState==4 && xmlhttp.status==200)
         {
             res=xmlhttp.responseText;
-            news=JSON.parse(res)[0];
-            headNews.push(news)
-            setNewsHead(news,i)
+            res=JSON.parse(res)
+            for(i=0;i<res.length;i++){
+                setNewsHead(res[i],i)
+                headNews.push(res[i])
+            }
+           
+           // setNewsHead(news,i)
         }
         }
-        xmlhttp.open("GET",'/'+["data","0",String(newsHeadId[i])].join('/'),true);
+        xmlhttp.open("GET",'/'+["title_news",newsType,3].join('/'),true);
         xmlhttp.send();
-   
-    
 }
 function setNewsHead(news,i){
-    //console.log(news)
+    console.log(news)
     //console.log(i)  
     title=news["title"]
     content=news["content"]
@@ -115,11 +115,11 @@ function setNewsHead(news,i){
     imgName=news["url"]!=undefined?news["url"]:"newsDefault.png"
     imgPath="http://localhost:3000/public/image/NEWSimage/"+imgName
     $($swiperImg[i]).attr("src",imgPath)
-    $($swiperYear[i]).html(String(year))
-    $($swiperDayMonth[i]).html(String(month)+"-"+String(date))
+    $($swiperYear[i]).html(year)
+    $($swiperDayMonth[i]).html([month,date].join('-'))
     $($swiperTitle[i]).html(String(title))
     $($swiperNewsSum[i]).html(String(content))
-    $($newsHeadA[i]).attr("href")
+    $($newsHeadA[i]).attr("onclick","gotoNewsDetail("+news['nid']+")")
     //设置轮播
     $('.img-count').each(function (index, element) {
         var imgH = $(this).height();
@@ -167,8 +167,7 @@ function setNewsHead(news,i){
             }
         }
     });
-
-    imgCount();
+    //imgCount();
     $(window).resize(function () {
         imgCount();
     });
@@ -178,14 +177,10 @@ function setNewsHead(news,i){
 function searchNew(){
     $keyWord=$("#keyWord")
     keyWord=$keyWord.val()
-    console.log(keyWord)
-    console.log(newsData)
     searchNews=[];
     for(i in newsData){
         news=newsData[i]
         if(news["title"].search(keyWord)>=0){
-            console.log(news["title"].search(keyWord))
-            console.log(news)
             searchNews.push(news)
         }
     }
@@ -194,4 +189,8 @@ function searchNew(){
 
 function showAllNew(){
     setNewsList(newsData)
+}
+
+function gotoNewsDetail(nid){
+    console.log(nid)
 }
