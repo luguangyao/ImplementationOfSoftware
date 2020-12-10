@@ -25,9 +25,16 @@ $(function (){
         // remove_script_host : false,
         removed_menuitems: 'newdocument',  //清除“文件”菜单
         plugins: "lists,hr, advlist,anchor,autolink,autoresize,charmap,code,codesample,emoticons,fullscreen,image,media,insertdatetime,link,pagebreak,paste,preview,print,searchreplace,table,textcolor,toc,visualchars,wordcount", //依赖lists插件
-        toolbar: 'bullist numlist anchor charmap emoticons fullscreen hr image insertdatetime link media pagebreak paste preview print searchreplace textcolor wordcount',
+        toolbar: 'bullist numlist anchor charmap emoticons fullscreen hr image imagetools insertdatetime link media pagebreak paste preview print searchreplace textcolor wordcount',
         //选中时出现的快捷工具，与插件有依赖关系
-        images_upload_url:'a.php', /*后图片上传接口*/ /*返回值为json类型 {'location':'uploads/jpg'}*/
+        //images_upload_url:'a.php', /*后图片上传接口*/ /*返回值为json类型 {'location':'uploads/jpg'}*/
+        images_upload_url:'http://localhost:3000/public/js/test.js',
+        img_upload_handler: async function(blobInfo,succFun,failFun){
+                let formdata=new FormData
+                formdata.append('file',blobInfo.blob(),blobInfo.name())
+                const {data:res}=await this.$http.post('upload',formdata)
+                succFun(res.url)
+            },
         setup: function(editor){
             editor.on('change',function(){ editor.save(); });
         }
