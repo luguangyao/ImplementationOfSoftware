@@ -58,6 +58,12 @@ body{
 	padding: 0.25rem 0.25rem;
 	border: solid #6c757d 1px;
 }
+.input-group > .form-control{
+	line-height: 1.3rem;
+	font-size: 1rem;
+	padding: 0.25rem 0.25rem;
+	border: solid #6c757d 1px;
+}
 .form-control-lg{
 	line-height: 1rem;
 }
@@ -67,12 +73,7 @@ body{
 }
 .verify-text{
 	display: inline;
-	width: 40%;
-}
-.code_span{
-	display: inline-block;
-	width: 55%;
-	height: auto;
+	width: 100%;
 }
 /***/
 .floor1{

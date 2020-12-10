@@ -7,7 +7,10 @@ $(function(){
 	pwdcode();
 	
 	//将提示信息隐藏	
-	$(".infocontent").hide();
+	//$(".infocontent").hide();
+	$(".infocontent").css("color","#ffffff");
+	$(".infocontent").css("background-color","#ffffff");
+	$(".infocontent").css("border-color","#ffffff");
 	
 	//后台验证
 	$("#tijiao").click(function(){
@@ -22,27 +25,57 @@ $(function(){
 				data:{"username":username,"password":password,"yzm":verify},
 				success : function(data) {
 					if(data=="0"){
-						alert("请输入Username");
-						getVerify(); //重新生成验证码
+						$('#alertModal').modal('show'); //显示modal
+						$("#alertModal").on('shown.bs.modal',function(){  //alert框
+							$("#backinfo").html("请输入Username");
+						}); 
+						$("#alertModal").on('hide.bs.modal',function(){  //alert框
+							getVerify(); //重新生成验证码
+							$("#vf").val("")//文本框清空
+						});
 					} 
 					else if(data=="1"){
-						alert("请输入Password");
-						getVerify(); //重新生成验证码
+						$('#alertModal').modal('show'); //显示modal
+						$("#alertModal").on('shown.bs.modal',function(){  //alert框
+							$("#backinfo").html("请输入Password");
+						}); 
+						$("#alertModal").on('hide.bs.modal',function(){  //alert框
+							getVerify(); //重新生成验证码
+							$("#vf").val("")//文本框清空
+						});
 					}
 					else if(data=="2"){
-						alert("请输入验证码");
-						getVerify(); //重新生成验证码
+						$('#alertModal').modal('show'); //显示modal
+						$("#alertModal").on('shown.bs.modal',function(){  //alert框
+							$("#backinfo").html("请输入验证码");
+						}); 
+						$("#alertModal").on('hide.bs.modal',function(){  //alert框
+							getVerify(); //重新生成验证码
+							$("#vf").val("")//文本框清空
+						});
 					}
 					else if(data=="3"){
-						alert("用户名密码错误")
-						getVerify(); //重新生成验证码
+						$('#alertModal').modal('show'); //显示modal
+						$("#alertModal").on('shown.bs.modal',function(){  //alert框
+							$("#backinfo").html("用户名密码错误");
+						}); 
+						$("#alertModal").on('hide.bs.modal',function(){  //alert框
+							getVerify(); //重新生成验证码
+							$("#vf").val("")//文本框清空
+							$("input[name='password']").val("");
+						});
 					}
 					else if(data=="4"){
-						alert("验证码错误");
-						getVerify(); //重新生成验证码
+						$('#alertModal').modal('show'); //显示modal
+						$("#alertModal").on('shown.bs.modal',function(){  //alert框
+							$("#backinfo").html("验证码错误");
+						}); 
+						$("#alertModal").on('hide.bs.modal',function(){  //alert框
+							getVerify(); //重新生成验证码
+							$("#vf").val("")//文本框清空
+						});
 					}
 					else if(data=="5"){
-						//验证成功后记得把session.captcha清空
 						window.location.href="/";
 					}
 				}
@@ -57,11 +90,15 @@ $(function(){
 	//用户名验证
 	$("input[name='username']").blur(function(){  //用户名验证
 		if($("input[name='username']").val().trim()==""){
-			$(".infocontent").show();
+			$(".infocontent").css("color","#721c24");
+			$(".infocontent").css("background-color","#f8d7da");
+			$(".infocontent").css("border-color","#f5c6cb");
 			$("#info_mation").text("用户名不能为空");
 		} 
 		else{
-			$(".infocontent").hide();
+			$(".infocontent").css("color","#ffffff");
+			$(".infocontent").css("background-color","#ffffff");
+			$(".infocontent").css("border-color","#ffffff");
 			$("#info_mation").text("");
 		}
 	});
@@ -69,22 +106,30 @@ $(function(){
 	//密码验证
 	$("input[name='password']").blur(function(){  
 		if($("input[name='password']").val()==""){
-			$(".infocontent").show();
+			$(".infocontent").css("color","#721c24");
+			$(".infocontent").css("background-color","#f8d7da");
+			$(".infocontent").css("border-color","#f5c6cb");
 			$("#info_mation").text("密码不能为空");
 		} 
 		else{
-			$(".infocontent").hide();
+			$(".infocontent").css("color","#ffffff");
+			$(".infocontent").css("background-color","#ffffff");
+			$(".infocontent").css("border-color","#ffffff");
 			$("#info_mation").text("");
 		}
 	});
 	//验证码验证
 	$("input[name='verify']").blur(function(){  
 		if($("input[name='verify']").val().trim()==""){
-			$(".infocontent").show();
+			$(".infocontent").css("color","#721c24");
+			$(".infocontent").css("background-color","#f8d7da");
+			$(".infocontent").css("border-color","#f5c6cb");
 			$("#info_mation").text("验证码不能为空");
 		} 
 		else{
-			$(".infocontent").hide();
+			$(".infocontent").css("color","#ffffff");
+			$(".infocontent").css("background-color","#ffffff");
+			$(".infocontent").css("border-color","#ffffff");
 			$("#info_mation").text("");
 		}
 	});

@@ -264,8 +264,7 @@ router.get("/captcha", (req, res) =>{
     })
     req.session.captcha = captcha.text.toLowerCase()
 
-    res.type('svg')
-    res.status(200).send(captcha.data)
+    res.send(captcha.data)
 })
 
 router.get("/template/*", (req, res, next)=>{

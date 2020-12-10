@@ -48,9 +48,9 @@
 						<div class="tab-pane password_login">
 							
 							<!--信息体视框-->
-							<div class="alert alert-danger alert-dismissible infocontent p-1">
-							    <span id="info_mation" class="p-0"></span>
-							</div>
+								<div class="alert alert-dismissible infocontent p-0 m-0"><!--alert-danger在js实现 -->
+									<span id="info_mation" class="p-0">通过</span>
+								</div>
 							
 							<h4 class="text-left">用户登录</h4>
 							<div class="input-group-lg">
@@ -61,10 +61,12 @@
 								<span><b>password</b></span>
 								<input type="password" class="form-control" placeholder="password" name="password" />
 							</div>
-							<div class="input-group-lg">
+							<div class="input-group-lg w-100">
 								<span class="vspan"><b>verify</b></span>
-								<input type="text" class="form-control verify-text p-0 m-0" placeholder="verify" name="verify" />
-								<span id="code" class="code_span m-0 p-0"></span>
+								<div class="input-group m-0 p-0 w-100">
+									<input type="text" class="form-control verify-text p-0 m-0" placeholder="verify" name="verify" id="vf" />
+									<span id="code" class="code_span m-0 p-0"></span>
+								</div>
 							</div>
 							<br />
 							<div class="btn_div">
@@ -98,5 +100,24 @@
 				</div> 
 			</div>
 		</div>
+
+
+		<!-- alert框（Modal） -->
+			<div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			        <div class="modal-content">
+			            <div class="modal-header">
+							 <h3><span id="backinfo"></span></h3>
+			               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times</button>
+			            </div>
+			          <!-- <div class="modal-body">
+						   <h2><span id="backinfo"></span></h2>
+						</div> -->
+			            <div class="modal-footer">
+			                <input type="button" class="btn btn-primary cancelbtn" data-dismiss="modal" value="确定">
+						</div><!--modal-content -->
+					</div>
+			    </div><!-- modal-dialog -->
+			</div>
 	</body>
 </html>
