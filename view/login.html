@@ -10,15 +10,20 @@
 	<script src="/public/js/bootstrap.min.js"></script>
 	
 	<link rel="stylesheet" href="/public/css/login.css" />
-	<script src="/public/js/login_script.js"></script>
-<!-- 	
-	<link rel="stylesheet" href="../public/css/bootstrap.css" />
-	<script src="../public/js/jquery.min.js"></script>
-	<script src="../public/js/bootstrap.min.js"></script>
+	<script src="/public/js/login.js"></script>
+	<!--	
+		//
+		//前端将输入值分别传到username,password,yzm上
+		//后台可从这3个名称获取
+		//后台返回代码0 1 2 3 4 5对应：
+		//0 :username为空
+		//1：password为空
+		//2：yzm为空
+		//3：username password不匹配
+		//4:yzm错误
+		//5：正确，后台清空session.captcha,跳转到/	
+		!-->
 	
-	<link rel="stylesheet" href="../public/css/login.css" />
-	<script src="../public/js/login_script.js"></script> -->
-				
 	<body>
 		<div class="container"> 
 			<div class="row justify-content-center">
@@ -43,30 +48,30 @@
 						<div class="tab-pane password_login">
 							
 							<!--信息体视框-->
-							<div class="alert alert-danger alert-dismissible infocontent p-1">
-							    <span id="info_mation" class="p-0"></span>
-							</div>
+								<div class="alert alert-dismissible infocontent p-0 m-0"><!--alert-danger在js实现 -->
+									<span id="info_mation" class="p-0">通过</span>
+								</div>
 							
 							<h4 class="text-left">用户登录</h4>
-							<form class="bs-example bs-example-form" action="/loginCheck" method="post">
 							<div class="input-group-lg">
 								<span><b>username</b></span>
-								<input type="text" class="form-control" placeholder="username" name="username" />
+								<input type="text" class="form-control" placeholder="username" name="username" autofocus="autofocus" />
 							</div>
 							<div class="input-group-lg">
 								<span><b>password</b></span>
 								<input type="password" class="form-control" placeholder="password" name="password" />
 							</div>
-							<div class="input-group-lg">
-								<span><b>verify</b></span>
-								<input type="text" class="form-control verify-text" placeholder="verify" name="verify" />
-								<!-- <a href="javascript:;" id = "yzm" style="position: absolute;    margin-left: 1% ;" ></a> -->
+							<div class="input-group-lg w-100">
+								<span class="vspan"><b>verify</b></span>
+								<div class="input-group m-0 p-0 w-100">
+									<input type="text" class="form-control verify-text p-0 m-0" placeholder="verify" name="verify" id="vf" />
+									<span id="code" class="code_span m-0 p-0"></span>
+								</div>
 							</div>
 							<br />
 							<div class="btn_div">
-								<button class="btn btn-primary form-control">提交</button>
+								<button class="btn btn-primary form-control" id="tijiao" >提交</button>
 							</div>
-							</form>
 						</div>
 						<div class="tab-pane test code_login">
 						<!-- 	<img src="../public/image/login/qrcode.png" alt="" class="scan_code" /> -->
@@ -90,10 +95,29 @@
 							</li>
 						</ul>
 						<p class="my_small"><a href="#">忘记密码?</a></p>
-						<p class="my_small">华南师范大学 © 2020 | 关于 邮箱服务 移动校园</p>
+						<p class="my_small">华南师范大学 © 2020 | 关于 <a href="#">邮箱服务</a> <a href="#">移动校园</a></p>
 					</div>
 				</div> 
 			</div>
 		</div>
+
+
+		<!-- alert框（Modal） -->
+			<div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			        <div class="modal-content">
+			            <div class="modal-header">
+							 <h3><span id="backinfo"></span></h3>
+			               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times</button>
+			            </div>
+			          <!-- <div class="modal-body">
+						   <h2><span id="backinfo"></span></h2>
+						</div> -->
+			            <div class="modal-footer">
+			                <input type="button" class="btn btn-primary cancelbtn" data-dismiss="modal" value="确定">
+						</div><!--modal-content -->
+					</div>
+			    </div><!-- modal-dialog -->
+			</div>
 	</body>
 </html>
