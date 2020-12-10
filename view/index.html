@@ -9,10 +9,10 @@
     <script>
         $(function (){
             $("#navigator").load("http://localhost:3000/template/navigator.html");
-            $("#rotationChart").load("http://localhost:3000/template/rotationChart.html");
             $("#footer").load("http://localhost:3000/template/footer.html");
+            // var w=window.screen.width;//先获取屏幕分辨率大小
+            $("#rotationChart").load("http://localhost:3000/template/rotationChart.html");
         })
-
     </script>
     <style>
         body{
@@ -89,6 +89,17 @@
         .infoImg{
             height: 100px;
             width: 100%;
+        }
+        .custom-res{
+            margin-left: 20px;
+        }
+        @media screen and (max-width: 1200px){
+            .infoInDiv{
+                border-radius: 0px;
+            }
+            .custom-res{
+                margin-left: 0px;
+            }
         }
     </style>
 
@@ -201,7 +212,7 @@
                     </div>
                 </div>
                 <hr class="splitLine">
-            <div class="col-xl-7 col-lg-7 col-md-12 " style="margin-left: 20px" >
+            <div class="col-xl-7 col-lg-7 col-md-12 custom-res" style="" >
                 <div class="row">
                     <div class="col-12 infoInDiv">
                         <div class="infoHead">

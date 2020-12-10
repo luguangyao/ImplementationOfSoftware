@@ -4,7 +4,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="http://localhost:3000/public/css/rotationChart.css">
 	<script src="http://localhost:3000/public/js/jquery.min.js"></script>
-	<title>jQuery鼠标驱动背景图片动画特效</title>
+	<title>轮播</title>
 
 
 
@@ -19,9 +19,6 @@
 	      </div>
 	    </div>
 	  </a>
-<!--	  <div class="fullBg">-->
-<!--	    <img src="http://localhost:3000/public/image/1.png" alt=""/>-->
-<!--	  </div>-->
 	  <a href="#" class="hb">
 	    <div class="c">
 	      <img src="http://localhost:3000/public/image/lb1.png" alt=""/>
@@ -31,9 +28,6 @@
 	      </div>
 	    </div>
 	  </a>
-<!--	  <div class="fullBg">-->
-<!--	    <img src="http://localhost:3000/public/image/2.png" alt=""/>-->
-<!--	  </div>-->
 	  <a href="#" class="hb">
 	    <div class="c">
 	      <img src="http://localhost:3000/public/image/lb3.png" alt=""/>
@@ -43,9 +37,6 @@
 	      </div>
 	    </div>
 	  </a>
-<!--	  <div class="fullBg">-->
-<!--	    <img src="http://localhost:3000/public/image/3.png" alt=""/>-->
-<!--	  </div>-->
 	  <a href="#" class="hb">
 	    <div class="c">
 	      <img src="http://localhost:3000/public/image/lb4.jpg" alt=""/>
@@ -55,9 +46,6 @@
 	      </div>
 	    </div>
 	  </a>
-<!--	  <div class="fullBg">-->
-<!--	    <img src="http://localhost:3000/public/image/4.png" alt=""/>-->
-<!--	  </div>-->
 	</div>
 	
 	<script type="text/javascript">
@@ -66,13 +54,6 @@
 		      $wrap = $('#wrap'),
 		      $images = $('#wrap .hb'),
 		      slidesWidth = $wrap.width();
-			// 	let offset = 600;
-			//
-			// $images.css({
-			// 	'-webkit-transform': 'translate3d(' + -offset + 'px,0,0)',
-			// 	'transform': 'translate3d(' + -offset + 'px,0,0)'
-			// });
-		  
 		  $(window).on('resize', function(){
 		    docWidth = $('body').width();
 		    slidesWidth = $wrap.width();
