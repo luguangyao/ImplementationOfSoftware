@@ -193,4 +193,6 @@ function showAllNew(){
 
 function gotoNewsDetail(nid){
     console.log(nid)
+    //window.location.replace="http://localhost:3000/new/1"
+    window.location.replace("http://localhost:3000/new/"+nid);
 }
