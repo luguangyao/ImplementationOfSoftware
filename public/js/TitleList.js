@@ -52,7 +52,7 @@ function setNewsList(newsData){
         // console.log(url)
         // timestr=[String(time.getFullYear()),String(time.getMonth()),time.getDate()].join('-')
         // $p=$("<li class=\"list-group-item\"></li>")
-        $a=$("<a href=# class=\"hb\"></a>")
+        $a=$("<a href='http://localhost:3000/new/"+nid+"' class=\"hb\"></a>")
         $d=$("<div class=\"c\"></div>")
         $img=$("<img src='http://localhost:3000/public/image/NEWSimage/"+url+"' alt=''></img>")
         $d2=$("<div class=\"txt\"></div>")
