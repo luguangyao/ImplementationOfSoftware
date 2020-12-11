@@ -12,274 +12,97 @@
 	
 	<link rel="stylesheet" href="/public/css/detail.css" />
 	
-	<script>
-		$(function (){
-		    $("#navigator").load("/template/navigator.html");
-		    $("#footer").load("http://localhost:3000/template/footer.html");
-		})
-		$(function(){
-
-				//alert(id)
-				var nid=getid();
-				checkid(nid);
-				getnews(nid);  //获取当前新闻		
-				//getcommment();   //推荐新闻
-				
-				
-				$("#pre").bind('click',function(){
-					prenews(nid);
-				});
-				
-				$("#next").bind('click',function(){
-					nextnews(nid);
-				});
-				
-			});	
-			
-				function getid(){   //获取当前新闻id
-					var url=new Array();
-					var url=window.location.href.split("/");
-					var id=url[url.length-1];
-					return id;
-				}
-				
-				function getnews(id){    //获取当前的新闻
-					$.ajax({
-						url:"/data/0/"+id,
-						dataType : 'json',
-						type : 'GET',
-						success : function(data) {
-							//console.log(data);
-							var time=Date(parseInt(data[0].publishtime) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
-							$("#content").html(data[0].content);
-							$("#title").html(data[0].title);
-							$("#visit").html(data[0].visit);
-							$("#publishtime").html(time);
-						}
-					});
-				}
-				
-				function findnews(id){    //获取指定id的新闻  
-				    var flag=-2;
-					$.ajax({
-						url:"/data/0/"+id,
-						dataType : 'json',
-						type : 'GET',
-						async:false,
-						success : function(data) {
-							if(parseInt(data.nid)===-1){
-								flag=-1;
-							}
-							else{
-								flag=1;
-							}
-						}
-					});
-					return flag;
-				}
-				
-				// function getcommment(){  //推荐新闻
-				// 	var number=4;  //先找六条数据
-				// 	$.ajax({
-				// 		url:"/data/-1/"+number,
-				// 		dataType : 'json',
-				// 		type : 'GET',
-				// 		success : function(data) {
-				// 			//console.log(data);
-				// 			$("#thenews").html("");  //将ul赋值空
-							
-				// 			var dataOptions="";
-				// 			for(var i=0;i<data.length;i++){
-				// 				var time=Date(parseInt(data[0].publishtime) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
-				// 				dataOptions+='<a href="/data/0/"'+data[i].nid+'">'+data[0].title+" <span class="badge">新</span></a>";
-				// 				console.log(dataOptions);
-				// 			}
-							
-				// 			$("#thenews").html(dataOptions); 
-				// 		}
-				// 	})
-					
-				// }
-				
-				function prenews(id){
-					
-					 var find=-1;  //找到标志 -1没找到
-					 for(;find==-1;){
-						 id--;
-						 find=findnews(id);
-						// alert(id+"  "+find)
-					 }
-					 window.location.href="/new/"+id;
-				}
-				
-				function nextnews(id){
-					
-					 var find=-1;    //找到标志 -1没找到
-					 for(;find==-1;){
-						id++;
-						find=findnews(id);
-					 }
-					window.location.href="/new/"+id;
-				}
-				
-				function checkid(id){
-					if(id==getminid()){
-						$("#ll").css("cursor","not-allowed");
-						$("#ll").css("color","#777");
-					}
-					else if(id==getmaxid()){
-						$("#rr").css("cursor","not-allowed");
-						$("#rr").css("color","#777");
-					}
-					else{
-						$("#ll").css("cursor","allowed");
-						$("#ll").css("color","#000000");
-						$("#rr").css("cursor","allowed");
-						$("#rr").css("color","#000000");
-					}
-					
-				}
-				
-				function getmaxid(){  //获取max id新闻条目
-				//   var maxid=1;
-					// $.ajax({
-					// 	url:"/data/-2/-2",
-					// 	dataType : 'json',
-					// 	type : 'GET',
-					//async:false,
-					// 	success : function(data) {
-					// 		maxid=data.max; 
-					// 	}
-					// })
-				 //return maxid;
-					return 27;
-				}
-				
-				function getminid(){  //获取min id新闻条目
-				//   var minid=1;
-					// $.ajax({
-					// 	url:"/data/-2/-2",
-					// 	dataType : 'json',
-					// 	type : 'GET',
-					//async:false,
-					// 	success : function(data) {
-					// 		minid=data.min; 
-					// 	}
-					// })
-				//return minid;
-					return 1;
-				}
-				
+	<script src="/public/js/detail.js"></script>
 		
-			
-		</script>
-		
-		<style>
-			
-			
-		</style>
 	
 	<body>
 		
-		<div id="navigator" class="mb-1 pb-1"></div>
-		
-		
-		<div class="container">
+		<div class="header m-0 p-0"></div>
+		<div class="all">
+				<div class="container">
 			
 			
 			
-			<div class="row the_whole text-center">
-				
-				<div class="detail_left mt-0 pt-0">
-					<div class="left col-lg-3 p-0 pr-2 text-center">
-						<div class="extend">
-							<div class="pinned m-0 p-0">
-								<div class="extend-title">
-									<p>最新消息</p>
-								</div>
-								<div class="extend-con" id="thenews">
-									<a href="#" class="list-group-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis expedita.<span class="badge">新</span></a>
-									<a href="#" class="list-group-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis expedita.<span class="badge">新</span></a>
-									<a href="#" class="list-group-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis expedita.<span class="badge">新</span></a>
-									<a href="#" class="list-group-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis expedita.<span class="badge">新</span></a>
+					<div class="row the_whole text-center">
+						
+						<div class="detail_left mt-0 pt-0">
+							<div class="left col-lg-3 p-0 pr-2 text-center">
+								<div class="extend">
+									<div class="pinned m-0 p-0">
+										<div class="extend-title">
+											<p>最新消息</p>
+										</div>
+										<div class="extend-con" id="thenews">
+											<a href="#" class="list-group-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis expedita.<span class="badge">新</span></a>
+											<a href="#" class="list-group-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis expedita.<span class="badge">新</span></a>
+											<a href="#" class="list-group-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis expedita.<span class="badge">新</span></a>
+											<a href="#" class="list-group-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis expedita.<span class="badge">新</span></a>
+										</div>
+									</div>
 								</div>
 							</div>
+						</div>
+						
+						<div class="detail_right">
+							<div class="title mr-0 ">
+								<h5 class="text-center ml-5 mr-0">
+									<span id="title"></span>
+								</h5>
+								<p class="my_small ml-5 text-center">
+									<a href="#">华南师范大学软件学院</a>/<a href="#">通知公告</a>
+									<span id="publishtime"></span>
+									来源：华南师范大学 点击：<span id="visit"></span>
+									<a href="#">收藏本文</a>
+								</p>
+								<div class="ml-5"><hr /></div>
+								
+								<!-- 正文 -->
+								<div class="main offset-6 p-0 ml-5 pl-5 mr-0 text-left">
+									<span id="content"></span>
+								</div>
+								
+												
+								<div class="ended ml-5">
+									<p />
+									<ul class="list-unstyled ml-5"> <!--去掉小圆点的-->
+										<li class="text-left">
+											<!-- <a href="" class="text-muted my_small"><img src="../public/image/detail/share.png" alt="" class="img_logo" /></a>
+											<a href="" class="text-muted my_small"><img src="../public/image/detail/weibo.png" alt="" class="img_logo" /></a>
+											<a href="" class="text-muted my_small"><img src="../public/image/detail/qq.png" alt="" class="img_logo" /></a>
+											<a href="" class="text-muted my_small"><img src="../public/image/detail/wechat.png" alt="" class="img_logo" /></a>
+											<a href="" class="text-muted my_small"><img src="../public/image/detail/tcweibo.png" alt="" class="img_logo" /></a>
+											<a href="" class="text-muted my_small"><img src="../public/image/detail/qqzone.png" alt="" class="img_logo" /></a>
+											<a href="" class="text-muted my_small"><img src="../public/image/detail/renren.png" alt="" class="img_logo" /></a> -->
+											
+											<a href="" class="text-muted my_small"><img src="/public/image/detail/share.png" alt="" class="img_logo" /></a>
+											<a href="" class="text-muted my_small"><img src="/public/image/detail/weibo.png" alt="" class="img_logo" /></a>
+											<a href="" class="text-muted my_small"><img src="/public/image/detail/qq.png" alt="" class="img_logo" /></a>
+											<a href="" class="text-muted my_small"><img src="/public/image/detail/wechat.png" alt="" class="img_logo" /></a>
+											<a href="" class="text-muted my_small"><img src="/public/image/detail/tcweibo.png" alt="" class="img_logo" /></a>
+											<a href="" class="text-muted my_small"><img src="/public/image/detail/qqzone.png" alt="" class="img_logo" /></a>
+											<a href="" class="text-muted my_small"><img src="/public/image/detail/renren.png" alt="" class="img_logo" /></a> 
+										</li>
+									</ul>
+									
+									<div class="ml-5"><hr /></div>
+										<!-- <button id="pre" class="btn btn-outline-secondary"><</button>
+										<button id="next" class="btn btn-outline-secondary">></button> -->
+										<div class="page ml-5 mr-5">
+											<ul class="pager">  <!--disable属性在js理实现-->
+												<li class="previous" id="ll"><span id="pre">&larr; Older</span></li>
+												<li class="next" id="rr"><span id="next">Newer &rarr;</span></li>
+											</ul>
+										</div>
+									</div>
+									
+									<p>&nbsp;</p>
+									<p>&nbsp;</p>
+								
+							</div>	
 						</div>
 					</div>
 				</div>
-				
-				<div class="detail_right">
-					
-					<div class="title mr-0 ">
-						<h5 class="text-center ml-5 mr-0">
-							<span id="title"></span>
-						</h5>
-						<p class="my_small ml-5 text-center">
-							<a href="#">华南师范大学软件学院</a>/<a href="#">通知公告</a>
-							<span id="publishtime"></span>
-							来源：华南师范大学 点击：<span id="visit"></span>
-							<a href="#">收藏本文</a>
-						</p>
-						<div class="ml-5"><hr /></div>
-						
-						<!-- 正文 -->
-						<div class="main offset-6 p-0 ml-5 pl-5 mr-0 text-left">
-							<span id="content"></span>
-						</div>
-						
-										
-						<div class="ended ml-5">
-							<p />
-							<ul class="list-unstyled ml-5"> <!--去掉小圆点的-->
-								<li class="text-left">
-									<!-- <a href="" class="text-muted my_small"><img src="../public/image/detail/share.png" alt="" class="img_logo" /></a>
-									<a href="" class="text-muted my_small"><img src="../public/image/detail/weibo.png" alt="" class="img_logo" /></a>
-									<a href="" class="text-muted my_small"><img src="../public/image/detail/qq.png" alt="" class="img_logo" /></a>
-									<a href="" class="text-muted my_small"><img src="../public/image/detail/wechat.png" alt="" class="img_logo" /></a>
-									<a href="" class="text-muted my_small"><img src="../public/image/detail/tcweibo.png" alt="" class="img_logo" /></a>
-									<a href="" class="text-muted my_small"><img src="../public/image/detail/qqzone.png" alt="" class="img_logo" /></a>
-									<a href="" class="text-muted my_small"><img src="../public/image/detail/renren.png" alt="" class="img_logo" /></a> -->
-									
-									<a href="" class="text-muted my_small"><img src="/public/image/detail/share.png" alt="" class="img_logo" /></a>
-									<a href="" class="text-muted my_small"><img src="/public/image/detail/weibo.png" alt="" class="img_logo" /></a>
-									<a href="" class="text-muted my_small"><img src="/public/image/detail/qq.png" alt="" class="img_logo" /></a>
-									<a href="" class="text-muted my_small"><img src="/public/image/detail/wechat.png" alt="" class="img_logo" /></a>
-									<a href="" class="text-muted my_small"><img src="/public/image/detail/tcweibo.png" alt="" class="img_logo" /></a>
-									<a href="" class="text-muted my_small"><img src="/public/image/detail/qqzone.png" alt="" class="img_logo" /></a>
-									<a href="" class="text-muted my_small"><img src="/public/image/detail/renren.png" alt="" class="img_logo" /></a> 
-								</li>
-							</ul>
-							
-							<div class="ml-5"><hr /></div>
-								<!-- <button id="pre" class="btn btn-outline-secondary"><</button>
-								<button id="next" class="btn btn-outline-secondary">></button> -->
-								<div class="page ml-5 mr-5">
-									<ul class="pager">  <!--disable属性在js理实现-->
-										<li class="previous" id="ll"><span id="pre">&larr; Older</span></li>
-										<li class="next" id="rr"><span id="next">Newer &rarr;</span></li>
-									</ul>
-									<div class="ml-5"><hr /></div>
-								</div>
-							</div>
-							
-							<p>&nbsp;</p>
-							<p>&nbsp;</p>
-						
-					</div>	
-				</div>
-				
-				
-				<div class="right p-0 float-right">
-					
-					
-					
-					
-					
-					
-			</div>
 		</div>
-		
-		
-		<div id="footer"></div>
+		<div class="htmltail"></div>
 	</body>
 </html>

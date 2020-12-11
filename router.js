@@ -121,7 +121,14 @@ router.post("/upload_img", (req, res) =>{
 
             if (!err){
 
-                fs.rename(files.img.path, path.join(__dirname, "/public/image/NEWSimage", files.img.name),(err) =>{
+                let li = files.img.name.split(".")
+                let name = ""
+                if (li.length > 1){
+                    name = Ser.timeStap()+"." +li[1]
+                }else{
+                    name = Ser.timeStap() + ".jpg"
+                }
+                fs.rename(files.img.path, path.join(__dirname, "/public/image/NEWSimage", name),(err) =>{
 
                     if (err) {
                         console.log(err)
@@ -129,7 +136,7 @@ router.post("/upload_img", (req, res) =>{
                     else{
                         res.status(200).json({
                             "status":200,
-                            "img": files.img.name
+                            "img": name
                         })
                     }
                 })
@@ -143,35 +150,46 @@ router.post("/upload_img", (req, res) =>{
     })
 })
 
+/**
+ * 上传新闻数据
+ * 需要的数据：
+ * {
+ *  nid -1时创建新新闻，否则更新新闻
+ *  context 内容
+ *  title 标题
+ *  type 所属板块
+ *  url 为空不能作为头条
+ * }
+ */
 router.post("/EditNew", (req, res) =>{
     let nid = req.body.nid
     nid = Number.parseInt(nid)
     let context = req.body.context
-    let title = req.body.title
+    let title = req.body.title.toString()
     let type = req.body.type
     type = Number.parseInt(type)
     let url = req.body.url
     if (nid === -1){
         // 创建新新闻
         Ser.Create(title, context, type, url, (err, state) =>{
-            if (err) res.end(false)
+            if (err) res.end("false")
             else{
                 if (state === 1){
-                    res.end(true)
+                    res.end("true")
                 }else{
-                    res.end(false)
+                    res.end("false")
                 }
             }
         })
     }else{
         // 更新新闻
         Ser.Update(nid, title, context, type, url, (err, state) =>{
-            if (err) res.end(false)
+            if (err) res.end("false")
             else{
                 if (state === 1){
-                    res.end(true)
+                    res.end("true")
                 }else{
-                    res.end(false)
+                    res.end("false")
                 }
             }
         })
@@ -205,7 +223,15 @@ router.get("/data/:type/:num", (req, res, next)=>{
         })
     }else if (type < 0){
         // 特殊功能部分
-        if (type === -2){
+        if (type === -1){
+            // 指定数量的无关类型的数据
+            Ser.SearchData(0, num, (err, data) =>{
+                if (err) res.json({nid:-1})
+                else{
+                    res.json(data)
+                }
+            })
+        }else if (type === -2){
 
             if (num === -2){
 
