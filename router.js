@@ -147,6 +147,7 @@ router.post("/EditNew", (req, res) =>{
     let nid = req.body.nid
     nid = Number.parseInt(nid)
     let context = req.body.context
+    let title = req.body.title
     let type = req.body.type
     type = Number.parseInt(type)
     let url = req.body.url

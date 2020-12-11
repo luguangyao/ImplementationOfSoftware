@@ -52,6 +52,7 @@ function getListData(){
             setNewsList(newsData);        
         }
     }
+    ///data/1/5
     xmlhttp.open("GET",'/'+["data",String(newsType),String(newsNum)].join('/'),true);
     xmlhttp.send();
 }
