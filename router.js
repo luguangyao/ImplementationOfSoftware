@@ -69,7 +69,7 @@ router.post("/loginCheck", (req, res, next)=>{
             e = e.toString().replace("#errmessage#", "登录错误" + uname + " : " + upass)
             res.end("3")
         }else{
-            req.session.uname = data.name
+            req.session.uname = data.username
             req.session.power = 1
             // res.redirect("/")
             res.end(data.name)
@@ -147,6 +147,7 @@ router.post("/EditNew", (req, res) =>{
     let nid = req.body.nid
     nid = Number.parseInt(nid)
     let context = req.body.context
+    let title = req.body.title
     let type = req.body.type
     type = Number.parseInt(type)
     let url = req.body.url

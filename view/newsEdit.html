@@ -53,6 +53,12 @@
             <div class="form-group " >
                     <label for="newsTitle">新闻标题</label>
                     <input id="newsTitle" type="text" class="form-control searchInput"  placeholder="请输入新闻标题">
+                    <label for="newsTitle" class="m-auto">是否为头条</label>
+                    <input id="isHeadNewsCheckbox" type="checkbox" class="searchInput" onchange="addHeadImg()" >
+                    <input type="file" id="imgFile" accept="image/gif, image/jpeg, image/png, image/jpg" class="m-auto" onchange="uploadHeadImg()" style="display: none">
+                    <div class="headImgDiv" id="headImgDiv" style="display: none;">
+                        <img id="headImg" src="http://localhost:3000/public/image/uploadImg.png" alt="" class="img img-thumbnail" width="120px" height="100px">
+                    </div>
             </div>
         </div>
 
@@ -64,20 +70,15 @@
         <hr>
         <div class="pr-5 pl-5 submitBar">
             <form action="" >
-                <label for="type1">选择类型</label>
-                <select id="type1">
-                    <option value="1">12</option>
-                    <option value="2">12</option>
-                </select>
-                <select id="type2">
-                    <option value="1">12</option>
-                    <option value="2">12</option>
+                <label for="newsType">新闻类型</label>
+                <select  id="newsType">
+                    <option value="1" >暂无类型</option>
                 </select>
                 <div class="btn-group">
                 <button type="button" class="btn btn-danger" onclick="setcontent()">清除内容</button>
                 <button type="button" class="btn btn-primary" onclick="getcontent()">读取数据</button>
                 <button type="button" class="btn btn-primary" onclick="getbody()">获取纯文本</button>
-                <input type="submit" class="btn btn-success" content="提交">
+                <input type="button" class="btn btn-success" onclick="uploadNews()"  value="提交">
                 </div>
             </form>
         </div>

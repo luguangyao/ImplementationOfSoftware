@@ -1,3 +1,4 @@
+const { create } = require("svg-captcha")
 const DAO = require("./dao")
 /**
  * 测试登录，返回用户数据
@@ -59,7 +60,8 @@ var SearchNews = (id, callback) =>{
  * 当前时间的时间戳
  */
 var nowATime = () =>{
-    return (new Date()).valueOf()
+    let d = new Date()
+    return d.getFullYear()+"-"+d.getMonth()+"-"+d.getDate()
 }
 
 /**
@@ -68,12 +70,12 @@ var nowATime = () =>{
  * @param {*} content 新闻内容
  * @param {*} type 新闻归属板块
  * @param {*} url 可以上头条时的图片， 同时标记是否应该上头条
- * @param {Function} callback 有err, state 参数 发生错误err为错误信息，否则为null state为1时成功，为1时失败
+ * @param {Function} callback 有err, state 参数 发生错误err为错误信息，否则为null state为1时成功，为0时失败
  */
 var Create = (title, content, type, url, callback) =>{
     let now = nowATime()
     type = Number.parseInt(type)
-    DAO.AddNews(title, content, type, 0, now, 1, url?url:"", (err, state) =>{
+    DAO.AddNews(title, content, type, 0, now, 123, url?url:"", (err, state) =>{
         //
         if (err) callback(err)
         else{
@@ -81,6 +83,7 @@ var Create = (title, content, type, url, callback) =>{
         }
     })
 }
+
 
 /**
  * 更新新闻数据。

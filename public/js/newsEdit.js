@@ -2,7 +2,18 @@
 newsId=undefined;
 newsTitle=undefined;
 newsContent=undefined;
-
+finalHeadImg="";
+isUploadImage=false;
+nid=-1;
+newsTypeMapper={
+    "学院动态":1,
+    "通知公告":2,
+    "党建工作":3,
+    "本科生培养":4,
+    "研究生教育":5,
+    "科学研究":6
+}
+newsType=undefined;
 $(function (){
     $("#navigator").load("http://localhost:3000/template/navigator.html");
     $("#footer").load("http://localhost:3000/template/footer.html");
@@ -42,7 +53,6 @@ $(function (){
                     processData: false,
                     contentType: false,
                     success: function(data) {
-                        console.log("上传成功")
 						console.log(data);
 						//backData = JSON.parse(data);
 //                        success(data.location);
@@ -62,8 +72,8 @@ $(function (){
     });
     // 获取最后参数
     getData();
-    
-    
+    setNewsypeOption();
+    nid=window.location.href.split('/').reverse()[0]=='0'?nid:window.location.href.split('/').reverse()[0];
     
     
     
@@ -141,6 +151,102 @@ function getData(){
 
 function setData(){
     $("#newsTitle").val(newsTitle);
-    console.log(newsTitle)
     $('#tinymce').html(newsContent);
+}
+
+function uploadHeadImg(){
+    headImg=$("#imgFile")[0].files[0]
+    var form = new FormData();
+    form.append('img', headImg);
+    $.ajax({
+        url: "http://localhost:3000/upload_img",
+        type: "post",
+        data: form,
+        processData: false,
+        contentType: false,
+        success: function(data) {
+			var imgUrl = "/public/image/NEWSimage/"+data.img
+            $("#headImg").attr("src",imgUrl)
+            finalHeadImg=data.img;
+        },
+        error: function(e) {
+            alert("图片上传失败");
+        }
+    });
+}
+
+function addHeadImg(){
+    $isHeadNewsCheckbox=$("#isHeadNewsCheckbox")
+    $imgFile=$("#imgFile")
+    $headImgDiv=$("#headImgDiv")
+    if($isHeadNewsCheckbox.prop("checked")){
+        $imgFile.show(500)
+        $headImgDiv.show(500)
+    }
+    else{
+        $imgFile.hide(500)
+        $headImgDiv.hide(500)
+    }
+}
+
+function setNewsypeOption(){
+    $newsType=$("#newsType")
+    $newsType.empty()
+    for(i in newsTypeMapper){
+        $newsType.append($("<option>"+i+"</option>"))   
+    }
+}
+
+function uploadNews(){
+    newsTitle=$("#newsTitle").val();
+    isUploadImage=$("#isHeadNewsCheckbox").prop("checked")
+    newsType=newsTypeMapper[$("#newsType").val()]
+    newsContent=tinyMCE.activeEditor.getContent()
+    if(isUploadImage==true&&finalHeadImg==undefined){
+        alert("您还没有上传头条新闻的照片！")
+        return
+    }
+    if(newsTitle.trim()==""||newsContent.trim()==""){
+        alert("新闻内容和新闻标题不能为空!")
+        return
+    }
+    console.log(finalHeadImg)
+    form=new FormData()
+    form.append("nid",nid);
+    form.append("title",newsTitle)
+    form.append("context",newsContent)
+    form.append("type",newsType)
+    form.append('url',finalHeadImg)
+    console.log(form)
+    for (var key of form.keys()) {
+        console.log(key+" "+form.get(key)); 
+     }
+    
+    $.ajax({
+        url: "/EditNew",
+        type: "post",
+        data: form,
+        processData: false,
+        success: function(data) {
+            console.log("上传成功")
+            console.log(data)
+        },
+        error: function(e) {
+            alert("新闻上传失败")
+        }
+    });
+    
+   /*
+   var xmlhttp;
+    if (window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
+    else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
+    xmlhttp.onreadystatechange=function(){  
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+        console.log('success');
+        }
+    }
+    xmlhttp.open("post","/EditNew",true);
+    xmlhttp.send(form);
+    */
 }
