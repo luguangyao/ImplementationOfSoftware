@@ -121,7 +121,14 @@ router.post("/upload_img", (req, res) =>{
 
             if (!err){
 
-                fs.rename(files.img.path, path.join(__dirname, "/public/image/NEWSimage", files.img.name),(err) =>{
+                let li = files.img.name.split(".")
+                let name = ""
+                if (li.length > 1){
+                    name = Ser.timeStap()+"." +li[1]
+                }else{
+                    name = Ser.timeStap() + ".jpg"
+                }
+                fs.rename(files.img.path, path.join(__dirname, "/public/image/NEWSimage", name),(err) =>{
 
                     if (err) {
                         console.log(err)
@@ -129,7 +136,7 @@ router.post("/upload_img", (req, res) =>{
                     else{
                         res.status(200).json({
                             "status":200,
-                            "img": files.img.name
+                            "img": name
                         })
                     }
                 })

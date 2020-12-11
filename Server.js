@@ -1,5 +1,7 @@
-const { create } = require("svg-captcha")
+const { create, randomText } = require("svg-captcha")
 const DAO = require("./dao")
+// 随机初始字符串,各字符出现一次等价
+const str = "qwrt8e4izxvsa072b5cyu9onmplkjhg1fd36"
 /**
  * 测试登录，返回用户数据
  * @param {*} uid 用户id
@@ -72,9 +74,15 @@ var SearchNews = (id, callback) =>{
  */
 var nowATime = () =>{
     let d = new Date()
-    return d.getFullYear()+"-"+d.getMonth()+"-"+d.getDate()
+    return d.getFullYear()+"-"+(d.getMonth() + 1)+"-"+d.getDate()
 }
 
+/**
+ * 返回一个尽量防碰撞的时间戳
+ */
+var timeStap = () =>{
+    return nowATime() + "_" +randomText(10)
+}
 /**
  * 创建一条新闻， 默认作者为1号角色
  * @param {*} title 新闻标题
@@ -165,6 +173,7 @@ var maxAndMin = (callback) =>{
     })
 }
 
+exports.timeStap = timeStap
 exports.UserLogin = UserLogin
 exports.SearchData = SearchData
 exports.SearchNews = SearchNews
