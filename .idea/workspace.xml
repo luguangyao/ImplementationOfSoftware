@@ -20,12 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da3803fb-c0b7-4795-96ad-26a1d9b56322" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/js/TitleList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/dao.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/rotationChart.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/rotationChart.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/template/rotationChart.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/template/rotationChart.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
