@@ -30,6 +30,7 @@ $(function(){
 							$("#backinfo").html("请输入UserId");
 						}); 
 						$("#alertModal").on('hide.bs.modal',function(){  //alert框
+							$("#backinfo").html(""); //modal赋空
 							getVerify(); //重新生成验证码
 							$("#vf").val("")//文本框清空
 						});
@@ -40,6 +41,7 @@ $(function(){
 							$("#backinfo").html("请输入Password");
 						}); 
 						$("#alertModal").on('hide.bs.modal',function(){  //alert框
+							$("#backinfo").html(""); //modal赋空
 							getVerify(); //重新生成验证码
 							$("#vf").val("")//文本框清空
 						});
@@ -50,6 +52,7 @@ $(function(){
 							$("#backinfo").html("请输入验证码");
 						}); 
 						$("#alertModal").on('hide.bs.modal',function(){  //alert框
+							$("#backinfo").html(""); //modal赋空
 							getVerify(); //重新生成验证码
 							$("#vf").val("")//文本框清空
 						});
@@ -60,6 +63,7 @@ $(function(){
 							$("#backinfo").html("用户名密码错误");
 						}); 
 						$("#alertModal").on('hide.bs.modal',function(){  //alert框
+							$("#backinfo").html(""); //modal赋空
 							getVerify(); //重新生成验证码
 							$("#vf").val("")//文本框清空
 							$("input[name='password']").val("");
@@ -71,12 +75,14 @@ $(function(){
 							$("#backinfo").html("验证码错误");
 						}); 
 						$("#alertModal").on('hide.bs.modal',function(){  //alert框
+							$("#backinfo").html(""); //modal赋空
 							getVerify(); //重新生成验证码
 							$("#vf").val("")//文本框清空
 						});
 					}
 					else{
-						sessionStorage.setItem("username",date);
+						//console.log(data);
+						sessionStorage.setItem("username",data);
 						window.location.href="/";
 					}
 				}
