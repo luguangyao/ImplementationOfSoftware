@@ -47,7 +47,7 @@ for (let i=0;i<publicList.length; i++)
 
 // 处理登录请求
 router.post("/loginCheck", (req, res, next)=>{
-    let uname = req.body.username
+    let uname = req.body.userid
     let upass = req.body.password
     let code = req.body.yzm.toLowerCase()
 
@@ -72,7 +72,7 @@ router.post("/loginCheck", (req, res, next)=>{
             req.session.uname = data.name
             req.session.power = 1
             // res.redirect("/")
-            res.end("5")
+            res.end(data.name)
         }
     })
 })

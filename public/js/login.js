@@ -14,20 +14,20 @@ $(function(){
 	
 	//后台验证
 	$("#tijiao").click(function(){
-			var username=$("input[name='username']").val().trim();
-			var password=$("input[name='password']").val().trim();
-			var verify=$("input[name='verify']").val().trim();
+			var userid=$("input[name='userid']").val();
+			var password=$("input[name='password']").val();
+			var verify=$("input[name='verify']").val();
 			//alert(username+" "+password+" "+verify);
 			$.ajax({
 				url : "/loginCheck",//调用后台接口
 				dataType : 'json',
 				type : 'POST',
-				data:{"username":username,"password":password,"yzm":verify},
+				data:{"userid":userid,"password":password,"yzm":verify},
 				success : function(data) {
 					if(data=="0"){
 						$('#alertModal').modal('show'); //显示modal
 						$("#alertModal").on('shown.bs.modal',function(){  //alert框
-							$("#backinfo").html("请输入Username");
+							$("#backinfo").html("请输入UserId");
 						}); 
 						$("#alertModal").on('hide.bs.modal',function(){  //alert框
 							getVerify(); //重新生成验证码
@@ -75,7 +75,8 @@ $(function(){
 							$("#vf").val("")//文本框清空
 						});
 					}
-					else if(data=="5"){
+					else{
+						sessionStorage.setItem("username",date);
 						window.location.href="/";
 					}
 				}
@@ -88,8 +89,8 @@ $(function(){
 	})
 				
 	//用户名验证
-	$("input[name='username']").blur(function(){  //用户名验证
-		if($("input[name='username']").val().trim()==""){
+	$("input[name='userid']").blur(function(){  //用户名验证
+		if($("input[name='userid']").val().trim()==""){
 			$(".infocontent").css("color","#721c24");
 			$(".infocontent").css("background-color","#f8d7da");
 			$(".infocontent").css("border-color","#f5c6cb");
@@ -99,7 +100,7 @@ $(function(){
 			$(".infocontent").css("color","#ffffff");
 			$(".infocontent").css("background-color","#ffffff");
 			$(".infocontent").css("border-color","#ffffff");
-			$("#info_mation").text("");
+			$("#info_mation").text("123");
 		}
 	});
 	
@@ -115,7 +116,7 @@ $(function(){
 			$(".infocontent").css("color","#ffffff");
 			$(".infocontent").css("background-color","#ffffff");
 			$(".infocontent").css("border-color","#ffffff");
-			$("#info_mation").text("");
+			$("#info_mation").text("123");
 		}
 	});
 	//验证码验证
@@ -130,7 +131,7 @@ $(function(){
 			$(".infocontent").css("color","#ffffff");
 			$(".infocontent").css("background-color","#ffffff");
 			$(".infocontent").css("border-color","#ffffff");
-			$("#info_mation").text("");
+			$("#info_mation").text("123");
 		}
 	});
 })
