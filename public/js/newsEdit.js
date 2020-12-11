@@ -2,7 +2,7 @@
 newsId=undefined;
 newsTitle=undefined;
 newsContent=undefined;
-HeadImg=undefined;
+finalHeadImg="";
 isUploadImage=false;
 nid=-1;
 newsTypeMapper={
@@ -73,7 +73,7 @@ $(function (){
     // 获取最后参数
     getData();
     setNewsypeOption();
-    nid=window.location.href.split('/').reverse()[0]==0?nid:window.location.href.split('/').reverse()[0];
+    nid=window.location.href.split('/').reverse()[0]=='0'?nid:window.location.href.split('/').reverse()[0];
     
     
     
@@ -167,7 +167,7 @@ function uploadHeadImg(){
         success: function(data) {
 			var imgUrl = "/public/image/NEWSimage/"+data.img
             $("#headImg").attr("src",imgUrl)
-            uploadHeadImg=data.img;
+            finalHeadImg=data.img;
         },
         error: function(e) {
             alert("图片上传失败");
@@ -199,18 +199,28 @@ function setNewsypeOption(){
 
 function uploadNews(){
     newsTitle=$("#newsTitle").val();
+    console.log(newsTitle)
     isUploadImage=$("#isHeadNewsCheckbox").prop("checked")
     newsType=newsTypeMapper[$("#newsType").val()]
     newsContent=tinyMCE.activeEditor.getContent()
-    if(isUploadImage==true&&HeadImg==undefined){
+    if(isUploadImage==true&&finalHeadImg==undefined){
         alert("您还没有上传头条新闻的照片！")
         return
     }
+    if(newsTitle.trim()==""||newsContent.trim()==""){
+        alert("新闻内容和新闻标题不能为空!")
+        return
+    }
     form=new FormData()
-    from.append("nid",nid);
+    form.append("nid",nid);
     form.append("title",newsTitle)
     form.append("context",newsContent)
     form.append("type",newsType)
+    if(isUploadImage){
+        form.append('url',finalHeadImg)
+        console.log(finalHeadImg)
+    }
+    console.log(form)
     $.ajax({
         url: "http://localhost:3000/EditNew",
         type: "post",
@@ -225,4 +235,5 @@ function uploadNews(){
             alert("新闻上传失败");
         }
     });
+    
 }
