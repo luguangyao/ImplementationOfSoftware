@@ -232,7 +232,7 @@ function uploadNews(){
             console.log(data)
         },
         error: function(e) {
-            alert("新闻上传失败");
+            alert("新闻上传失败")
         }
     });
     
