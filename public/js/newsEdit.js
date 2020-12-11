@@ -199,7 +199,6 @@ function setNewsypeOption(){
 
 function uploadNews(){
     newsTitle=$("#newsTitle").val();
-    console.log(newsTitle)
     isUploadImage=$("#isHeadNewsCheckbox").prop("checked")
     newsType=newsTypeMapper[$("#newsType").val()]
     newsContent=tinyMCE.activeEditor.getContent()
@@ -211,22 +210,23 @@ function uploadNews(){
         alert("新闻内容和新闻标题不能为空!")
         return
     }
+    console.log(finalHeadImg)
     form=new FormData()
     form.append("nid",nid);
     form.append("title",newsTitle)
     form.append("context",newsContent)
     form.append("type",newsType)
-    if(isUploadImage){
-        form.append('url',finalHeadImg)
-        console.log(finalHeadImg)
-    }
+    form.append('url',finalHeadImg)
     console.log(form)
+    for (var key of form.keys()) {
+        console.log(key+" "+form.get(key)); 
+     }
+    
     $.ajax({
-        url: "http://localhost:3000/EditNew",
+        url: "/EditNew",
         type: "post",
         data: form,
         processData: false,
-        contentType: false,
         success: function(data) {
             console.log("上传成功")
             console.log(data)
@@ -236,4 +236,17 @@ function uploadNews(){
         }
     });
     
+   /*
+   var xmlhttp;
+    if (window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
+    else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
+    xmlhttp.onreadystatechange=function(){  
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+        console.log('success');
+        }
+    }
+    xmlhttp.open("post","/EditNew",true);
+    xmlhttp.send(form);
+    */
 }
