@@ -18,7 +18,7 @@ var UserLogin = (uid, upass, callback) =>{
 
 /**
  * 请求type类型的num条数据。
- * @param {*} type 请求新闻的类型
+ * @param {*} type 请求新闻的类型,0意味无关类型
  * @param {*} num 数量
  * @param {Function} callback 带有err 和 data 参数， 当正常时err为null 否则data为null
  */
@@ -26,12 +26,23 @@ var SearchData = (type, num, callback) =>{
     // 返回对应数据类型的一定数量的数据
     type = Number.parseInt(type)
     num = Number.parseInt(num)
-    DAO.SearchData(type, num, (err, data) =>{
-        if(err) callback(err)
-        else{
-            callback(null, data)
+    if (type > 0)
+        DAO.SearchData(type, num, (err, data) =>{
+            if(err) callback(err)
+            else{
+                callback(null, data)
+            }
+        })
+    else{
+        if (type === 0){
+            DAO.SearchDataNoType(num, (err, data) =>{
+                if (err) callback(err)
+                else{
+                    callback(null, data)
+                }
+            })
         }
-    })
+    }
 }
 
 /**
