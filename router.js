@@ -228,7 +228,6 @@ router.get("/title_news/:type/:num", (req, res, next) =>{
     let type = parseInt(req.params.type)
     let num  = parseInt(req.params.num)
     Ser.GetTitleNews(type, num, (err, data) =>{
-
         if (err) res.end({nid:-1})
         else{
             res.json(data)
