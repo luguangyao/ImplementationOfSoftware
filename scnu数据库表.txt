@@ -12,7 +12,7 @@ CREATE TABLE user (
   PRIMARY KEY  (uid)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-set names utf8;
+set names gbk;
 
 insert into user values(123, '王汉隆', '123', 0, '学生');
 insert into user values(456,'王焊龙', '456', 0, '学生');
