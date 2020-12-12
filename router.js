@@ -52,15 +52,22 @@ router.post("/loginCheck", (req, res, next)=>{
     let code = req.body.yzm.toLowerCase()
 
     // 错误验证
-    if (!uname || uname === '')
+    if (!uname || uname === ''){
         res.end("0")
-    if (!upass || upass === '')
+        return
+    }
+    if (!upass || upass === ''){
         res.end("1")
-    if (!code || code === '')
+        return
+    }
+    if (!code || code === ''){
         res.end("2")
+        return
+    }
 
     if (code != req.session.captcha){
         res.end("4")
+        return
     }
 
     Ser.UserLogin(uname, upass, (err, data) =>{
@@ -69,10 +76,11 @@ router.post("/loginCheck", (req, res, next)=>{
             e = e.toString().replace("#errmessage#", "登录错误" + uname + " : " + upass)
             res.end("3")
         }else{
-            req.session.uname = data.username
+            req.session.uname = data[0].username
             req.session.power = 1
+            // console.log(encodeURIComponent(data[0].username))
             // res.redirect("/")
-            res.end(data.name)
+            res.json(data[0].username)
         }
     })
 })
