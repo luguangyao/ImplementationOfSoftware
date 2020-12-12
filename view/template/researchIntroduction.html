@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>介绍</title>
+    <link rel="stylesheet" href="http://localhost:3000/public/css/bootstrap.min.css"/>
+    <script src="http://localhost:3000/public/js/jquery.min.js"></script>
+    <script src="http://localhost:3000/public/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://localhost:3000/public/css/introduction.css">
+    <script>
+        $(function (){
+            $("#navigator").load("http://localhost:3000/template/navigator.html");
+            $("#footer").load("http://localhost:3000/template/footer.html");
+            $("#gotoTop").load("http://localhost:3000/template/gotoTop.html");
+
+        })
+    </script>
+
+    <script>
+        title=["研究现状","研究项目","学术成果"]
+        text=[`<div class="article">\t\t\t\t\t\t<p style="text-indent: 2em; text-align: left;"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">近几年来，软件学院教师主持国家863计划项目1项，国家自然科学基金项目5项，教育部人文社科基金项目1项，参加国家863、973及国家自然科学基金项目等16项，主持省部产学研结合项目2项，广东省级科研项目13项，市厅局级和企业横向开发项目21项；出版专著与教材18部，其中教育部国家级规划教材3部；发表教育教学论文37篇，发表学术论文300多篇，其中SCI索引18篇，EI索引72篇；申请专利17项，建成校级精品课程3门。</span></p>\t\t\t\t\t</div>`
+            ,`<div class="article">\t\t\t\t\t\t<p style="text-align: center;"><span style="font-size: 14px"><span style="font-family: 微软雅黑"><strong>科研项目</strong><strong>(</strong><strong>部分</strong><strong>)</strong><strong>列表</strong></span></span><br></p><table border="1" cellpadding="0" cellspacing="0" style="line-height: 24px; width: 608px" width="608"><tbody><tr class="firstRow"><td style="width: 198px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">项目类别</span></span></td><td style="width: 331px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">项目名称</span></span></td><td style="width: 79px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">主持人</span></span></td></tr><tr><td style="width: 198px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">国家自然科学基金项目</span></span></td><td style="width: 331px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">物联网RFID量化路由研究</span></span></td><td style="width: 79px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">余松森</span></span></td></tr><tr><td style="width: 198px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">国家自然科学基金项目</span></span></td><td style="width: 331px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">基于RMKMFDA的间歇过程多元统计监控研究</span></span></td><td style="width: 79px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">肖应旺</span></span></td></tr><tr><td style="width: 198px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">国家自然科学基金项目</span></span></td><td style="width: 331px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">大稀疏鞍点问题的快速迭代算法研究</span></span></td><td style="width: 79px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">彭小飞</span></span></td></tr><tr><td style="width: 198px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">国家自然科学基金项目</span></span></td><td style="width: 331px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">单纯集及其同伦论应用的若干问题研究</span></span></td><td style="width: 79px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">翁文</span></span></td></tr><tr><td style="width: 198px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">国家863计划项目</span></span></td><td style="width: 331px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">高温瓦楞状陶瓷基换热器的开发研究</span></span></td><td style="width: 79px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">肖应旺</span></span></td></tr><tr><td style="width: 198px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">广东省教育部产学研结合项目</span></span></td><td style="width: 331px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">动态冰浆高效制取及其蓄冰储能节能的产业化开发的关键技术研制</span></span></td><td style="width: 79px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">曹一波</span></span></td></tr><tr><td style="width: 198px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">广东省自然科学基金项目</span></span></td><td style="width: 331px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">基于P2P思想的网格计算任务调度策略与资源动态管理研究</span></span></td><td style="width: 79px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">曾碧卿</span></span></td></tr><tr><td style="width: 198px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">广东省自然科学基金项目</span></span></td><td style="width: 331px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">大稀疏鞍点问题的高性能算法研究</span></span></td><td style="width: 79px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">彭小飞</span></span></td></tr><tr><td style="width: 198px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">广东省自然科学基金项目</span></span></td><td style="width: 331px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">基于多元统计方法的过程监控研究</span></span></td><td style="width: 79px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">肖应旺</span></span></td></tr><tr><td style="width: 198px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">广东省现代信息服务业发展专项资金项目</span></span></td><td style="width: 331px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">小家电产销研协同一体化快速响应系统的研制与建设</span></span></td><td style="width: 331px"><span style="font-family: 微软雅黑; font-size: 14px; line-height: 24px;">曹一波</span></td></tr><tr><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">企业委托技术开发项目</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">智能吸尘器控制系统（开发经费62.5万元）</span></td><td colspan="1" rowspan="1"><span style="font-size: 14px; font-family: 微软雅黑, 'Microsoft YaHei';">曹一波</span></td></tr><tr><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">企业委托技术开发项目</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">智能扫地机控制系统（开发经费125万元）</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px; line-height: 24px;">曹一波</span></td></tr><tr><td colspan="1" rowspan="1"><span style="font-size: 14px; font-family: 微软雅黑, 'Microsoft YaHei';">佛山市科技发展专项资金项目</span></td><td colspan="1" rowspan="1"><span style="font-size: 14px; font-family: 微软雅黑, 'Microsoft YaHei';">离散型制造企业制造执行系统研发</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px; line-height: 24px;">曹一波</span></td></tr><tr><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">顺德区工业设计重点项目</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">物联网西式厨卫小家电产品绿色设计开发</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">曹一波</span></td></tr><tr><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">广州市科技项目</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">个股智能跟踪系统</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">余松森</span></td></tr><tr><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">广州市科技计划项目</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">物联RF-SN传感网络量化</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">余松森</span></td></tr><tr><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">广州市科技和信息化局科普计划资助项目</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">云计算与生活</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">曾碧卿</span></td></tr><tr><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">广州市科技计划项目</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">移动可信物联终端信任链问题研究与应用</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">余松森</span></td></tr><tr><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">广州市科技计划项目</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">基于64排螺旋CT的女性盆腔三维重建</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">彭丰平</span></td></tr><tr><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">佛山市科技计划项目</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">基于云计算技术的远程社区医疗服务平台关键技术及系统研究</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">唐华</span></td></tr><tr><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">横向项目</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">犯罪工具痕迹鉴定基础理论及其定量化检验关键技术研究</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">张承忠</span></td></tr><tr><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">产学研合作</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">飞行器目标地理信息解算系统</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">曹一波</span></td></tr><tr><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">横向项目</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">粤安通安全数据库移动查询系统</span></td><td colspan="1" rowspan="1"><span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 14px;">余松森</span></td></tr></tbody></table><p><br></p>\t\t\t\t\t</div>`
+            ,``
+        ]
+    </script>
+    <script src="http://localhost:3000/public/js/introduction.js"></script>
+
+
+</head>
+<body>
+    <div id="navigator"></div>
+    <div class="container-lg container-fluid-md introBody">
+        <div class="row">
+            <div class="col-md-3 col-sm-12">
+                <ul class="nav flex-md-column flex-sm-row introUl">
+                    <li class="nav-item n1 align-items-center ">
+                        导航
+                    </li>
+                    <li class="nav-item n"><a href="#" class="nav-link" onclick="switchContent(0)">
+                        <span class="nav_Intro">学院简介</span><br>
+                        <span >College Introduction</span>
+                    </a></li>
+                    <li class="nav-item n"><a href="#" class="nav-link " onclick="switchContent(1)">
+                        <span class="nav_Intro">学院架构</span><br><span>College Structure</span>
+                    </a></li>
+                    <li class="nav-item n"><a href="#" class="nav-link " onclick="switchContent(2)">
+                        <span class="nav_Intro">管理人员</span><br><span>Management</span>
+                    </a></li>
+                   <!-- <li class="nav-item n"><a href="#" class="nav-link " onclick="switchContent(3)">
+                        <span class="nav_Intro">学院改革</span><br><span>College Reform</span>
+                    </a></li>-->
+                </ul>
+            </div>
+            <div class="col-md-9 col-sm-12" >
+                <div id="title" class="title"></div>
+                <hr>
+                <hr>
+                <div id="content" class="content"></div>
+            </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div id="gotoTop"></div>
+
+    <div id="footer"></div>
+</body>
+</html>

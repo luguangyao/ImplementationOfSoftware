@@ -17,9 +17,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -48,12 +48,13 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\gitProject\ImplementationOfSoftware\view\template" />
+      <recent name="D:\gitProject\ImplementationOfSoftware\view\template\tinymce" />
       <recent name="D:\GitProject\ImplementationOfSoftware\view\template" />
       <recent name="D:\GitProject\ImplementationOfSoftware\public\js" />
       <recent name="D:\GitProject\ImplementationOfSoftware\public\image\NEWSimage" />
-      <recent name="D:\GitProject\ImplementationOfSoftware\public\image" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\gitProject\ImplementationOfSoftware\view\template" />
       <recent name="D:\GitProject\ImplementationOfSoftware\view\template" />
       <recent name="D:\GitProject\ImplementationOfSoftware\view" />
       <recent name="D:\GitProject\ImplementationOfSoftware\public\js" />
@@ -93,7 +94,7 @@
       <workItem from="1607598065638" duration="10480000" />
       <workItem from="1607649296333" duration="3842000" />
       <workItem from="1607738090861" duration="1240000" />
-      <workItem from="1607740847969" duration="3770000" />
+      <workItem from="1607740847969" duration="6643000" />
     </task>
     <servers />
   </component>
@@ -149,6 +150,12 @@
           <url>file://$PROJECT_DIR$/view/template/collegeIntroduction.html</url>
           <line>101</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/view/template/postgraduateEduIntroduction.html</url>
+          <line>39</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

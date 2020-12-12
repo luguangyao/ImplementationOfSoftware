@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>我是主页</title>
+    <title>介绍</title>
     <link rel="stylesheet" href="http://localhost:3000/public/css/bootstrap.min.css"/>
     <script src="http://localhost:3000/public/js/jquery.min.js"></script>
     <script src="http://localhost:3000/public/js/bootstrap.min.js"></script>
@@ -23,24 +23,8 @@
             ,`<div class="article">\t\t\t\t\t\t<p><span style="font-family: 微软雅黑"><span style="text-align: justify; line-height: 26px; text-indent: 2em; color: #444444; font-size: 14px">软件学院在学校党政正确领导及校工会指导下，认真贯彻落实党的群众路线教育实践活动，紧紧围绕学院工作目标，积极开展各类活动，增强了教职工的的集体意识和民主管理意识，加强了教职工的师德修养。</span></span></p><p><span style="font-size: 14px; font-family: 微软雅黑; color: #444444; line-height: 26px; text-align: justify; text-indent: 2em;">学院在过去几年里，组织参加了形式多样的业余活动，关心教职工的生活，扎实开展了各项文体活动，这些活动增进了教职工之间的交流，丰富了我院教职工的业余生活，增强了凝聚力，营造了团结向上的工作氛围。</span></p>\t\t\t\t\t</div>`
             ,`<div class="article">\t\t\t\t\t\t<p class="STYLE1" style="text-align: justify; padding-bottom: 0px; line-height: 26px; text-indent: 2em; margin: 0px 0px 0.41em; padding-left: 0px; padding-right: 0px; font-family: system; color: rgb(68,68,68); font-size: 14px; padding-top: 0px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">工会主席：&nbsp; 张承忠</span></span></p><p class="STYLE1" style="text-align: justify; padding-bottom: 0px; line-height: 26px; text-indent: 2em; margin: 0px 0px 0.41em; padding-left: 0px; padding-right: 0px; font-family: system; color: rgb(68,68,68); font-size: 14px; padding-top: 0px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">&nbsp;</span></span></p><p class="STYLE1" style="text-align: justify; padding-bottom: 0px; line-height: 26px; text-indent: 2em; margin: 0px 0px 0.41em; padding-left: 0px; padding-right: 0px; font-family: system; color: rgb(68,68,68); font-size: 14px; padding-top: 0px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">委 &nbsp; &nbsp; &nbsp; 员： &nbsp; 李小亚（组织委员）</span></span></p><p class="STYLE1" style="text-align: justify; padding-bottom: 0px; line-height: 26px; text-indent: 2em; margin: 0px 0px 0.41em; padding-left: 0px; padding-right: 0px; font-family: system; color: rgb(68,68,68); font-size: 14px; padding-top: 0px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></span><span style="font-family: 微软雅黑; text-indent: 2em;">郑晓敏（宣教委员）</span></p><p class="STYLE1" style="text-align: justify; padding: 0px; line-height: 26px; text-indent: 2em; margin: 0px 0px 0.41em; font-family: system; color: rgb(68, 68, 68); font-size: 14px;"><span style="font-size: 14px"><span style="font-family: 微软雅黑">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;郑钰洁（文娱委员）</span></span></p><p class="STYLE1" style="text-align: justify; padding: 0px; line-height: 26px; text-indent: 2em; margin: 0px 0px 0.41em; font-family: system; color: rgb(68, 68, 68); font-size: 14px;"><span style="font-size: 14px"><span style="font-family: 微软雅黑">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 陈恒法（体育委员、<span style="color: #444444; font-family: 微软雅黑; font-size: 14px; line-height: 26px; text-align: justify; text-indent: 28px;">福利委员</span>）</span></span></p><p class="STYLE1" style="text-align: justify; padding: 0px; line-height: 26px; text-indent: 2em; margin: 0px 0px 0.41em; font-family: system; color: rgb(68, 68, 68); font-size: 14px;"><span style="font-size: 14px"><span style="font-family: 微软雅黑">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #444444; font-family: 微软雅黑; font-size: 14px; line-height: 26px; text-align: justify; text-indent: 28px;">张承忠（女工委员）</span></span></span></p><p class="STYLE1" style="text-align: justify; padding: 0px; line-height: 26px; text-indent: 2em; margin: 0px 0px 0.41em; font-family: system; color: rgb(68, 68, 68); font-size: 14px;"><span style="font-size: 14px"><span style="font-family: 微软雅黑"><span style="color: #444444; font-family: 微软雅黑; font-size: 14px; line-height: 26px; text-align: justify; text-indent: 28px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></span></span></p>\t\t\t\t\t</div>`
         ]
-
-        curId=0
-        $(function (){
-            $("#title").html(title[0])
-            $("#content").html(text[0])
-        })
-        function switchContent(i){
-            if(curId==i)return
-            curId=i
-            $("#title").html(title[i])
-            $("#content").slideUp(500,function (){
-                $("#content").html(text[i])
-            })
-
-            $("#content").slideDown(500)
-        }
-
     </script>
+    <script src="http://localhost:3000/public/js/introduction.js"></script>
 
 
 </head>
@@ -54,17 +38,17 @@
                         导航
                     </li>
                     <li class="nav-item n"><a href="#" class="nav-link" onclick="switchContent(0)">
-                        <span>学院简介</span><br>
+                        <span class="nav_Intro">学院简介</span><br>
                         <span>College Introduction</span>
                     </a></li>
                     <li class="nav-item n"><a href="#" class="nav-link " onclick="switchContent(1)">
-                        <span>学院架构</span><br><span>College Structure</span>
+                        <span class="nav_Intro">学院架构</span><br><span>College Structure</span>
                     </a></li>
                     <li class="nav-item n"><a href="#" class="nav-link " onclick="switchContent(2)">
-                        <span>管理人员</span><br><span>Management</span>
+                        <span class="nav_Intro">管理人员</span><br><span>Management</span>
                     </a></li>
                     <li class="nav-item n"><a href="#" class="nav-link " onclick="switchContent(3)">
-                        <span>学院改革</span><br><span>College Reform</span>
+                        <span class="nav_Intro">学院改革</span><br><span>College Reform</span>
                     </a></li>
                 </ul>
             </div>
