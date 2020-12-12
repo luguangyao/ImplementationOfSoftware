@@ -45,6 +45,13 @@ for (let i=0;i<publicList.length; i++)
     router.use(publicList[i] , express.static(path.join(__dirname, publicList[i])))
 }
 
+// 注销
+router.use("/logOut",(req, res)=>{
+    req.session.destroy((err) =>{
+        res.redirect("/login")
+    })
+})
+
 // 处理登录请求
 router.post("/loginCheck", (req, res, next)=>{
     let uname = req.body.userid
