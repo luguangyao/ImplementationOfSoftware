@@ -222,7 +222,7 @@ router.get("/data/:type/:num", (req, res, next)=>{
 
         Ser.SearchData(type, num, (err, data) =>{
             if (err) {
-                console.log(err)
+                // console.log(err)
                 res.json({nid:-1})
             }
             else{
@@ -263,7 +263,10 @@ router.get("/title_news/:type/:num", (req, res, next) =>{
     let type = parseInt(req.params.type)
     let num  = parseInt(req.params.num)
     Ser.GetTitleNews(type, num, (err, data) =>{
-        if (err) res.end({nid:-1})
+        if (err) {
+            // console.log(err)
+            res.json({nid:-1})
+        }
         else{
             res.json(data)
         }
