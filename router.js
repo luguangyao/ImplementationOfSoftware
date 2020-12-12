@@ -69,10 +69,10 @@ router.post("/loginCheck", (req, res, next)=>{
             e = e.toString().replace("#errmessage#", "登录错误" + uname + " : " + upass)
             res.end("3")
         }else{
-            req.session.uname = data.username
+            req.session.uname = data[0].username
             req.session.power = 1
             // res.redirect("/")
-            res.end(data.name)
+            res.end(data[0].name)
         }
     })
 })

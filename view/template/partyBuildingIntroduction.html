@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我是主页</title>
+    <link rel="stylesheet" href="http://localhost:3000/public/css/bootstrap.min.css"/>
+    <script src="http://localhost:3000/public/js/jquery.min.js"></script>
+    <script src="http://localhost:3000/public/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            overflow-x: hidden;
+            background: url("http://localhost:3000/public/image/bg2.jpg") no-repeat fixed;
+            background-size: cover;
+        }
+        .introBody{
+            background: #F2F2F2;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            margin-top: 15px;
+            border-radius: 3px  ;
+            min-height: 1000px;
+        }
+        .content img{
+            width: 100%;
+        }
+
+        @media screen and (min-width: 769px){
+            .introUl{
+                position: fixed;
+            }
+            .n1{
+                text-align: center;
+                background-image: linear-gradient(90deg, rgb(180,123,248),rgb(16,123,248),rgb(245,245,245));
+                padding-top: 10px;
+                padding-bottom: 10px;
+                color: #ffffff;
+                border-radius: 10px 10px 0 0;
+                font-weight: bold;
+            }
+            .n{
+                border-right: 1px blue solid;
+                border-left: 1px blue solid;
+                border-bottom: 1px blue solid;
+                text-align: center;
+                margin-top: 10px;
+                padding-top:10px;
+                color: grey;
+                box-shadow: rgba(193,210,240,.4) 5px 5px;
+                border-radius: 0 0 5px 5px;
+
+            }
+            a{
+                text-decoration: none;
+                color: black;
+            }
+            .content td{
+                width: 120px;
+            }
+        }
+        @media screen and (max-width: 991px) and (min-width: 1px){
+            .introUl a br+span{
+                display: none;
+                color: red;
+            }
+            .n1{
+                text-align: center;
+                background-image: linear-gradient(90deg, rgb(180,123,248),rgb(16,123,248),rgb(245,245,245));
+                color: #ffffff;
+                border-radius: 4px 0 0 4px;
+                font-weight: bold;
+                padding: 1px 5px 1px 4px;
+                margin:auto;
+            }
+            .n{
+                margin: auto;
+
+            }
+
+
+        }
+        .n:hover{
+            background: lightgray;
+            transition: background-color 1s;
+
+        }
+
+        .title{
+            font-weight: bolder;
+            font-size: 50px;
+        }
+
+
+    </style>
+    <script>
+        $(function (){
+            $("#navigator").load("http://localhost:3000/template/navigator.html");
+            $("#footer").load("http://localhost:3000/template/footer.html");
+            $("#gotoTop").load("http://localhost:3000/template/gotoTop.html");
+
+        })
+    </script>
+
+    <script>
+        title=["党建概况","组织架构","工会动态","组织架构"]
+        text=[`<div class="article">\t\t\t\t\t\t<p><span style="font-family: 微软雅黑, " microsoft="" font-size:="">中共华南师范大学软件学院总支部委员会是中共华南师范大学委员会的二级党组织，正处级建制。现有党员97人。其中教工党员33人，学生党员64人。设有5个教工党支部，3个学生党支部。</span></p><p><span style="font-family: 微软雅黑, " microsoft="" font-size:="">软件学院党总支立足华南师范大学南海校区，坚决贯彻落实学校党委对南海校区“新工科、交叉学科、国际化、研究型”的办学新定位，积极响应学校党委“把南海校区建成国际化办学的示范区、服务地方社会的先行区、机制体制改革的试验区、人才培养的特区”的号召，团结全体师生员工，不断加强思想建党，理论强党建设，增强“四个意识”，坚定“四个自信”，做到“两个维护”。在引领学院的发展进程中，坚决落实立德树人的根本任务，把软件学院党总支建成全体师生员工的贴心人、主心骨，把软件学院建成具有全国一流专业、一流课程、一流师资的新型软件学院。</span></p><p><span style="font-family: 微软雅黑, " microsoft="" font-size:=""><br></span></p><p style="text-align: right;"><span style="color: #3F464C; text-align: right; text-indent: 32px; background-color: #FFFFFF; font-family: 微软雅黑, " microsoft="" font-size:="">【更新时间：2019年12月25日】</span></p>\t\t\t\t\t</div>`
+            ,`<div class="article">\t\t\t\t\t\t<p style="text-align: center;"><img src="//statics.scnu.edu.cn/pics/ss/2019/1224/1577176348188393.jpg" alt="zzjg.jpg"></p>\t\t\t\t\t</div>`
+            ,`<div class="article">\t\t\t\t\t\t<p><span style="font-family: 微软雅黑"><span style="text-align: justify; line-height: 26px; text-indent: 2em; color: #444444; font-size: 14px">软件学院在学校党政正确领导及校工会指导下，认真贯彻落实党的群众路线教育实践活动，紧紧围绕学院工作目标，积极开展各类活动，增强了教职工的的集体意识和民主管理意识，加强了教职工的师德修养。</span></span></p><p><span style="font-size: 14px; font-family: 微软雅黑; color: #444444; line-height: 26px; text-align: justify; text-indent: 2em;">学院在过去几年里，组织参加了形式多样的业余活动，关心教职工的生活，扎实开展了各项文体活动，这些活动增进了教职工之间的交流，丰富了我院教职工的业余生活，增强了凝聚力，营造了团结向上的工作氛围。</span></p>\t\t\t\t\t</div>`
+            ,`<div class="article">\t\t\t\t\t\t<p class="STYLE1" style="text-align: justify; padding-bottom: 0px; line-height: 26px; text-indent: 2em; margin: 0px 0px 0.41em; padding-left: 0px; padding-right: 0px; font-family: system; color: rgb(68,68,68); font-size: 14px; padding-top: 0px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">工会主席：&nbsp; 张承忠</span></span></p><p class="STYLE1" style="text-align: justify; padding-bottom: 0px; line-height: 26px; text-indent: 2em; margin: 0px 0px 0.41em; padding-left: 0px; padding-right: 0px; font-family: system; color: rgb(68,68,68); font-size: 14px; padding-top: 0px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">&nbsp;</span></span></p><p class="STYLE1" style="text-align: justify; padding-bottom: 0px; line-height: 26px; text-indent: 2em; margin: 0px 0px 0.41em; padding-left: 0px; padding-right: 0px; font-family: system; color: rgb(68,68,68); font-size: 14px; padding-top: 0px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">委 &nbsp; &nbsp; &nbsp; 员： &nbsp; 李小亚（组织委员）</span></span></p><p class="STYLE1" style="text-align: justify; padding-bottom: 0px; line-height: 26px; text-indent: 2em; margin: 0px 0px 0.41em; padding-left: 0px; padding-right: 0px; font-family: system; color: rgb(68,68,68); font-size: 14px; padding-top: 0px"><span style="font-size: 14px"><span style="font-family: 微软雅黑">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></span><span style="font-family: 微软雅黑; text-indent: 2em;">郑晓敏（宣教委员）</span></p><p class="STYLE1" style="text-align: justify; padding: 0px; line-height: 26px; text-indent: 2em; margin: 0px 0px 0.41em; font-family: system; color: rgb(68, 68, 68); font-size: 14px;"><span style="font-size: 14px"><span style="font-family: 微软雅黑">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;郑钰洁（文娱委员）</span></span></p><p class="STYLE1" style="text-align: justify; padding: 0px; line-height: 26px; text-indent: 2em; margin: 0px 0px 0.41em; font-family: system; color: rgb(68, 68, 68); font-size: 14px;"><span style="font-size: 14px"><span style="font-family: 微软雅黑">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 陈恒法（体育委员、<span style="color: #444444; font-family: 微软雅黑; font-size: 14px; line-height: 26px; text-align: justify; text-indent: 28px;">福利委员</span>）</span></span></p><p class="STYLE1" style="text-align: justify; padding: 0px; line-height: 26px; text-indent: 2em; margin: 0px 0px 0.41em; font-family: system; color: rgb(68, 68, 68); font-size: 14px;"><span style="font-size: 14px"><span style="font-family: 微软雅黑">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #444444; font-family: 微软雅黑; font-size: 14px; line-height: 26px; text-align: justify; text-indent: 28px;">张承忠（女工委员）</span></span></span></p><p class="STYLE1" style="text-align: justify; padding: 0px; line-height: 26px; text-indent: 2em; margin: 0px 0px 0.41em; font-family: system; color: rgb(68, 68, 68); font-size: 14px;"><span style="font-size: 14px"><span style="font-family: 微软雅黑"><span style="color: #444444; font-family: 微软雅黑; font-size: 14px; line-height: 26px; text-align: justify; text-indent: 28px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></span></span></p>\t\t\t\t\t</div>`
+        ]
+
+        curId=0
+        $(function (){
+            $("#title").html(title[0])
+            $("#content").html(text[0])
+        })
+        function switchContent(i){
+            if(curId==i)return
+            curId=i
+            $("#title").html(title[i])
+            $("#content").slideUp(500,function (){
+                $("#content").html(text[i])
+            })
+
+            $("#content").slideDown(500)
+        }
+
+    </script>
+
+
+</head>
+<body>
+    <div id="navigator"></div>
+    <div class="container-lg container-fluid-md introBody">
+        <div class="row">
+            <div class="col-md-3 col-sm-12">
+                <ul class="nav flex-md-column flex-sm-row introUl">
+                    <li class="nav-item n1 align-items-center ">
+                        导航
+                    </li>
+                    <li class="nav-item n"><a href="#" class="nav-link" onclick="switchContent(0)">
+                        <span>学院简介</span><br>
+                        <span>College Introduction</span>
+                    </a></li>
+                    <li class="nav-item n"><a href="#" class="nav-link " onclick="switchContent(1)">
+                        <span>学院架构</span><br><span>College Structure</span>
+                    </a></li>
+                    <li class="nav-item n"><a href="#" class="nav-link " onclick="switchContent(2)">
+                        <span>管理人员</span><br><span>Management</span>
+                    </a></li>
+                    <li class="nav-item n"><a href="#" class="nav-link " onclick="switchContent(3)">
+                        <span>学院改革</span><br><span>College Reform</span>
+                    </a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 col-sm-12" >
+                <div id="title" class="title"></div>
+                <hr>
+                <hr>
+                <div id="content" class="content"></div>
+            </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div id="gotoTop"></div>
+
+    <div id="footer"></div>
+</body>
+</html>
