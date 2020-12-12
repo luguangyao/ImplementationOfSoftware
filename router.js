@@ -317,6 +317,8 @@ router.get("/captcha", (req, res) =>{
     res.send(captcha.data)
 })
 
+router.use("/Introduction/", express.static(path.join(__dirname, "/view/Introduction/")))
+
 router.get("/template/*", (req, res, next)=>{
     // 默认访问 baseFileRoot (view)下的页面
     if (req.url.indexOf("/data/") === 0){
