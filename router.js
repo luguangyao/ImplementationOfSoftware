@@ -170,6 +170,7 @@ router.post("/upload_img", (req, res) =>{
  * }
  */
 router.post("/EditNew", (req, res) =>{
+    console.log(typeof(req.body))
     let nid = req.body.nid
     nid = Number.parseInt(nid)
     let context = req.body.context

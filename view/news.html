@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>我是新闻</title>
-    <link rel="stylesheet" href="http://localhost:3000/public/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="http://localhost:3000/public/css/news.css"/>
-    <link rel="stylesheet" href="http://localhost:3000/public/css/swiper.min.css"/>
-    <script src="http://localhost:3000/public/js/jquery.min.js"></script>
-    <script src="http://localhost:3000/public/js/newsList.js"></script>
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/public/css/news.css"/>
+    <link rel="stylesheet" href="/public/css/swiper.min.css"/>
+    <script src="/public/js/jquery.min.js"></script>
+    <script src="/public/js/newsList.js"></script>
 
     <style>
         body{
-            background: url("http://localhost:3000/public/image/bg.png") fixed no-repeat;
+            background: url("/public/image/bg.png") fixed no-repeat;
             background-size: cover;
         }
         .navBtnDiv{
@@ -57,15 +57,7 @@
 </head>
 <body>
     <div id="navigator"></div>
-    <div class="btn-group navBtnDiv" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-secondary">Left</button>
-        <button type="button" class="btn btn-secondary">Middle</button>
-        <button type="button" class="btn btn-secondary">Right</button>
-        <button type="button" class="btn btn-secondary">Right</button>
-        <button type="button" class="btn btn-secondary">Right</button>
-        <button type="button" class="btn btn-secondary">Right</button>
 
-    </div>
     <div id="swiper"></div>
     <div class="search container-fluid pl-lg-5 pr-lg-5" >
         <form action="" >
@@ -93,5 +85,6 @@
     </div>
 
     <div id="footer"></div>
+    <div id="moreNews"></div>
 </body>
 </html>

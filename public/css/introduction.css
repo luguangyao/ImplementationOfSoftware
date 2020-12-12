@@ -1,6 +1,6 @@
 body{
     overflow-x: hidden;
-    background: url("http://localhost:3000/public/image/bg2.jpg") no-repeat fixed;
+    background: url("/public/image/bg2.jpg") no-repeat fixed;
     background-size: cover;
 }
 .introBody{
@@ -46,6 +46,9 @@ body{
     }
     .content td{
         width: 120px;
+    }
+    img{
+        max-width: 100%;
     }
 }
 @media screen and (max-width: 991px) and (min-width: 1px){
