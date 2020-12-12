@@ -54,6 +54,7 @@
       <recent name="D:\GitProject\ImplementationOfSoftware\public\image\NEWSimage" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\gitProject\ImplementationOfSoftware\view\Introduction" />
       <recent name="D:\gitProject\ImplementationOfSoftware\view\template" />
       <recent name="D:\GitProject\ImplementationOfSoftware\view\template" />
       <recent name="D:\GitProject\ImplementationOfSoftware\view" />
@@ -94,7 +95,7 @@
       <workItem from="1607598065638" duration="10480000" />
       <workItem from="1607649296333" duration="3842000" />
       <workItem from="1607738090861" duration="1240000" />
-      <workItem from="1607740847969" duration="6643000" />
+      <workItem from="1607740847969" duration="6898000" />
     </task>
     <servers />
   </component>
@@ -147,12 +148,12 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/view/template/collegeIntroduction.html</url>
+          <url>file://$PROJECT_DIR$/view/Introduction/collegeIntroduction.html</url>
           <line>101</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/view/template/postgraduateEduIntroduction.html</url>
+          <url>file://$PROJECT_DIR$/view/Introduction/postgraduateEduIntroduction.html</url>
           <line>39</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
