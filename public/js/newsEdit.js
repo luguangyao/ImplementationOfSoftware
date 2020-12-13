@@ -210,6 +210,7 @@ function uploadNews(){
         alert("新闻内容和新闻标题不能为空!")
         return
     }
+    /*
     console.log(finalHeadImg)
     form=new FormData()
     form.append("nid",nid);
@@ -217,16 +218,28 @@ function uploadNews(){
     form.append("context",newsContent)
     form.append("type",newsType)
     form.append('url',finalHeadImg)
+
     console.log(form)
     for (var key of form.keys()) {
         console.log(key+" "+form.get(key)); 
      }
-    
+    */
+   console.log(nid)
+   console.log(newsTitle)
+   console.log(newsType)
+   console.log(newsContent)
+   console.log(finalHeadImg)
     $.ajax({
         url: "/EditNew",
-        type: "post",
-        data: form,
-        processData: false,
+        method: "post",
+        dataType:"json",
+        data: {
+            "nid":nid,
+            "context":newsContent,
+            "title":newsTitle,
+            "type":newsType,
+            "url":finalHeadImg
+        },
         success: function(data) {
             console.log("上传成功")
             console.log(data)
