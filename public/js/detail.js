@@ -1,7 +1,8 @@
 $(function (){
 	
-	var h=window.screen.height;//先获取屏幕分辨率大小
-	$(".card").css("height","100%");  //预设卡片最小高度
+	//var h=window.screen.availHeight;//先获取屏幕分辨率大小
+	var h=document.body.clientHeight;
+	$(".card").css("min-height",h);  //预设卡片最小高度
 	
 	$("#navigator").load("/template/navigator.html");
 	$("#footer").load("/template/footer.html");
