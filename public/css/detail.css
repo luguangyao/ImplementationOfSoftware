@@ -45,12 +45,6 @@ html,body{
 	transition-duration: 0.5s;
 }
 /*主要内容*/
-.detail_left{
-				width: 25%;
-			}
-			.detail_right{
-				width: 75%;
-			}
 .main{
 	width: 80%;
 	margin-right: 0;
@@ -65,12 +59,25 @@ html,body{
 		width: 100%;
 	}
 }
+.mydetail_left{
+	position: block;
+	width: 20%;
+}
+.detail_left{
+	
+}
+.detail_right{
+	width: 80%;
+}
 
 /*左边导航*/
+.detail_left {
+	position: fixed;
+	width: 15%;
+}
 .left { 
 	display: inline;
 	margin: 0 auto;  
-	position: fixed; 
 	margin-left: 10%;
 	width: 210px;
 }
