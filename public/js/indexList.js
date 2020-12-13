@@ -1,9 +1,9 @@
 anNum=3;
 anType=2;
 tsType=5;
-tsNum=7;
+tsNum=5;
 djType=3;
-djNum=7;
+djNum=5;
 xyType=1;
 xyNum=7;
 xsType=6;
@@ -54,7 +54,7 @@ function setAnList(newsData){
         let time=new Date(newsData[n]["publishtime"]);
         let url=newsData[n]["url"]
         timestr=[String(time.getFullYear()),String(time.getMonth()),time.getDate()].join('-')
-        $a=$("<a href='http://localhost:3000/new/"+nid+"' class=\"noDec\"></a>")
+        $a=$("<a href='new/"+nid+"' class=\"noDec\"></a>")
         $d=$("<div class=\"\"></div>")
         $p=$("<p>"+title+"</p>")
         $s=$("<small class=\"float-right mt-1\">"+timestr+"</small>")
@@ -112,10 +112,10 @@ function setTsList(newsData){
         let time=new Date(newsData[n2]["publishtime"]);
         let url=newsData[n2]["url"]
         timestr2=[String(time.getFullYear()),String(time.getMonth()),time.getDate()].join('-')
-        $a=$("<a href='http://localhost:3000/new/"+nid+"' class=\"noDec\"></a>")
+        $a=$("<a href='new/"+nid+"' class=\"noDec\"></a>")
         // $h5=$("<h5 class=\"mt-0\">"+title+"</h5>")
         // $sup=$("<sup>"+timestr+"</sup>")
-        // $img=$("<img   src=\"http://localhost:3000/public/image/1.png\"  class=\" w-25\" >")
+        // $img=$("<img   src=\"public/image/1.png\"  class=\" w-25\" >")
         $d=$("<div class=\"news\"></div>")
         $p=$("<p>"+title+"</p>")
         $sm=$("<small class=\"float-right mt-1\" >"+timestr2+"</small>")
@@ -178,10 +178,10 @@ function setDjList(newsData){
         let time=new Date(newsData[n2]["publishtime"]);
         let url=newsData[n2]["url"]
         timestr2=[String(time.getFullYear()),String(time.getMonth()),time.getDate()].join('-')
-        $a=$("<a href='http://localhost:3000/new/"+nid+"' class=\"noDec\"></a>")
+        $a=$("<a href='new/"+nid+"' class=\"noDec\"></a>")
         // $h5=$("<h5 class=\"mt-0\">"+title+"</h5>")
         // $sup=$("<sup>"+timestr+"</sup>")
-        // $img=$("<img   src=\"http://localhost:3000/public/image/1.png\"  class=\" w-25\" >")
+        // $img=$("<img   src=\"public/image/1.png\"  class=\" w-25\" >")
         $d=$("<div class=\"news\"></div>")
         $p=$("<p>"+title+"</p>")
         $sm=$("<small class=\"float-right mt-1\" >"+timestr2+"</small>")
@@ -250,7 +250,7 @@ function setXyList(newsData){
         $tm=$("<div class=\"timer\"></div>")
         $tm.append($t1).append($t2)
         $db=$("<div class=\"media-body\"></div>")
-        $a=$("<a href='http://localhost:3000/new/"+nid+"' class=\"noDec\"></a>")
+        $a=$("<a href='new/"+nid+"' class=\"noDec\"></a>")
         $h5=$("<h5 class=\"mt-0\">"+title+"</h5>")
         $a.append($h5)
         $db.append($a)
@@ -306,7 +306,7 @@ function setXsList(newsData){
         let time=new Date(newsData[n]["publishtime"]);
         let url=newsData[n]["url"]
         timestr=[String(time.getFullYear()),String(time.getMonth()),time.getDate()].join('-')
-        $a=$("<a href='http://localhost:3000/new/"+nid+"' class=\"noDec\"></a>")
+        $a=$("<a href='new/"+nid+"' class=\"noDec\"></a>")
         $d=$("<div class=\"\"></div>")
         $p=$("<p>"+title+"</p>")
         $s=$("<small class=\"float-right mt-1\">"+timestr+"</small>")

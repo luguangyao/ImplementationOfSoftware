@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>我是主页</title>
-    <link rel="stylesheet" href="http://localhost:3000/public/css/bootstrap.min.css"/>
-    <script src="http://localhost:3000/public/js/jquery.min.js"></script>
-    <script src="http://localhost:3000/public/js/bootstrap.min.js"></script>
-    <script src="http://localhost:3000/public/js/indexList.js"></script>
+    <link rel="stylesheet" href="public/css/bootstrap.min.css"/>
+    <script src="public/js/jquery.min.js"></script>
+    <script src="public/js/bootstrap.min.js"></script>
+    <script src="public/js/indexList.js"></script>
     <script>
         $(function (){
-            $("#navigator").load("http://localhost:3000/template/navigator.html");
-            $("#footer").load("http://localhost:3000/template/footer.html");
-            // var w=window.screen.width;//先获取屏幕分辨率大小
-            $("#rotationChart").load("http://localhost:3000/template/rotationChart.html");
+            $("#navigator").load("template/navigator.html");
+            $("#footer").load("template/footer.html");
+            var w=window.screen.width;//先获取屏幕分辨率大小
+            if (w>500){
+                $("#rotationChart").load("template/rotationChart.html");
+            }
+
         })
     </script>
     <style>
         body{
             overflow-x: hidden;
-            background: url("http://localhost:3000/public/image/bg2.jpg") no-repeat fixed;
+            background: url("public/image/bg2.jpg") no-repeat fixed;
             background-size: cover;
         }
         .infoDiv{
@@ -94,6 +97,16 @@
         .custom-res{
             margin-left: 20px;
         }
+        #tsDiv{
+            border-right: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        #djDiv{
+            border-left: 0;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
         @media screen and (max-width: 1200px){
             .infoInDiv{
                 border-radius: 0px;
@@ -117,7 +130,7 @@
                     <h4 class="infoTitle">学院动态</h4>
                     <div class="grayBar" ></div>
                     <div class="more">
-                        <img class="moreImg" src="http://localhost:3000/public/image/more.png" alt="">
+                        <img class="moreImg" src="public/image/more.png" alt="">
                     </div>
                 </div>
                 <hr class="splitLine">
@@ -130,32 +143,32 @@
                             <h4 class="infoTitle">通知公告</h4>
                             <div class="grayBar" ></div>
                             <div class="more">
-                                <img class="moreImg" src="http://localhost:3000/public/image/more.png" alt="">
+                                <img class="moreImg" src="public/image/more.png" alt="">
                             </div>
                         </div>
                         <hr class="splitLine">
                     </div>
                 </div>
                 <div class="row mt-lg-3">
-                    <div class="col-md-6 col-sm-12 pl-0">
-                        <div class="infoInDiv ml-0 pl-2 pr-2" id="tsDiv">
+<!--                    <div class="col-md-6 col-sm-12 pl-0">-->
+                        <div class="col-sm-12 infoInDiv" id="tsDiv">
                             <div class="infoHead ">
                                 <h4 class="infoTitle">师生动态</h4>
                             <div class="grayBar" ></div>
                             <div class="more">
-                                <img class="moreImg" src="http://localhost:3000/public/image/more.png" alt="">
+                                <img class="moreImg" src="public/image/more.png" alt="">
                             </div>
                             </div>
                             <hr class="splitLine">
                         </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12 infoInDiv" id="djDiv">
+<!--                    </div>-->
+                    <div class="col-sm-12 infoInDiv" id="djDiv">
                         <div class="infoHead">
                             <h4 class="infoTitle">党建工作</h4>
                             <div class="grayBar" >
                             </div>
                             <div class="more">
-                                <img class="moreImg" src="http://localhost:3000/public/image/more.png" alt="">
+                                <img class="moreImg" src="public/image/more.png" alt="">
                             </div>
                         </div>
                         <hr class="splitLine">
@@ -172,7 +185,7 @@
                         <h4 class="infoTitle">学术科研</h4>
                         <div class="grayBar" ></div>
                         <div class="more">
-                            <img class="moreImg" src="http://localhost:3000/public/image/more.png" alt="">
+                            <img class="moreImg" src="public/image/more.png" alt="">
                         </div>
                     </div>
                     <hr class="splitLine">
@@ -183,20 +196,26 @@
                     <h4 class="infoTitle">相关链接</h4>
                     <div class="grayBar" ></div>
                     <div class="more">
-                        <img class="moreImg" src="http://localhost:3000/public/image/more.png" alt="">
+                        <img class="moreImg" src="public/image/more.png" alt="">
                     </div>
                 </div>
                 <hr class="splitLine">
-            <div class="row">
+            <div class="row ml-1">
                 <p>砺儒云课堂</p>
             </div>
-                <div class="row">
+                <hr class="splitLine">
+
+                <div class="row ml-1">
                     <p>学者网</p>
                 </div>
-            <div class="row">
+                <hr class="splitLine">
+
+                <div class="row ml-1">
                 <p>Fx综合服务平台</p>
             </div>
-        </div>
+                <hr class="splitLine">
+
+            </div>
             </div>
 
         </div>
