@@ -1,14 +1,16 @@
 $(function (){
 	
-	//引入头尾文件
-	$(".header").load("/template/navigator.html");
-	$(".htmltail").load("/template/footer.html");
+	var h=window.screen.height;//先获取屏幕分辨率大小
+	$(".card").css("min-height",h*0.6);  //预设卡片最小高度
+	
+	$("#navigator").load("/template/navigator.html");
+	$("#footer").load("/template/footer.html");
 
 	//主功能
 	var nid=getid();
 	checkid(nid);
 	getnews(nid);  //获取当前新闻		
-	//getcommment();   //推荐新闻
+	getcommment();   //推荐新闻
 				
 	$("#pre").bind('click',function(){
 		prenews(nid);
@@ -63,27 +65,28 @@ function findnews(id){    //获取指定id的新闻
 	return flag;
 }
 				
-// function getcommment(){  //推荐新闻
-// 	var number=4;  //先找六条数据
-// 	$.ajax({
-// 		url:"/data/-1/"+number,
-// 		dataType : 'json',
-// 		type : 'GET',
-// 		success : function(data) {
-// 			//console.log(data);
-// 			$("#thenews").html("");  //将ul赋值空
-							
-// 			var dataOptions="";
-// 			for(var i=0;i<data.length;i++){
-// 				dataOptions+='<a href="/data/0/"'+data[i].nid+'">'+data[0].title+" <span class="badge">新</span></a>";
-// 				console.log(dataOptions);
-// 			}
-							
-// 			$("#thenews").html(dataOptions); 
-// 		}
-// 	})
+function getcommment(){  //推荐新闻
+
+	var num=4;  //先找4条数据
+	$.ajax({
+		url:"/data/-1/"+num,
+		dataType : 'json',
+		type : 'GET',
+		success : function(data) {
+			//console.log(data);
+			$("#thenews").html("");  //将ul赋空
+			console.log(data)				
+			var dataOptions='<li class="nav-item detail_nav_title"><b>最新消息</b></li>';
+			for(var i=0;i<data.length;i++){
+				dataOptions+='<li class="nav-item">';
+				dataOptions+='<a class="nav-link" href="/new/'+data[i].nid+'">'+data[i].title+"<span class='badge'>新</span></a></li>";			
+			}
+			console.log(dataOptions);				
+			$("#thenews").html(dataOptions); 
+		}
+	})
 					
-// }
+}
 				
 function prenews(id){
 					
@@ -110,15 +113,17 @@ function checkid(id){
 	if(id==getminid()){
 		$("#ll").css("cursor","not-allowed");
 		$("#ll").css("color","#777");
+		$("#rr").css("cursor","pointer");
 	}
 	else if(id==getmaxid()){
 		$("#rr").css("cursor","not-allowed");
 		$("#rr").css("color","#777");
+		$("#ll").css("cursor","pointer");
 	}
 	else{
-		$("#ll").css("cursor","allowed");
+		$("#ll").css("cursor","pointer");
 		$("#ll").css("color","#000000");
-		$("#rr").css("cursor","allowed");
+		$("#rr").css("cursor","pointer");
 		$("#rr").css("color","#000000");
 	}
 					
