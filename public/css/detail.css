@@ -8,6 +8,7 @@ body{
 		@media screen and (min-width: 1280px){
 			.detail_left{
 				width: 30%;
+				
 			}
 			.detail_right{
 				width: 70%;
