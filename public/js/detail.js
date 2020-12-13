@@ -1,7 +1,7 @@
 $(function (){
 	
 	var h=window.screen.height;//先获取屏幕分辨率大小
-	$(".card").css("min-height",h*0.6);  //预设卡片最小高度
+	$(".card").css("height","100%");  //预设卡片最小高度
 	
 	$("#navigator").load("/template/navigator.html");
 	$("#footer").load("/template/footer.html");
@@ -36,15 +36,17 @@ function getnews(id){    //获取当前的新闻
 		dataType : 'json',
 		type : 'GET',
 		success : function(data) {
-			console.log(data);
+			//console.log(data);
 			if(data.nid=="-1"){   //当前新闻为空
 				window.location.href="/";
 			}
 			else{  
+				var time=new Array();
+				time=data[0].publishtime.split("T");
 				$("#content").html(data[0].content);
 				$("#title").html(data[0].title);
 				$("#visit").html(data[0].visit);
-				$("#publishtime").html(data[0].time);
+				$("#publishtime").html(time[0]);
 			}
 		}
 	});
