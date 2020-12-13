@@ -36,12 +36,16 @@ function getnews(id){    //获取当前的新闻
 		dataType : 'json',
 		type : 'GET',
 		success : function(data) {
-			//console.log(data);
-			var time=Date(parseInt(data[0].publishtime) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
-			$("#content").html(data[0].content);
-			$("#title").html(data[0].title);
-			$("#visit").html(data[0].visit);
-			$("#publishtime").html(time);
+			console.log(data);
+			if(data.nid=="-1"){   //当前新闻为空
+				window.location.href="/";
+			}
+			else{  
+				$("#content").html(data[0].content);
+				$("#title").html(data[0].title);
+				$("#visit").html(data[0].visit);
+				$("#publishtime").html(data[0].time);
+			}
 		}
 	});
 }
@@ -91,23 +95,40 @@ function getcommment(){  //推荐新闻
 function prenews(id){
 					
 	var find=-1;  //找到标志 -1没找到
-	for(;find==-1;){
+	var minid=getminid();
+	for(;find==-1&&id!=minid-1;){
 		id--;
 		find=findnews(id);
 		// alert(id+"  "+find)
 	}
-	window.location.href="/new/"+id;
+	if(id!=minid-1){
+		window.location.href="/new/"+id;
+	}
+	else{
+		$("#ll").css("cursor","not-allowed");
+		$("#ll").css("color","#777");
+	}
+	
 }
 				
 function nextnews(id){
 					
 	var find=-1;    //找到标志 -1没找到
-	for(;find==-1;){
+	var maxid=getmaxid();
+	for(;find==-1&&id!=maxid+1;){
 		id++;
 		find=findnews(id);
 	}
-	window.location.href="/new/"+id;
+	if(id!=getmaxid()+1){
+		window.location.href="/new/"+id;
+	}else{
+		//当前时最大的  
+		$("#rr").css("cursor","not-allowed");
+		$("#rr").css("color","#777");
+	}
 }
+	
+
 				
 function checkid(id){
 	if(id<=getminid()){
