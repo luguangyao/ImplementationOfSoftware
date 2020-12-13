@@ -15,8 +15,8 @@ newsTypeMapper={
 }
 newsType=undefined;
 $(function (){
-    $("#navigator").load("http://localhost:3000/template/navigator.html");
-    $("#footer").load("http://localhost:3000/template/footer.html");
+    $("#navigator").load("/template/navigator.html");
+    $("#footer").load("/template/footer.html");
     tinymce.init({
         selector: '#tinymce', //容器，可使用css选择器
         language:'zh_CN', //调用放在langs文件夹内的语言包
@@ -39,7 +39,7 @@ $(function (){
         toolbar: 'bullist numlist anchor charmap emoticons fullscreen hr image imagetools insertdatetime link media pagebreak paste preview print searchreplace textcolor wordcount',
         //选中时出现的快捷工具，与插件有依赖关系
         //images_upload_url:'a.php', /*后图片上传接口*/ /*返回值为json类型 {'location':'uploads/jpg'}*/
-        //images_upload_url:'http://localhost:3000/public/js/test.js',
+        //images_upload_url:'/public/js/test.js',
         images_upload_handler: function(blobInfo, success, failure) {
             var form = new FormData();
             //var uploadTime = formatTime(new Date().getTime(),"Y-M-D");
@@ -47,7 +47,7 @@ $(function (){
             form.append('img', blobInfo.blob());
             //, blobInfo.filename()
             $.ajax({
-                    url: "http://localhost:3000/upload_img",
+                    url: "/upload_img",
                     type: "post",
                     data: form,
                     processData: false,
@@ -159,7 +159,7 @@ function uploadHeadImg(){
     var form = new FormData();
     form.append('img', headImg);
     $.ajax({
-        url: "http://localhost:3000/upload_img",
+        url: "/upload_img",
         type: "post",
         data: form,
         processData: false,
