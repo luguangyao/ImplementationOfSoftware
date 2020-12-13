@@ -1,9 +1,9 @@
 anNum=3;
 anType=2;
 tsType=5;
-tsNum=7;
+tsNum=5;
 djType=3;
-djNum=7;
+djNum=5;
 xyType=1;
 xyNum=7;
 xsType=6;
@@ -113,21 +113,13 @@ function setTsList(newsData){
         let url=newsData[n2]["url"]
         timestr2=[String(time.getFullYear()),String(time.getMonth()),time.getDate()].join('-')
         $a=$("<a href='/new/"+nid+"' class=\"noDec\"></a>")
-        // $h5=$("<h5 class=\"mt-0\">"+title+"</h5>")
-        // $sup=$("<sup>"+timestr+"</sup>")
-        // $img=$("<img   src=\"/public/image/1.png\"  class=\" w-25\" >")
         $d=$("<div class=\"news\"></div>")
         $p=$("<p>"+title+"</p>")
         $sm=$("<small class=\"float-right mt-1\" >"+timestr2+"</small>")
         $sp=$("<hr class='splitLine'>")
-        // $a.append($h5)
-        // $a.append($sup)
         $p.append($sm)
         $a.append($p)
         $d.append($a)
-        // $db=$("<div class=\"media-body ml-3\"></div>")
-        // $db.append($a)
-        // $d.append($db)
         $tsDiv.append($d)
         $tsDiv.append($sp)
     }
@@ -179,21 +171,13 @@ function setDjList(newsData){
         let url=newsData[n2]["url"]
         timestr2=[String(time.getFullYear()),String(time.getMonth()),time.getDate()].join('-')
         $a=$("<a href='/new/"+nid+"' class=\"noDec\"></a>")
-        // $h5=$("<h5 class=\"mt-0\">"+title+"</h5>")
-        // $sup=$("<sup>"+timestr+"</sup>")
-        // $img=$("<img   src=\"/public/image/1.png\"  class=\" w-25\" >")
         $d=$("<div class=\"news\"></div>")
         $p=$("<p>"+title+"</p>")
         $sm=$("<small class=\"float-right mt-1\" >"+timestr2+"</small>")
         $sp=$("<hr class='splitLine'>")
-        // $a.append($h5)
-        // $a.append($sup)
         $p.append($sm)
         $a.append($p)
         $d.append($a)
-        // $db=$("<div class=\"media-body ml-3\"></div>")
-        // $db.append($a)
-        // $d.append($db)
         $djDiv.append($d)
         $djDiv.append($sp)
     }
