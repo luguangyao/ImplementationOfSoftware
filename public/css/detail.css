@@ -1,264 +1,198 @@
-
-
-/***/
-html,body{
-	background-color: #F5F5F5; 
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-}
-.all{
-	width: 100%;
-	background-color: #F5F5F5;
-	position: relative;  
-	min-height: 100%;  
-}
-.header{
-	width: 100%;
-	height: 15%;
-	background: #6DAAE9;
-	background-size: 100% 100%;
-}
-.htmltail{
-	width: 100%;
-	background:  #6DAAE9;
-	background-size: 100% 100%;
-	margin-top: -50px;
-	 position: absolute;  
-}
-/*the_whole*/
-.the_whole{
-	background-color: #F5F5F5;
+body{
+    overflow-x: hidden;
+    background: url("/public/image/bg2.jpg") no-repeat fixed;
+    background-size: cover;
 }
 
-/*标题下的小字体*/
-.my_small{
-	font-size: 0.6rem;
-}
-/*底部文字的悬浮放大*/
-.img_logo:hover{
-	-webkit-transform: scale(1.2,1.2);
-	-moz-transition: 1s -moz-transform;
-	transition-duration: 0.5s;
-}
-/*主要内容*/
-.main{
-	width: 80%;
-    margin-left: 100px;
-}
-
-/*全屏时*/
-@media screen and (max-width: 1280px){
-	.detail_left{
-		display: none;
-	}
-	.detail_right{
-		width: 100%;
-	}
-}
-.mydetail_left{
-	position: block;
-	width: 20%;
-}
-.detail_left{
-	
-}
-.detail_right{
-	width: 80%;
-}
-
-/*左边导航*/
-.detail_left {
-	position: fixed;
-	width: 15%;
-}
-.left { 
-	display: inline;
-	margin: 0 auto;  
-	margin-left: 10%;
-	width: 210px;
-}
-.pinned { 
-	background: #F5F5F5; 
-	width: auto; 
-	margin-left: 1rem;
-}
-.extend-title p { 
-	padding-left: 15px; 
-	color: #fff; 
-	background: #1F76BD; 
-	font-size: 16px; 
-	line-height: 50px; 
-}
-.extend-con li { 
-	font-size: 12px; 
-	padding: 10px 15px; 
-	line-height: 20px; 
-	border: 1px solid #C8DCF2; 
-	border-top: 0px; 
-}
-.extend-con li a { 
-	color: #3A639F; 
-}
-.extend-con li span { 
-	padding-left: 10px; 
-	color: #9FA3A5; 
-}
-/*pager*/
-
-.pager {
-  padding-left: 0;
-  margin: 20px 0;
-  text-align: center;
-  list-style: none;
-}
-
-.pager .previous > a,
-.pager .previous > span {
-  float: left;
-}
-/* .pager .disabled > a,
-.pager .disabled > a:hover,
-.pager .disabled > a:focus,
-.pager .disabled > span {
-  color: #777;
-  cursor: not-allowed;
-  background-color: #fff;
-} */
-.label {
-  display: inline;
-  padding: .2em .6em .3em;
-  font-size: 75%;
-  font-weight: bold;
-  line-height: 1;
-  color: #fff;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: .25em;
-}
-a.label:hover,
-a.label:focus {
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
-}
-.label:empty {
-  display: none;
-}
-.btn .label {
-  position: relative;
-  top: -1px;
-}
-.label-default {
-  background-color: #777;
-}
-.label-default[href]:hover,
-.label-default[href]:focus {
-  background-color: #5e5e5e;
-}
-.label-primary {
-  background-color: #337ab7;
-}
-.label-primary[href]:hover,
-.label-primary[href]:focus {
-  background-color: #286090;
-}
-.label-success {
-  background-color: #5cb85c;
-}
-.label-success[href]:hover,
-.label-success[href]:focus {
-  background-color: #449d44;
-}
-.label-info {
-  background-color: #5bc0de;
-}
-.label-info[href]:hover,
-.label-info[href]:focus {
-  background-color: #31b0d5;
-}
-.label-warning {
-  background-color: #f0ad4e;
-}
-.label-warning[href]:hover,
-.label-warning[href]:focus {
-  background-color: #ec971f;
-}
-.label-danger {
-  background-color: #d9534f;
-}
-.label-danger[href]:hover,
-.label-danger[href]:focus {
-  background-color: #c9302c;
-}
-.badge {
-  display: inline-block;
-  min-width: 10px;
-  padding: 3px 7px;
-  font-size: 12px;
-  font-weight: bold;
-  line-height: 1;
-  color: #fff;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  background-color: #777;
-  border-radius: 10px;
-}
-.badge:empty {
-  display: none;
-}
-.btn .badge {
-  position: relative;
-  top: -1px;
-}
-.btn-xs .badge,
-.btn-group-xs > .btn .badge {
-  top: 0;
-  padding: 1px 5px;
-}
-a.badge:hover,
-a.badge:focus {
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
-}
-.list-group-item.active > .badge,
-.nav-pills > .active > a > .badge {
-  color: #337ab7;
-  background-color: #fff;
-}
-.pager li {
-  display: inline;
-}
-.pager li > a,
-.pager li > span {
-  display: inline-block;
-  padding: 5px 14px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 15px;
-}
-.pager li > a:hover,
-.pager li > a:focus {
-  text-decoration: none;
-  background-color: #eee;
-}
-.pager .next > a,
-.pager .next > span {
-  float: right;
-}
-.pager .previous > a,
-.pager .previous > span {
-  float: left;
-}
-.pager .disabled > a,
-.pager .disabled > a:hover,
-.pager .disabled > a:focus,
-.pager .disabled > span {
-  color: #777;
-  cursor: not-allowed;
-  background-color: #fff;
-}
+		
+		@media screen and (min-width: 1280px){
+			.detail_left{
+				width: 30%;
+			}
+			.detail_right{
+				width: 70%;
+			}
+		}
+		
+		@media screen and (max-width: 1280px){
+			.detail_left{
+				display: none;
+			}
+			.detail_right{
+				width: 100%;
+				margin-left: 1rem;
+				margin-right: 1rem;
+			}
+		}
+		
+		.position-fixed{
+			width: 20rem;
+			position: fixed !important;
+		}
+		
+		/*标题下的小字体*/
+		.my_small{
+			font-size: 0.6rem;
+		}
+		/*最新消息*/
+		.detail_nav_title{
+			font-size: 1.5rem;
+			color: #FFFFFF;
+		}
+		
+		/*底部文字的悬浮放大*/
+		.img_logo:hover{
+			-webkit-transform: scale(1.2,1.2);
+			-moz-transition: 1s -moz-transform;
+			transition-duration: 0.5s;
+		}
+		
+		/*pager*/
+		.pager {
+		  padding-left: 0;
+		  margin: 20px 0;
+		  text-align: center;
+		  list-style: none;
+		}
+		
+		.pager .previous > a,
+		.pager .previous > span {
+		  float: left;
+		}
+		
+		.label {
+		  display: inline;
+		  padding: .2em .6em .3em;
+		  font-size: 75%;
+		  font-weight: bold;
+		  line-height: 1;
+		  color: #fff;
+		  text-align: center;
+		  white-space: nowrap;
+		  vertical-align: baseline;
+		  border-radius: .25em;
+		}
+		a.label:hover,
+		a.label:focus {
+		  color: #fff;
+		  text-decoration: none;
+		  cursor: pointer;
+		}
+		.label:empty {
+		  display: none;
+		}
+		.btn .label {
+		  position: relative;
+		  top: -1px;
+		}
+		.label-default {
+		  background-color: #777;
+		}
+		.label-default[href]:hover,
+		.label-default[href]:focus {
+		  background-color: #5e5e5e;
+		}
+		.label-primary {
+		  background-color: #337ab7;
+		}
+		.label-primary[href]:hover,
+		.label-primary[href]:focus {
+		  background-color: #286090;
+		}
+		.label-success {
+		  background-color: #5cb85c;
+		}
+		.label-success[href]:hover,
+		.label-success[href]:focus {
+		  background-color: #449d44;
+		}
+		.label-info {
+		  background-color: #5bc0de;
+		}
+		.label-info[href]:hover,
+		.label-info[href]:focus {
+		  background-color: #31b0d5;
+		}
+		.label-warning {
+		  background-color: #f0ad4e;
+		}
+		.label-warning[href]:hover,
+		.label-warning[href]:focus {
+		  background-color: #ec971f;
+		}
+		.label-danger {
+		  background-color: #d9534f;
+		}
+		.label-danger[href]:hover,
+		.label-danger[href]:focus {
+		  background-color: #c9302c;
+		}
+		.badge {
+		  display: inline-block;
+		  min-width: 10px;
+		  padding: 3px 7px;
+		  font-size: 12px;
+		  font-weight: bold;
+		  line-height: 1;
+		  color: #fff;
+		  text-align: center;
+		  white-space: nowrap;
+		  vertical-align: middle;
+		  background-color: #777;
+		  border-radius: 10px;
+		}
+		.badge:empty {
+		  display: none;
+		}
+		.btn .badge {
+		  position: relative;
+		  top: -1px;
+		}
+		.btn-xs .badge,
+		.btn-group-xs > .btn .badge {
+		  top: 0;
+		  padding: 1px 5px;
+		}
+		a.badge:hover,
+		a.badge:focus {
+		  color: #fff;
+		  text-decoration: none;
+		  cursor: pointer;
+		}
+		.list-group-item.active > .badge,
+		.nav-pills > .active > a > .badge {
+		  color: #337ab7;
+		  background-color: #fff;
+		}
+		.pager li {
+		  display: inline;
+		}
+		.pager li > a,
+		.pager li > span {
+		  display: inline-block;
+		  padding: 5px 14px;
+		  background-color: #fff;
+		  border: 1px solid #ddd;
+		  border-radius: 15px;
+		}
+		.pager li > a:hover,
+		.pager li > a:focus {
+		  text-decoration: none;
+		  background-color: #eee;
+		}
+		.pager .next > a,
+		.pager .next > span {
+		  float: right;
+		}
+		.pager .previous > a,
+		.pager .previous > span {
+		  float: left;
+		}
+		.pager .disabled > a,
+		.pager .disabled > a:hover,
+		.pager .disabled > a:focus,
+		.pager .disabled > span {
+		  color: #777;
+		  cursor: not-allowed;
+		  background-color: #fff;
+		}

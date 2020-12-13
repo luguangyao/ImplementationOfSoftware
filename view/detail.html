@@ -1,109 +1,109 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-	</head>
-
-	
-	<link rel="stylesheet" href="/public/css/bootstrap.css" />
-	<script src="/public/js/jquery.min.js"></script>
-	<script src="/public/js/bootstrap.min.js"></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/public/css/bootstrap.css" />
+    <script src="/public/js/jquery.min.js"></script>
+    <script src="/public/js/bootstrap.min.js"></script>
 	
 	<link rel="stylesheet" href="/public/css/detail.css" />
-	
 	<script src="/public/js/detail.js"></script>
-		
-	
-	<body>
-		
-		<div class="header m-0 p-0"></div>
-		<div class="all">
-				<div class="container">
-			
-			
-			
-					<div class="row the_whole text-center">
+ 
+</head>
+<body>
+    <div id="navigator"></div>
+    
+	<div class="container">
+		<div class="row">
+			<div class="card bg-light text-dark">
+				<div class="card-body">
+					<div class="row">
 						
-						<div class="mydetail_left"></div>
-						<div class="detail_left mt-0 pt-0">
-							<div class="left col-lg-3 p-0 pr-2 text-center">
-								<div class="extend">
-									<div class="pinned m-0 p-0">
-										<div class="extend-title">
-											<p>最新消息</p>
-										</div>
-										<div class="extend-con" id="thenews">
-											<!-- <a href="#" class="list-group-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis expedita.<span class="badge">新</span></a>
-											 -->
-										</div>
-									</div>
-								</div>
-							</div>
+						<!--左边垂直导航-->
+						<div class="detail_left m-0 p-0">
+							<nav class="navbar bg-info navbar-dark position-fixed">
+							  <ul class="navbar-nav" id="thenews">
+									<!-- <li class="nav-item detail_nav_title">
+										最新消息
+									</li>
+									<li class="nav-item ">
+									  <a class="nav-link" href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente aliquam rem fuga alias dignissimos aperiam ratione nihil totam delectus in.<span class="badge">新</span></a>
+									</li>
+									<li class="nav-item">
+									  <a class="nav-link" href="#">Link 2<span class="badge">新</span></a>
+									</li>
+									<li class="nav-item">
+									  <a class="nav-link" href="#">Link 3<span class="badge">新</span></a>
+									</li> -->
+							  </ul>
+							</nav>
 						</div>
 						
-						<div class="detail_right">
-							<div class="title mr-0 ">
-								<h5 class="text-center ml-5 mr-0">
+						<!--右边-->
+						<div class="detail_right m-0 p-0">
+							<!--title-->
+							<div class="title m-0 p-0">
+								<h5 class="text-center">
 									<span id="title"></span>
 								</h5>
-								<p class="my_small text-center">
-									<a href="#">华南师范大学软件学院</a>/<a href="#">通知公告</a>
-									<span id="publishtime"></span>
-									来源：软院 点击：<span id="visit"></span>
-									<a href="#">收藏本文</a>
-								</p>
-								<div class="ml-5"><hr /></div>
-								
-								<!-- 正文 -->
-								<div class="main text-center">
-									<span id="content"></span>
-								</div>
-								
-												
-								<div class="ended ml-5">
-									<p />
-									<ul class="list-unstyled ml-5"> <!--去掉小圆点的-->
-										<li class="text-left">
-											<!-- <a href="" class="text-muted my_small"><img src="../public/image/detail/share.png" alt="" class="img_logo" /></a>
-											<a href="" class="text-muted my_small"><img src="../public/image/detail/weibo.png" alt="" class="img_logo" /></a>
-											<a href="" class="text-muted my_small"><img src="../public/image/detail/qq.png" alt="" class="img_logo" /></a>
-											<a href="" class="text-muted my_small"><img src="../public/image/detail/wechat.png" alt="" class="img_logo" /></a>
-											<a href="" class="text-muted my_small"><img src="../public/image/detail/tcweibo.png" alt="" class="img_logo" /></a>
-											<a href="" class="text-muted my_small"><img src="../public/image/detail/qqzone.png" alt="" class="img_logo" /></a>
-											<a href="" class="text-muted my_small"><img src="../public/image/detail/renren.png" alt="" class="img_logo" /></a> -->
-											
-											<a href="" class="text-muted my_small"><img src="/public/image/detail/share.png" alt="" class="img_logo" /></a>
-											<a href="" class="text-muted my_small"><img src="/public/image/detail/weibo.png" alt="" class="img_logo" /></a>
-											<a href="" class="text-muted my_small"><img src="/public/image/detail/qq.png" alt="" class="img_logo" /></a>
-											<a href="" class="text-muted my_small"><img src="/public/image/detail/wechat.png" alt="" class="img_logo" /></a>
-											<a href="" class="text-muted my_small"><img src="/public/image/detail/tcweibo.png" alt="" class="img_logo" /></a>
-											<a href="" class="text-muted my_small"><img src="/public/image/detail/qqzone.png" alt="" class="img_logo" /></a>
-											<a href="" class="text-muted my_small"><img src="/public/image/detail/renren.png" alt="" class="img_logo" /></a> 
-										</li>
+							</div>
+							<p class="my_small text-center">
+								<a href="#">华南师范大学软件学院</a>/<a href="#">通知公告</a>
+								<span id="publishtime"></span>
+								来源：华南师范大学 点击：<span id="visit"></span>
+								<a href="#">收藏本文</a>
+							</p>
+							
+							<hr />
+							
+							<!--正文-->
+							<div class="main p-0 m-0">
+								<span id="content"></span>
+							</div>
+							
+							<!--结尾-->
+							<div class="ended m-0 p-0">
+								<p />
+								<hr />
+								<ul class="list-unstyled m-0 p-0"> <!--去掉小圆点的-->
+									<li class="text-left">
+										<a href="#" class="text-muted my_small"><img src="/public/image/detail/share.png" alt="" class="img_logo" /></a>
+										<a href="#" class="text-muted my_small"><img src="/public/image/detail/weibo.png" alt="" class="img_logo" /></a>
+										<a href="#" class="text-muted my_small"><img src="/public/image/detail/qq.png" alt="" class="img_logo" /></a>
+										<a href="#" class="text-muted my_small"><img src="/public/image/detail/wechat.png" alt="" class="img_logo" /></a>
+										<a href="#" class="text-muted my_small"><img src="/public/image/detail/tcweibo.png" alt="" class="img_logo" /></a>
+										<a href="#" class="text-muted my_small"><img src="/public/image/detail/qqzone.png" alt="" class="img_logo" /></a>
+										<a href="#" class="text-muted my_small"><img src="/public/image/detail/renren.png" alt="" class="img_logo" /></a> 
+									</li>
+								</ul>
+									
+								<hr />
+									
+								<!--分页显示-->
+								<div class="page m-0 p-0">
+									<ul class="pager">  <!--disable属性在js理实现-->
+										<li class="previous" id="ll"><span id="pre">&larr; Older</span></li>
+										<li class="next" id="rr"><span id="next">Newer &rarr;</span></li>
 									</ul>
+								</div>
+							</div>
 									
-									<div class="ml-5"><hr /></div>
-										<!-- <button id="pre" class="btn btn-outline-secondary"><</button>
-										<button id="next" class="btn btn-outline-secondary">></button> -->
-										<div class="page ml-5 mr-5">
-											<ul class="pager">  <!--disable属性在js理实现-->
-												<li class="previous" id="ll"><span id="pre">&larr; Older</span></li>
-												<li class="next" id="rr"><span id="next">Newer &rarr;</span></li>
-											</ul>
-										</div>
-									</div>
-									
-									
+							<p>&nbsp;</p>
+							<p>&nbsp;</p>
 								
-							</div>	
-						</div>
+						</div>	
+							
 					</div>
 				</div>
+			</div>
 		</div>
-		<p>&nbsp;</p>
-		<p>&nbsp;</p>
-		
-		<div class="htmltail"></div>
-	</body>
+	</div>
+
+	
+
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+    <div id="footer"></div>
+</body>
 </html>
