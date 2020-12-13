@@ -45,6 +45,13 @@ for (let i=0;i<publicList.length; i++)
     router.use(publicList[i] , express.static(path.join(__dirname, publicList[i])))
 }
 
+// 注销
+router.use("/logOut",(req, res)=>{
+    req.session.destroy((err) =>{
+        res.redirect("/login")
+    })
+})
+
 // 处理登录请求
 router.post("/loginCheck", (req, res, next)=>{
     let uname = req.body.userid
@@ -52,15 +59,22 @@ router.post("/loginCheck", (req, res, next)=>{
     let code = req.body.yzm.toLowerCase()
 
     // 错误验证
-    if (!uname || uname === '')
+    if (!uname || uname === ''){
         res.end("0")
-    if (!upass || upass === '')
+        return
+    }
+    if (!upass || upass === ''){
         res.end("1")
-    if (!code || code === '')
+        return
+    }
+    if (!code || code === ''){
         res.end("2")
+        return
+    }
 
     if (code != req.session.captcha){
         res.end("4")
+        return
     }
 
     Ser.UserLogin(uname, upass, (err, data) =>{
@@ -69,10 +83,11 @@ router.post("/loginCheck", (req, res, next)=>{
             e = e.toString().replace("#errmessage#", "登录错误" + uname + " : " + upass)
             res.end("3")
         }else{
-            req.session.uname = data.username
+            req.session.uname = data[0].username
             req.session.power = 1
+            // console.log(encodeURIComponent(data[0].username))
             // res.redirect("/")
-            res.end(data.name)
+            res.json(data[0].username)
         }
     })
 })
@@ -162,6 +177,7 @@ router.post("/upload_img", (req, res) =>{
  * }
  */
 router.post("/EditNew", (req, res) =>{
+    console.log(typeof(req.body))
     let nid = req.body.nid
     nid = Number.parseInt(nid)
     let context = req.body.context
@@ -214,7 +230,7 @@ router.get("/data/:type/:num", (req, res, next)=>{
 
         Ser.SearchData(type, num, (err, data) =>{
             if (err) {
-                console.log(err)
+                // console.log(err)
                 res.json({nid:-1})
             }
             else{
@@ -255,7 +271,10 @@ router.get("/title_news/:type/:num", (req, res, next) =>{
     let type = parseInt(req.params.type)
     let num  = parseInt(req.params.num)
     Ser.GetTitleNews(type, num, (err, data) =>{
-        if (err) res.end({nid:-1})
+        if (err) {
+            // console.log(err)
+            res.json({nid:-1})
+        }
         else{
             res.json(data)
         }
@@ -308,6 +327,8 @@ router.get("/captcha", (req, res) =>{
 
     res.send(captcha.data)
 })
+
+router.use("/Introduction/", express.static(path.join(__dirname, "/view/Introduction/")))
 
 router.get("/template/*", (req, res, next)=>{
     // 默认访问 baseFileRoot (view)下的页面

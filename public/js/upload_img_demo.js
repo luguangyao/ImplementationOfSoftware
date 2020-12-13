@@ -23,6 +23,6 @@ function upload(){
         }
     }
     // post方式 位置 是否同步
-    xhr.open('POST', "http://localhost:3000/upload_img", true)
+    xhr.open('POST', "/upload_img", true)
     xhr.send(from)
 }

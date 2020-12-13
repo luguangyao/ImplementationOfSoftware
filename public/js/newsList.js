@@ -10,8 +10,8 @@ $swiperTitle=undefined
 $swiperNewsSum=undefined
 $newsHeadA=undefined
 $(function (){
-    $("#navigator").load("http://localhost:3000/template/navigator.html");
-    $("#swiper").load("http://localhost:3000/template/swiper.html",function(){
+    $("#navigator").load("/template/navigator.html");
+    $("#swiper").load("/template/swiper.html",function(){
         var data = window.location.href.split('/').reverse();
         newsType = data[0].replace("#",""); 
         $swiperImg=$(".swiperImg")
@@ -25,7 +25,8 @@ $(function (){
       
     });
     getListData()
-    $("#footer").load("http://localhost:3000/template/footer.html");
+    $("#footer").load("/template/footer.html");
+    $("#moreNews").load("/template/gotoMoreNews.html")
 })
                          
 
@@ -105,8 +106,6 @@ function getHeadData(){
         xmlhttp.send();
 }
 function setNewsHead(news,i){
-    console.log(news)
-    //console.log(i)  
     title=news["title"]
     content=news["content"]
     publishtime=new Date(news["publishtime"])
@@ -114,7 +113,7 @@ function setNewsHead(news,i){
     month=publishtime.getMonth()
     date=publishtime.getDate()
     imgName=news["url"]!=undefined?news["url"]:"newsDefault.png"
-    imgPath="http://localhost:3000/public/image/NEWSimage/"+imgName
+    imgPath="/public/image/NEWSimage/"+imgName
     $($swiperImg[i]).attr("src",imgPath)
     $($swiperYear[i]).html(year)
     $($swiperDayMonth[i]).html([month,date].join('-'))
@@ -193,7 +192,6 @@ function showAllNew(){
 }
 
 function gotoNewsDetail(nid){
-    console.log(nid)
-    //window.location.replace="http://localhost:3000/new/1"
-    window.location.replace("http://localhost:3000/new/"+nid);
+    //window.location.replace="/new/1"
+    window.location.replace("/new/"+nid);
 }

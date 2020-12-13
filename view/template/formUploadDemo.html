@@ -2,15 +2,49 @@
 <html>
     <head>
         <title>测试表单上传新闻</title>
+        <script src="/public/js/jquery.min.js"></script>
+        <script>
+            $(()=>{
+                $("#ajaxBtn").click(()=>{
+                    let nid = $("#nid").val()
+                    let context = $("#context").val()
+                    let title = $("#title").val()
+                    let type = $("#type").val()
+                    let url = $("url").val()
+                    $.ajax({
+                        url:"/EditNew",
+                        dataType:"json",
+                        data:{
+                            "nid":nid,
+                            "context":context,
+                            "title":title,
+                            "type":type,
+                            "url":url
+                        },
+                        method:"post",
+                        success: (data)=>{
+                            console.log(data)
+                            if (data == "true"){
+                                $("#output").text("上传成功")
+                            }else{
+                                $("#output").text("发生错误")
+                            }
+                        }
+                    })
+                })
+            })
+        </script>
     </head>
     <body>
         <form action="/EditNew" method="POST"> 
-            <label>nid</label> <input type="text" name="nid" value="-1"/><br/>
-            <label>context</label> <input type="text" name="context" value="rewqrewqrw"/><br/>
-            <label>title</label> <input type="text" name="title" value="test1"/><br/>
-            <label>type</label> <input type="text" name="type" value="1"/><br/>
-            <label>url</label> <input type="text" name="url" value=""/><br/>
+            <label>nid</label> <input type="text" name="nid" value="-1" id="nid"/><br/>
+            <label>context</label> <input type="text" name="context" value="rewqrewqrw" id="context"/><br/>
+            <label>title</label> <input type="text" name="title" value="test1" id="title"/><br/>
+            <label>type</label> <input type="text" name="type" value="1" id="type"/><br/>
+            <label>url</label> <input type="text" name="url" value="" id="url"/><br/>
             <input type="submit" value="upload" >
+            <input type="button" value="ajax" id="ajaxBtn">
         </form>
+        <div id="output"></div>
     </body>
 </html>

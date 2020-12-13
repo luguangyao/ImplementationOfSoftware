@@ -56,6 +56,7 @@
 - /loginCheck 用户登录确认
 - /captcha 验证码位置
 - 公开
+	+ /Introduction/ 映射 /view/Introduction 文件夹
 	+ /template/ 映射 /view/template 文件夹
 	+ /public/ 映射 /public/ 文件夹
 
