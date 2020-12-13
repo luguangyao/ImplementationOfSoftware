@@ -4,9 +4,6 @@ const path = require("path")
 const fs = require("fs")
 const Ser = require("./Server")
 const svgCaptcha = require("svg-captcha")
-const { title } = require("process")
-const { url } = require("inspector")
-const { serialize } = require("v8")
 const session = require("express-session")
 
 const router = express.Router()
@@ -46,7 +43,7 @@ for (let i=0;i<publicList.length; i++)
 }
 
 // 注销
-router.use("/logOut",(req, res)=>{
+router.use("/logout",(req, res)=>{
     req.session.destroy((err) =>{
         res.redirect("/login")
     })
@@ -290,6 +287,15 @@ router.get("/edit/:id", (req, res) =>{
     // 必定给过
     if (true || (req.session.uname && req.session.power === 1)) {
         res.render("newsEdit")
+    }else{
+        res.render("403")
+    }
+})
+
+router.get("/back", (req, res) =>{
+    // 填充后端页面名称
+    if (true || (req.session.uname && req.session.power === 1)){
+        res.render("")
     }else{
         res.render("403")
     }
