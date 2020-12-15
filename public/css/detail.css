@@ -1,13 +1,15 @@
 body{
     overflow-x: hidden;
     background: url("/public/image/bg2.jpg") no-repeat fixed;
-    background-size: cover;
+	background-size: cover;
+	height: 100vh;
 }
 
 		
 		@media screen and (min-width: 1280px){
 			.detail_left{
 				width: 30%;
+				
 			}
 			.detail_right{
 				width: 70%;
@@ -26,7 +28,7 @@ body{
 		}
 		
 		.position-fixed{
-			width: 20rem;
+			width: 15rem;
 			position: fixed !important;
 		}
 		
