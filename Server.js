@@ -120,6 +120,17 @@ var Update = (nid, title, context, type, url, callback) =>{
     })
 }
 
+var Delete = (nid, callback) =>{
+    // 删除新闻
+    DAO.DeleteNews(nid, (err, state)=>{
+        if (state == 1){
+            callback(true)
+        }else{
+            callback(false)
+        }
+    })
+}
+
 /**
  * 获取可以上头条的新闻
  * @param {*} type 请求的数据类型， 为0时默认请求所有类型
@@ -179,5 +190,6 @@ exports.SearchData = SearchData
 exports.SearchNews = SearchNews
 exports.Update = Update
 exports.Create = Create
+exports.Delete = Delete
 exports.GetTitleNews = GetTitleNews
 exports.maxAndMin = maxAndMin

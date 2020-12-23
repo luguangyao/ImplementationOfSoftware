@@ -5,6 +5,7 @@ const fs = require("fs")
 const Ser = require("./Server")
 const svgCaptcha = require("svg-captcha")
 const session = require("express-session")
+const { parse } = require("path")
 
 const router = express.Router()
 // 公开目录
@@ -209,6 +210,13 @@ router.post("/EditNew", (req, res) =>{
     }
 })
 
+router.get("/del/:id", (req, res) =>{
+    let id = parseInt(req.params.id)
+    Ser.Delete(nid, (finish) =>{
+        res.json(finish)
+    })
+})
+
 router.get("/data/:type/:num", (req, res, next)=>{
     // 根据请求的type返回对应数据
     // num 为标记查询的数量, 应当被限定在1、5、15等固定数字
@@ -295,7 +303,7 @@ router.get("/edit/:id", (req, res) =>{
 router.get("/back", (req, res) =>{
     // 填充后端页面名称
     if (true || (req.session.uname && req.session.power === 1)){
-        res.render("")
+        res.render("NewsManage")
     }else{
         res.render("403")
     }
