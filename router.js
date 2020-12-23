@@ -4,7 +4,6 @@ const path = require("path")
 const fs = require("fs")
 const Ser = require("./Server")
 const svgCaptcha = require("svg-captcha")
-const session = require("express-session")
 
 const router = express.Router()
 // 公开目录
@@ -17,6 +16,8 @@ const _Err = ""
 // const _Nav = fs.readFileSync(path.join(__dirname, "./view/template/nav.tmp"))
 // const _End = fs.readFileSync(path.join(__dirname, "./view/template/end.tmp"))
 // const _Err = fs.readFileSync(path.join(__dirname, "./view/template/err.tmp"))
+
+const testmode = false
 
 var speak = function()
 {
@@ -209,6 +210,13 @@ router.post("/EditNew", (req, res) =>{
     }
 })
 
+router.get("/del/:id", (req, res) =>{
+    let id = parseInt(req.params.id)
+    Ser.Delete(nid, (finish) =>{
+        res.json(finish)
+    })
+})
+
 router.get("/data/:type/:num", (req, res, next)=>{
     // 根据请求的type返回对应数据
     // num 为标记查询的数量, 应当被限定在1、5、15等固定数字
@@ -285,7 +293,7 @@ router.get("/new/:id", (req, res) =>{
 
 router.get("/edit/:id", (req, res) =>{
     // 必定给过
-    if (true || (req.session.uname && req.session.power === 1)) {
+    if (testmode || (req.session.uname && req.session.power === 1)) {
         res.render("newsEdit")
     }else{
         res.render("403")
@@ -294,8 +302,8 @@ router.get("/edit/:id", (req, res) =>{
 
 router.get("/back", (req, res) =>{
     // 填充后端页面名称
-    if (true || (req.session.uname && req.session.power === 1)){
-        res.render("")
+    if (testmode || (req.session.uname && req.session.power === 1)){
+        res.render("NewsManage")
     }else{
         res.render("403")
     }
