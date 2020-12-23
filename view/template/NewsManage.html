@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--导入boot四个文件，导入顺序固定-->
+    <link rel="stylesheet" href="/public/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/public/css/NewsManage.css"/>
+    <script src="/public/js/jquery.min.js"></script>
+    <script src="/public/js/bootstrap.min.js"></script>
+    <script src="/public/js/NewsManage.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 上部分内容-->
+        <div class="row">
+            <div class="col-lg-3 col-md-12">
+                <a href="#" class="navbar-brand"><img src="/public/image/logo1.png" alt=""/></a>
+            </div>
+            <div class="col-lg-5 col-md-12 mt-3">
+                <div class="input-group">
+                    <input id="inputid" type="text" class="form-control my_small pt-0 pb-0" placeholder="请输入想要搜索的新闻id"/>
+                    <a href="#" onclick="searchNews()"><img src="/public/image/search.png" alt=""/></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 p-0 mt-3">
+                <button class="btn btn-primary" onclick="window.open('/edit/-1')">新增新闻</button>
+            </div>
+        </div>
+        <!-- 下部分内容，主导航-->
+        <ul class="nav">
+            <li class="nav-item"><a href="#" class="nav-link" onclick="showNews(1)">学院动态</a></li>
+            <li class="nav-item"><a href="#" class="nav-link" onclick="showNews(2)">通知公告</a></li>
+            <li class="nav-item"><a href="#" class="nav-link" onclick="showNews(3)">党建工作</a></li>
+            <li class="nav-item"><a href="#" class="nav-link" onclick="showNews(4)">本科生培养</a></li>
+            <li class="nav-item"><a href="#" class="nav-link" onclick="showNews(5)">研究生教育</a></li>
+            <li class="nav-item"><a href="#" class="nav-link" onclick="showNews(6)">科学研究</a></li>
+            <li class="nav-item"><a href="#" class="nav-link" onclick="showNews(7)">人才招聘</a></li>
+            <li class="nav-item"><a href="#" class="nav-link" onclick="showNews(8)">国际化办学</a></li>
+            <li class="nav-item"><a href="#" class="nav-link" onclick="showNews(9)">招生宣传</a></li>
+        </ul>
+    </div>
+
+    <div class="container" id="news">
+        <table class="table table-bordered" id="NewsTable">
+            <tr>
+                <td>新闻id</td>
+                <td>新闻标题</td>
+                <td>操作</td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
